@@ -5,11 +5,11 @@ To run OPM from Python, you need to:
 
 1. Compile Flow with python support:
 
-    - Add the cmake flags -DOPM_ENABLE_PYTHON=ON and -DOPM_INSTALL_PYTHON=ON.
-    - Optionally add prefix -DCMAKE_INSTALL_PREFIX=/opt/opm to install outside the standard directories.
-    - Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don't want to use the system python, e.g. use a python from pyenv or from a conda environment.
+- Add the cmake flags -DOPM_ENABLE_PYTHON=ON and -DOPM_INSTALL_PYTHON=ON.
+- Optionally add prefix -DCMAKE_INSTALL_PREFIX=/opt/opm to install outside the standard directories.
+- Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don't want to use the system python, e.g. use a python from pyenv or from a conda environment.
 
-	Sample compilation on linux:
+Sample compilation on linux:
 
 .. code-block:: bash
 
@@ -36,7 +36,7 @@ If you installed in a non-standard directory by specifying -DCMAKE_INSTALL_PREFI
 
 		PYTHONPATH=/opt/opm/lib/python3.11/site-packages python3 spe1case1.py
 
-where spe1case1.py could be:
+Here, spe1case1.py could be:
 
 .. code-block:: python
 

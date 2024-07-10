@@ -77,21 +77,15 @@
   <section id="run-opm-flow-from-python">
 <h1>Run OPM Flow from Python<a class="headerlink" href="#run-opm-flow-from-python" title="Link to this heading"></a></h1>
 <p>To run OPM from Python, you need to:</p>
-<ol class="arabic">
-<li><p>Compile Flow with python support:</p>
-<blockquote>
-<div><ul>
+<ol class="arabic simple">
+<li><p>Compile Flow with python support:</p></li>
+</ol>
+<ul class="simple">
 <li><p>Add the cmake flags -DOPM_ENABLE_PYTHON=ON and -DOPM_INSTALL_PYTHON=ON.</p></li>
 <li><p>Optionally add prefix -DCMAKE_INSTALL_PREFIX=/opt/opm to install outside the standard directories.</p></li>
-<li><p>Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don’t want to use the system python, e.g. use a python from pyenv or from a conda environment.</p>
-<blockquote>
-<div><p>Sample compilation on linux:</p>
-</div></blockquote>
-</li>
+<li><p>Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don’t want to use the system python, e.g. use a python from pyenv or from a conda environment.</p></li>
 </ul>
-</div></blockquote>
-</li>
-</ol>
+<p>Sample compilation on linux:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
 
 <span class="nv">flags</span><span class="o">=</span><span class="s2">&quot;-DPython3_EXECUTABLE=/home/hakon/miniconda3/envs/rkt/bin/python3 -DOPM_ENABLE_PYTHON=ON -DOPM_INSTALL_PYTHON=ON -DCMAKE_INSTALL_PREFIX=/opt/opm&quot;</span>
@@ -115,7 +109,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span>/opt/opm/lib/python3.11/site-packages<span class="w"> </span>python3<span class="w"> </span>spe1case1.py
 </pre></div>
 </div>
-<p>where spe1case1.py could be:</p>
+<p>Here, spe1case1.py could be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">opm.simulators</span> <span class="kn">import</span> <span class="n">BlackOilSimulator</span>
 <span class="kn">from</span> <span class="nn">opm.io.parser</span> <span class="kn">import</span> <span class="n">Parser</span>
