@@ -1,7 +1,7 @@
-Run embedded Python code in OPM flow
-====================================
+Run Python embedded in OPM Flow
+===============================
 
-The PYACTION keyword is a flow specific keyword which allows for executing embedded Python
+The PYACTION keyword is a Flow specific keyword which allows for executing embedded Python
 code in the SCHEDULE section. The embedded Python code will then be executed at the end of each successful timestep.
 
 The PYACTION keyword is inspired
@@ -15,7 +15,7 @@ conditions can be evaluated and changes applied.
 
 In order to enable the PYACTION keyword:
 
-1. OPM flow must be compiled with the cmake switches -DOPM ENABLE EMBEDDED PYTHON=ON and -DOPM ENABLE PYTHON=ON, the default is to build with these switches set to OFF.
+1. OPM Flow must be compiled with the cmake switches -DOPM ENABLE EMBEDDED PYTHON=ON and -DOPM ENABLE PYTHON=ON, the default is to build with these switches set to OFF.
 You can also change these settings in the CMakeLists.txt of opm-common.
 
 2. The keyword PYACTION must be added to the SCHEDULE section:

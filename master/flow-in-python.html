@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Run OPM flow from Python &mdash; OPM Python Documentation 2024.10-pre documentation</title>
+  <title>Run OPM Flow from Python &mdash; OPM Python Documentation 2024.10-pre documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/_rst_properties.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Run embedded Python code in OPM flow" href="embedded-python.html" />
+    <link rel="next" title="Run Python embedded in OPM Flow" href="embedded-python.html" />
     <link rel="prev" title="Welcome to the Python documentation for OPM Flow!" href="index.html" /> 
 </head>
 
@@ -44,8 +44,8 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Run OPM flow from Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="embedded-python.html">Run embedded Python code in OPM flow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run OPM Flow from Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedded-python.html">Run Python embedded in OPM Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common.html">OPM Common Python Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulators.html">OPM Simulators Python Documentation</a></li>
 </ul>
@@ -64,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Run OPM flow from Python</li>
+      <li class="breadcrumb-item active">Run OPM Flow from Python</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/OPM/opm-simulators/blob/master/python/docs/flow-in-python.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -75,48 +75,70 @@
            <div itemprop="articleBody">
              
   <section id="run-opm-flow-from-python">
-<h1>Run OPM flow from Python<a class="headerlink" href="#run-opm-flow-from-python" title="Link to this heading"></a></h1>
+<h1>Run OPM Flow from Python<a class="headerlink" href="#run-opm-flow-from-python" title="Link to this heading"></a></h1>
 <p>To run OPM from Python, you need to:</p>
 <ol class="arabic">
-<li><p>Compile flow with python support:</p>
+<li><p>Compile Flow with python support:</p>
 <blockquote>
-<div><p>Add the cmake flags -DOPM_ENABLE_PYTHON=ON and -DOPM_INSTALL_PYTHON=ON
-Optionally add prefix -DCMAKE_INSTALL_PREFIX=/opt/opm to install outside the standard distro directories
-Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don’t want to use the system python, e.g. use a python from pyenv or from a conda environment</p>
+<div><ul>
+<li><p>Add the cmake flags -DOPM_ENABLE_PYTHON=ON and -DOPM_INSTALL_PYTHON=ON.</p></li>
+<li><p>Optionally add prefix -DCMAKE_INSTALL_PREFIX=/opt/opm to install outside the standard directories.</p></li>
+<li><p>Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don’t want to use the system python, e.g. use a python from pyenv or from a conda environment.</p>
 <blockquote>
 <div><p>Sample compilation on linux:</p>
 </div></blockquote>
-</div></blockquote>
 </li>
-<li><p>Now you should be able to use the module from a Python script. If you installed in a non-standard directory by specifying -DCMAKE_INSTALL_PREFIX you may need to set the PYTHONPATH environment variable before running your Python script, for example:</p>
-<blockquote>
-<div><p>where spe1case1.py could be:
-.. code-block:: python</p>
-<blockquote>
-<div><p>import os
-from opm.simulators import BlackOilSimulator
-from opm.io.parser import Parser
-from opm.io.ecl_state import EclipseState
-from opm.io.schedule import Schedule
-from opm.io.summary import SummaryConfig</p>
-<p>os.chdir(“SPE1CASE1”)
-deck  = Parser().parse(‘SPE1CASE1.DATA’)
-state = EclipseState(deck)
-schedule = Schedule( deck, state )
-summary_config = SummaryConfig(deck, state, schedule)</p>
-<p>sim = BlackOilSimulator(deck, state, schedule, summary_config)
-sim.step_init()
-sim.step()
-poro = sim.get_porosity()
-poro = poro <a href="#id1"><span class="problematic" id="id2">*</span></a>.95
-sim.set_porosity(poro)
-sim.step()
-sim.step_cleanup()</p>
-</div></blockquote>
+</ul>
 </div></blockquote>
 </li>
 </ol>
-<p>#TODO: expand on the introduction, add information about installation and requirements for example. Some example code would also be nice.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="nv">flags</span><span class="o">=</span><span class="s2">&quot;-DPython3_EXECUTABLE=/home/hakon/miniconda3/envs/rkt/bin/python3 -DOPM_ENABLE_PYTHON=ON -DOPM_INSTALL_PYTHON=ON -DCMAKE_INSTALL_PREFIX=/opt/opm&quot;</span>
+<span class="k">for</span><span class="w"> </span>repo<span class="w"> </span><span class="k">in</span><span class="w"> </span>opm-common<span class="w"> </span>opm-grid<span class="w"> </span>opm-models<span class="w"> </span>opm-simulators
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$repo</span><span class="s2">&quot;</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>build
+<span class="w">    </span>cmake<span class="w">  </span><span class="nv">$flags</span><span class="w"> </span>..
+<span class="w">    </span>make<span class="w"> </span>-j8
+<span class="w">    </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="k">done</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Now you should be able to use the module from a Python script.</p></li>
+</ol>
+<p>If you installed in a non-standard directory by specifying -DCMAKE_INSTALL_PREFIX you may need to set the PYTHONPATH environment variable before running your Python script, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span>/opt/opm/lib/python3.11/site-packages<span class="w"> </span>python3<span class="w"> </span>spe1case1.py
+</pre></div>
+</div>
+<p>where spe1case1.py could be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">opm.simulators</span> <span class="kn">import</span> <span class="n">BlackOilSimulator</span>
+<span class="kn">from</span> <span class="nn">opm.io.parser</span> <span class="kn">import</span> <span class="n">Parser</span>
+<span class="kn">from</span> <span class="nn">opm.io.ecl_state</span> <span class="kn">import</span> <span class="n">EclipseState</span>
+<span class="kn">from</span> <span class="nn">opm.io.schedule</span> <span class="kn">import</span> <span class="n">Schedule</span>
+<span class="kn">from</span> <span class="nn">opm.io.summary</span> <span class="kn">import</span> <span class="n">SummaryConfig</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;SPE1CASE1&quot;</span><span class="p">)</span>
+<span class="n">deck</span>  <span class="o">=</span> <span class="n">Parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;SPE1CASE1.DATA&#39;</span><span class="p">)</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">EclipseState</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">Schedule</span><span class="p">(</span> <span class="n">deck</span><span class="p">,</span> <span class="n">state</span> <span class="p">)</span>
+<span class="n">summary_config</span> <span class="o">=</span> <span class="n">SummaryConfig</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">schedule</span><span class="p">)</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">BlackOilSimulator</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">schedule</span><span class="p">,</span> <span class="n">summary_config</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step_init</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="n">poro</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">get_porosity</span><span class="p">()</span>
+<span class="n">poro</span> <span class="o">=</span> <span class="n">poro</span> <span class="o">*</span><span class="mf">.95</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">set_porosity</span><span class="p">(</span><span class="n">poro</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step_cleanup</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 
 
@@ -124,7 +146,7 @@ sim.step_cleanup()</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Python documentation for OPM Flow!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="embedded-python.html" class="btn btn-neutral float-right" title="Run embedded Python code in OPM flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="embedded-python.html" class="btn btn-neutral float-right" title="Run Python embedded in OPM Flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

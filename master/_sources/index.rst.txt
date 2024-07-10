@@ -2,8 +2,9 @@ Welcome to the Python documentation for OPM Flow!
 =================================================
 
 There are two Python APIs within OPM Flow:
-- running flow from Python code using the Python bindings (see :ref:`flow-in-python`)
-- running a Python script embedded in a simulation (see :ref:`embedded-python`)
+
+- running Flow from Python code using the Python bindings (see :doc:`flow-in-python`)
+- running a Python script embedded in a simulation (see :doc:`embedded-python`)
 
 
 Contents
