@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPM Common Python Documentation &mdash; OPM Python Documentation 2024.10-pre documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/_rst_properties.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=421f7957"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OPM Simulators Python Documentation" href="simulators.html" />
+    <link rel="prev" title="Run Python embedded in OPM Flow" href="embedded-python.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OPM Python Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="flow-in-python.html">Run OPM Flow from Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedded-python.html">Run Python embedded in OPM Flow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OPM Common Python Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#opm.io.sim.SummaryState"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_well_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_group_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.well_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.group_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.elapsed"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.elapsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.has_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_well_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.has_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_group_var()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opm.io.ecl_state.EclipseState"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.input_nnc"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.input_nnc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultNames"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultNames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultFaces"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultFaces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.jfunc"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.jfunc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.simulation"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.simulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opm.io.schedule.Schedule"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.shut_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.open_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.stop_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_injection_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_injection_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_production_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_production_properties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule._groups"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule._groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_wells"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_wells()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Group.name"><code class="docutils literal notranslate"><span class="pre">Group.name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Group.num_wells"><code class="docutils literal notranslate"><span class="pre">Group.num_wells()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Group.well_names"><code class="docutils literal notranslate"><span class="pre">Group.well_names()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ScheduleState"><code class="docutils literal notranslate"><span class="pre">ScheduleState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ScheduleState.nupcol"><code class="docutils literal notranslate"><span class="pre">ScheduleState.nupcol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ScheduleState.get_group"><code class="docutils literal notranslate"><span class="pre">ScheduleState.get_group()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Well"><code class="docutils literal notranslate"><span class="pre">Well</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Well.pos"><code class="docutils literal notranslate"><span class="pre">Well.pos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Well.isdefined"><code class="docutils literal notranslate"><span class="pre">Well.isdefined()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Well.available_gctrl"><code class="docutils literal notranslate"><span class="pre">Well.available_gctrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Well.connections"><code class="docutils literal notranslate"><span class="pre">Well.connections()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">OPM Simulators Python Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OPM Python Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">OPM Common Python Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/OPM/opm-simulators/blob/master/python/docs/common.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="opm-common-python-documentation">
+<h1>OPM Common Python Documentation<a class="headerlink" href="#opm-common-python-documentation" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.sim.</span></span><span class="sig-name descname"><span class="pre">SummaryState</span></span><a class="headerlink" href="#opm.io.sim.SummaryState" title="Link to this definition"></a></dt>
+<dd><p>The SummaryState class - this is where the current summary results of the simulator are stored.
+The SummaryState class has methods to get hold of well, group and general variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.update_well_var">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">update_well_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">double</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.update_well_var" title="Link to this definition"></a></dt>
+<dd><p>Updates the variable of a well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well.</p></li>
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to update.</p></li>
+<li><p><strong>new_value</strong> (<em>double</em>) – The new value of the variable.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.update_group_var">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">update_group_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">double</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.update_group_var" title="Link to this definition"></a></dt>
+<dd><p>Updates the variable of a group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_name</strong> (<em>str</em>) – The name of the group.</p></li>
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to update.</p></li>
+<li><p><strong>new_value</strong> (<em>double</em>) – The new value of the variable.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.well_var">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">well_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.well_var" title="Link to this definition"></a></dt>
+<dd><p>Gets the value of a variable for a well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well.</p></li>
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to retrieve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the specified variable for the well.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.group_var">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">group_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.group_var" title="Link to this definition"></a></dt>
+<dd><p>Gets the value of a variable for a group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_name</strong> (<em>str</em>) – The name of the group.</p></li>
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to retrieve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the specified variable for the group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.elapsed">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">elapsed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.elapsed" title="Link to this definition"></a></dt>
+<dd><p>Returns the elapsed time in seconds of the current simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The elapsed time in seconds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.sim.SummaryState.groups</span> <span class="pre">-&gt;</span> <span class="pre">list</span></span></dt>
+<dd><p>Returns a list of strings containing all group names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings representing all group names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.sim.SummaryState.wells</span> <span class="pre">-&gt;</span> <span class="pre">list</span></span></dt>
+<dd><p>Returns a list of strings containing all well names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of strings representing all well names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.has_well_var">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">has_well_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.has_well_var" title="Link to this definition"></a></dt>
+<dd><p>Checks if a well variable exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well.</p></li>
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the variable exists for the well, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.has_group_var">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">has_group_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.has_group_var" title="Link to this definition"></a></dt>
+<dd><p>Checks if a group variable exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_name</strong> (<em>str</em>) – The name of the group.</p></li>
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the variable exists for the group, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.</span></span><span class="sig-name descname"><span class="pre">EclipseState</span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState" title="Link to this definition"></a></dt>
+<dd><p>The EclipseState class - this is a representation of all static properties in the model,ranging from porosity to relperm tables.
+The content of the EclipseState is immutable and may not be changed at runtime.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.input_nnc">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">input_nnc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.input_nnc" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of non-neighboring connections.</p>
+<p>One non-neighboring connection is a tuple containing the following elements:
+- index1 (int): Index of the first cell.
+- index2 (int): Index of the second cell.
+- transmissibility (double): Transmissibility between the two cells.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of non-neighboring connections.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.faultNames">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">faultNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.faultNames" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of fault names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list containing the names of faults.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.faultFaces">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">faultFaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fault_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.faultFaces" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of faces of a fault with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fault_name</strong> (<em>str</em>) – The name of the fault.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the faces of the specified fault.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.jfunc">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">jfunc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.jfunc" title="Link to this definition"></a></dt>
+<dd><p>Function returning a dictionary with the following entries: [‘FLAG’, ‘DIRECTION’, ‘ALPHA_FACTOR’, ‘BETA_FACTOR’, ‘OIL_WATER’, ‘GAS_OIL’]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dictionary containing the specified entries.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.simulation">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">simulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SimulationConfiguration</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.simulation" title="Link to this definition"></a></dt>
+<dd><p>Returns the simulation configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The simulation configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.schedule.</span></span><span class="sig-name descname"><span class="pre">Schedule</span></span><a class="headerlink" href="#opm.io.schedule.Schedule" title="Link to this definition"></a></dt>
+<dd><p>The Schedule class - this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.__getitem__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ScheduleState" title="ScheduleState"><span class="pre">ScheduleState</span></a></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Returns the ScheduleState at the given report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>report_step</strong> (<em>int</em>) – The report step.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ScheduleState at the given report step.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.shut_well">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.shut_well" title="Link to this definition"></a></dt>
+<dd><p>Shuts down a well at a given report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well to shut down.</p></li>
+<li><p><strong>step</strong> (<em>int</em>) – The report step at which to shut down the well.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Shuts down a well at the current report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>well_name</strong> (<em>str</em>) – The name of the well to shut down.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.open_well">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.open_well" title="Link to this definition"></a></dt>
+<dd><p>Opens a well at a given report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well to open.</p></li>
+<li><p><strong>step</strong> (<em>int</em>) – The report step at which to open the well.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the report step is in the past or exceeds the duration of the simulation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Opens a well at the current report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>well_name</strong> (<em>str</em>) – The name of the well to open.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.stop_well">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.stop_well" title="Link to this definition"></a></dt>
+<dd><p>Stops a well at a given report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well to stop.</p></li>
+<li><p><strong>step</strong> (<em>int</em>) – The report step at which to stop the well.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the report step is in the past or exceeds the duration of the simulation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Stops a well at the current report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>well_name</strong> (<em>str</em>) – The name of the well to stop.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.get_injection_properties">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">get_injection_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.get_injection_properties" title="Link to this definition"></a></dt>
+<dd><p>Gets injection properties for a well at a specific report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well.</p></li>
+<li><p><strong>report_step</strong> (<em>int</em>) – The report step to retrieve properties for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dict containing the properties surf_inj_rate, resv_inj_rate, bhp_target, thp_target.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.get_production_properties">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">get_production_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.get_production_properties" title="Link to this definition"></a></dt>
+<dd><p>Gets production properties for a well at a specific report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well.</p></li>
+<li><p><strong>report_step</strong> (<em>int</em>) – The report step to retrieve properties for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dict containing the properties oil_rate, gas_rate, water_rate, liquid_rate, resv_rate, bhp_target, thp_target, alq_value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule._groups">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule._groups" title="Link to this definition"></a></dt>
+<dd><p>Gets a list of all groups at a specified report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>report_step</strong> (<em>int</em>) – The report step to retrieve groups for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing all groups at the specified report step.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.get_well">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">get_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#Well" title="Well"><span class="pre">Well</span></a></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.get_well" title="Link to this definition"></a></dt>
+<dd><p>Retrieve a well at a given report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>well_name</strong> (<em>str</em>) – The name of the well.</p></li>
+<li><p><strong>report_step</strong> (<em>int</em>) – The report step.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Well object at the given report step.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.get_wells">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">get_wells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.get_wells" title="Link to this definition"></a></dt>
+<dd><p>Gets the names of wells matching a specified pattern.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>well_name_pattern</strong> (<em>str</em>) – The pattern for well names, where ‘*’ acts as a wildcard.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the names of wells that match the specified pattern.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Group">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Group</span></span><a class="headerlink" href="#Group" title="Link to this definition"></a></dt>
+<dd><p>The Group class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Group.name">
+<span class="sig-prename descclassname"><span class="pre">Group.</span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Group.name" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of this group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The name of this group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Group.num_wells">
+<span class="sig-prename descclassname"><span class="pre">Group.</span></span><span class="sig-name descname"><span class="pre">num_wells</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Group.num_wells" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of wells in this group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of wells in this group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Group.well_names">
+<span class="sig-prename descclassname"><span class="pre">Group.</span></span><span class="sig-name descname"><span class="pre">well_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Group.well_names" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of all well names in this group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of all well names in this group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ScheduleState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ScheduleState</span></span><a class="headerlink" href="#ScheduleState" title="Link to this definition"></a></dt>
+<dd><p>The ScheduleState class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ScheduleState.nupcol">
+<span class="sig-prename descclassname"><span class="pre">ScheduleState.</span></span><span class="sig-name descname"><span class="pre">nupcol</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ScheduleState.nupcol" title="Link to this definition"></a></dt>
+<dd><p>The NUPCOL value at this Schedule State. This is a positive integer that defines the maximum number of Newton iterations used to update well targets within a time step.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ScheduleState.get_group">
+<span class="sig-prename descclassname"><span class="pre">ScheduleState.</span></span><span class="sig-name descname"><span class="pre">get_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#Group" title="Group"><span class="pre">Group</span></a></span></span><a class="headerlink" href="#ScheduleState.get_group" title="Link to this definition"></a></dt>
+<dd><p>Gets the group with the specified name from the schedule state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>group_name</strong> (<em>str</em>) – The name of the group to retrieve from the schedule state.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The group with the specified name from the schedule state.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Well">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Well</span></span><a class="headerlink" href="#Well" title="Link to this definition"></a></dt>
+<dd><p>The Well class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Well.pos">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#Well.pos" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the position of the well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing the (i, j) coordinates and the reference depth of the well.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Well.isdefined">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">isdefined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Well.isdefined" title="Link to this definition"></a></dt>
+<dd><p>Checks if the well is defined at a specific report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>report_step</strong> (<em>int</em>) – The report step to check for the well’s definition.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the well is defined at the specified report step, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Well.available_gctrl">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">available_gctrl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Well.available_gctrl" title="Link to this definition"></a></dt>
+<dd><p>Checks if the well is available for group control.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the well is available for group control, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Well.connections">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#Well.connections" title="Link to this definition"></a></dt>
+<dd><p>Gets a list of all connections associated with the well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list containing all connections of the well.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="embedded-python.html" class="btn btn-neutral float-left" title="Run Python embedded in OPM Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="simulators.html" class="btn btn-neutral float-right" title="OPM Simulators Python Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Equinor ASA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <div class="injected">
+      <dl>
+        <dt>Branches</dt>
+        <dd class="rtd-current-item">
+          <a href="../master/index.html">master</a>
+        </dd>
+        <dd class="">
+          <a href="../dependabot/pip/python/sphinx_docs/setuptools-70.0.0/index.html">dependabot/pip/python/sphinx_docs/setuptools-70.0.0</a>
+        </dd>
+      </dl>
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank"
+              action="../master/index.html/../search.html"
+              method="get">
+              <input type="text" name="q" aria-label="Search docs" placeholder="Search docs">
+            </form>
+          </div>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

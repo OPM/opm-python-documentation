@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run Python embedded in OPM Flow &mdash; OPM Python Documentation 2024.10-pre documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/_rst_properties.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=421f7957"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OPM Common Python Documentation" href="common.html" />
+    <link rel="prev" title="Run OPM Flow from Python" href="flow-in-python.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OPM Python Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="flow-in-python.html">Run OPM Flow from Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run Python embedded in OPM Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">OPM Common Python Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">OPM Simulators Python Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OPM Python Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Run Python embedded in OPM Flow</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/OPM/opm-simulators/blob/master/python/docs/embedded-python.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="run-python-embedded-in-opm-flow">
+<h1>Run Python embedded in OPM Flow<a class="headerlink" href="#run-python-embedded-in-opm-flow" title="Link to this heading"></a></h1>
+<p>The PYACTION keyword is a Flow specific keyword which allows for executing embedded Python
+code in the SCHEDULE section. The embedded Python code will then be executed at the end of each successful timestep.</p>
+<p>The PYACTION keyword is inspired
+by the ACTIONX keyword, but instead of a .DATA formatted condition you
+are allowed to implement the condition with a general Python script. The
+ACTIONX keywords are very clearly separated in a condition part and an
+action part in the form of a list of keywords which are effectively injected in
+the SCHEDULE section when the condition evaluates to true.
+This is not so for PYACTION where there is one Python script in which both
+conditions can be evaluated and changes applied.</p>
+<p>In order to enable the PYACTION keyword:</p>
+<p>1. OPM Flow must be compiled with the cmake switches -DOPM ENABLE EMBEDDED PYTHON=ON and -DOPM ENABLE PYTHON=ON, the default is to build with these switches set to OFF.
+You can also change these settings in the CMakeLists.txt of opm-common.</p>
+<ol class="arabic simple" start="2">
+<li><p>The keyword PYACTION must be added to the SCHEDULE section:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">PYACTION</span>\<span class="n">_NAME</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">SINGLE</span><span class="o">/</span><span class="n">UNLIMITED</span><span class="o">&gt;</span> <span class="o">/</span>
+<span class="o">&lt;</span><span class="n">pythonscript</span><span class="o">&gt;</span> <span class="o">/</span> <span class="o">--</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">python</span> <span class="n">script</span><span class="p">,</span> <span class="n">relative</span> <span class="n">to</span> <span class="n">the</span> <span class="n">location</span> <span class="n">of</span> <span class="n">the</span> <span class="n">DATA</span><span class="o">-</span><span class="n">file</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>You need to provide the Python script.</p></li>
+</ol>
+<p>To interact with the simulator in the embedded Python code, you can access four variables from the simulator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python module opm_embedded</span>
+<span class="kn">import</span> <span class="nn">opm_embedded</span>
+<span class="c1"># The current EclipseState</span>
+<span class="n">ecl_state</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_ecl_state</span>
+<span class="c1"># The current Schedule</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_schedule</span>
+<span class="c1"># The current SummaryState</span>
+<span class="n">summary_state</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_summary_state</span>
+<span class="c1"># The current report step</span>
+<span class="n">report_step</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_report_step</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>current_ecl_state: An instance of the <a class="reference external" href="common.html#opm.io.ecl_state.EclipseState">EclipseState</a> class - this is a representation of all static properties in the model, ranging from porosity to relperm tables. The content of the ecl state is immutable - you are not allowed to change the static properties at runtime.</p></li>
+<li><p>current_schedule: An instance of the <a class="reference external" href="common.html#opm.io.schedule.Schedule">Schedule</a> class - this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping.</p></li>
+<li><p>current_report_step: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.</p></li>
+<li><p>current_summary_state: An instance of the <a class="reference external" href="common.html#opm.io.sim.SummaryState">SummaryState</a> class, this is where the current summary results of the simulator are stored. The SummaryState class has methods to get hold of well, group and general variables.</p></li>
+</ul>
+<p>See also: PYACTION in the <a class="reference external" href="https://opm-project.org/?page_id=955">reference manual</a> for more information.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="flow-in-python.html" class="btn btn-neutral float-left" title="Run OPM Flow from Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common.html" class="btn btn-neutral float-right" title="OPM Common Python Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Equinor ASA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <div class="injected">
+      <dl>
+        <dt>Branches</dt>
+        <dd class="rtd-current-item">
+          <a href="../master/index.html">master</a>
+        </dd>
+        <dd class="">
+          <a href="../dependabot/pip/python/sphinx_docs/setuptools-70.0.0/index.html">dependabot/pip/python/sphinx_docs/setuptools-70.0.0</a>
+        </dd>
+      </dl>
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank"
+              action="../master/index.html/../search.html"
+              method="get">
+              <input type="text" name="q" aria-label="Search docs" placeholder="Search docs">
+            </form>
+          </div>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
