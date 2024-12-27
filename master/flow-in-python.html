@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run OPM Flow from Python &mdash; OPM Python Documentation 2025.04-pre documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/_rst_properties.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e2b3b6d8"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Run Python embedded in OPM Flow" href="embedded-python.html" />
+    <link rel="prev" title="Welcome to the Python documentation for OPM Flow!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OPM Python Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run OPM Flow from Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedded-python.html">Run Python embedded in OPM Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">OPM Common Python Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">OPM Simulators Python Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OPM Python Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Run OPM Flow from Python</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/OPM/opm-simulators/blob/master/python/docs/flow-in-python.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="run-opm-flow-from-python">
+<h1>Run OPM Flow from Python<a class="headerlink" href="#run-opm-flow-from-python" title="Link to this heading"></a></h1>
+<p>To run OPM from Python, you need to:</p>
+<ol class="arabic simple">
+<li><p>Compile Flow with python support:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Add the cmake flags -DOPM_ENABLE_PYTHON=ON and -DOPM_INSTALL_PYTHON=ON.</p></li>
+<li><p>Optionally add prefix -DCMAKE_INSTALL_PREFIX=/opt/opm to install outside the standard directories.</p></li>
+<li><p>Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don’t want to use the system python, e.g. use a python from pyenv or from a conda environment.</p></li>
+</ul>
+<p>Sample compilation on linux:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+
+<span class="nv">flags</span><span class="o">=</span><span class="s2">&quot;-DPython3_EXECUTABLE=/home/hakon/miniconda3/envs/rkt/bin/python3 -DOPM_ENABLE_PYTHON=ON -DOPM_INSTALL_PYTHON=ON -DCMAKE_INSTALL_PREFIX=/opt/opm&quot;</span>
+<span class="k">for</span><span class="w"> </span>repo<span class="w"> </span><span class="k">in</span><span class="w"> </span>opm-common<span class="w"> </span>opm-grid<span class="w"> </span>opm-models<span class="w"> </span>opm-simulators
+<span class="k">do</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$repo</span><span class="s2">&quot;</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>build
+<span class="w">    </span>cmake<span class="w">  </span><span class="nv">$flags</span><span class="w"> </span>..
+<span class="w">    </span>make<span class="w"> </span>-j8
+<span class="w">    </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="k">done</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Now you should be able to use the module from a Python script.</p></li>
+</ol>
+<p>If you installed in a non-standard directory by specifying -DCMAKE_INSTALL_PREFIX you may need to set the PYTHONPATH environment variable before running your Python script, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span>/opt/opm/lib/python3.11/site-packages<span class="w"> </span>python3<span class="w"> </span>spe1case1.py
+</pre></div>
+</div>
+<p>Here, spe1case1.py could be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">opm.simulators</span> <span class="kn">import</span> <span class="n">BlackOilSimulator</span>
+<span class="kn">from</span> <span class="nn">opm.io.parser</span> <span class="kn">import</span> <span class="n">Parser</span>
+<span class="kn">from</span> <span class="nn">opm.io.ecl_state</span> <span class="kn">import</span> <span class="n">EclipseState</span>
+<span class="kn">from</span> <span class="nn">opm.io.schedule</span> <span class="kn">import</span> <span class="n">Schedule</span>
+<span class="kn">from</span> <span class="nn">opm.io.summary</span> <span class="kn">import</span> <span class="n">SummaryConfig</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;SPE1CASE1&quot;</span><span class="p">)</span>
+<span class="n">deck</span>  <span class="o">=</span> <span class="n">Parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;SPE1CASE1.DATA&#39;</span><span class="p">)</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">EclipseState</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">Schedule</span><span class="p">(</span> <span class="n">deck</span><span class="p">,</span> <span class="n">state</span> <span class="p">)</span>
+<span class="n">summary_config</span> <span class="o">=</span> <span class="n">SummaryConfig</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">schedule</span><span class="p">)</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">BlackOilSimulator</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">schedule</span><span class="p">,</span> <span class="n">summary_config</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step_init</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="n">poro</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">get_porosity</span><span class="p">()</span>
+<span class="n">poro</span> <span class="o">=</span> <span class="n">poro</span> <span class="o">*</span><span class="mf">.95</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">set_porosity</span><span class="p">(</span><span class="n">poro</span><span class="p">)</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">step_cleanup</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Python documentation for OPM Flow!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="embedded-python.html" class="btn btn-neutral float-right" title="Run Python embedded in OPM Flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Equinor ASA.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <div class="injected">
+      <dl>
+        <dt>Branches</dt>
+        <dd class="rtd-current-item">
+          <a href="../master/index.html">master</a>
+        </dd>
+        <dd class="">
+          <a href="../dependabot/pip/python/sphinx_docs/jinja2-3.1.5/index.html">dependabot/pip/python/sphinx_docs/jinja2-3.1.5</a>
+        </dd>
+      </dl>
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank"
+              action="../master/index.html/../search.html"
+              method="get">
+              <input type="text" name="q" aria-label="Search docs" placeholder="Search docs">
+            </form>
+          </div>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
