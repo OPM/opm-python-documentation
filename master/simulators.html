@@ -60,10 +60,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_var_meaning"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_var_meaning()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_var_meaning_map"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_var_meaning_map()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_variable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.mpi_init"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.mpi_init()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.run"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.run()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.set_porosity"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.set_porosity()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.set_primary_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.set_primary_variable()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.mpi_init"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.mpi_init()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step_cleanup"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step_cleanup()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step_init"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step_init()</span></code></a></li>
@@ -107,18 +107,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.simulators.BlackOilSimulator.__init__">
-<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator.__init__" title="Link to this definition"></a></dt>
-<dd><p>Constructor using a deck file name.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>deck_filename</strong> (<em>str</em>) – The file name of the deck to be used for the simulation.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deck</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><span class="pre">EclipseState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><span class="pre">Schedule</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SummaryConfig</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Deck</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><span class="pre">EclipseState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><span class="pre">Schedule</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SummaryConfig</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator.__init__" title="Link to this definition"></a></dt>
 <dd><p>Constructor using Deck, EclipseState, Schedule, and SummaryConfig objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -128,6 +117,17 @@
 <li><p><strong>schedule</strong> (<a class="reference internal" href="common.html#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><em>Schedule</em></a>) – Schedule object.</p></li>
 <li><p><strong>summary_config</strong> (<em>SummaryConfig</em>) – SummaryConfig object.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Constructor using a deck file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deck_filename</strong> (<em>str</em>) – The file name of the deck to be used for the simulation.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -255,6 +255,23 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="opm.simulators.BlackOilSimulator.mpi_init">
+<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">mpi_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator.mpi_init" title="Link to this definition"></a></dt>
+<dd><p>Sets MPI up for parallel simulation. This method should be called before any other method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>init</strong> – Whether to call <code class="docutils literal notranslate"><span class="pre">MPI_Init()</span></code> or not.</p></li>
+<li><p><strong>finalize</strong> – Whether to call <a href="#id1"><span class="problematic" id="id2">``</span></a>MPI_Finalize()```when the simulator object goes out of scope.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="opm.simulators.BlackOilSimulator.run">
 <span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator.run" title="Link to this definition"></a></dt>
 <dd><p>Runs the simulation to completion with the provided deck file or previously set deck.</p>
@@ -286,23 +303,6 @@
 <li><p><strong>variable</strong> (<em>str</em>) – The name of the variable. Valid names are ‘pressure’, ‘water’, ‘gas’, and ‘brine’.</p></li>
 <li><p><strong>value</strong> (<em>NDArray</em><em>[</em><em>float</em><em>]</em>) – An array of primary variable values to be set. See <code class="docutils literal notranslate"><span class="pre">get_primary_variable()</span></code> for more information.</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="opm.simulators.BlackOilSimulator.mpi_init">
-<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">mpi_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator.mpi_init" title="Link to this definition"></a></dt>
-<dd><p>Sets MPI up for parallel simulation. This method should be called before any other method.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>init</strong> – Whether to call <code class="docutils literal notranslate"><span class="pre">MPI_Init()</span></code> or not.</p></li>
-<li><p><strong>finalize</strong> – Whether to call <a href="#id1"><span class="problematic" id="id2">``</span></a>MPI_Finalize()```when the simulator object goes out of scope.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
