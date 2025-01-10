@@ -47,6 +47,33 @@
 <li class="toctree-l1"><a class="reference internal" href="flow-in-python.html">Run OPM Flow from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="embedded-python.html">Run Python embedded in OPM Flow</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OPM Common Python Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Connection"><code class="docutils literal notranslate"><span class="pre">Connection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Connection.getI"><code class="docutils literal notranslate"><span class="pre">Connection.getI()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Connection.getJ"><code class="docutils literal notranslate"><span class="pre">Connection.getJ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Connection.getK"><code class="docutils literal notranslate"><span class="pre">Connection.getK()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Deck"><code class="docutils literal notranslate"><span class="pre">Deck</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.__contains__"><code class="docutils literal notranslate"><span class="pre">Deck.__contains__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.__getitem__"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.__iter__"><code class="docutils literal notranslate"><span class="pre">Deck.__iter__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.__len__"><code class="docutils literal notranslate"><span class="pre">Deck.__len__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.__str__"><code class="docutils literal notranslate"><span class="pre">Deck.__str__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.active_unit_system"><code class="docutils literal notranslate"><span class="pre">Deck.active_unit_system()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.add"><code class="docutils literal notranslate"><span class="pre">Deck.add()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.count"><code class="docutils literal notranslate"><span class="pre">Deck.count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck.default_unit_system"><code class="docutils literal notranslate"><span class="pre">Deck.default_unit_system()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#DeckRecord"><code class="docutils literal notranslate"><span class="pre">DeckRecord</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__getitem__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__iter__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__iter__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__len__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__len__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__repr__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__repr__()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Group.name"><code class="docutils literal notranslate"><span class="pre">Group.name()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Group.num_wells"><code class="docutils literal notranslate"><span class="pre">Group.num_wells()</span></code></a></li>
@@ -65,6 +92,55 @@
 <li class="toctree-l3"><a class="reference internal" href="#Well.pos"><code class="docutils literal notranslate"><span class="pre">Well.pos()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#opm.io.deck.DeckItem"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__defaulted"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__defaulted()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__has_value"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__has_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__is_numeric"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__is_numeric()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__len__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__uda_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__uda_double()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__uda_str"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__uda_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_SI"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_SI()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_SI_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_SI_data_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_data_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_int"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_raw"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_raw_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_raw_data_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_str"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_uda"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_uda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_double()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_int"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_uda"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_uda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.name"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opm.io.deck.DeckKeyword"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__iter__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__iter__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__len__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__repr__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__str__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__str__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_SI_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_SI_array()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_int_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_int_array()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_raw_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_raw_array()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.name"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#opm.io.deck.UDAValue"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__repr__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.dimension"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.dimension()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.get_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_double()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.get_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.is_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_double()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.is_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_string()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#opm.io.ecl_state.EclipseState"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultFaces"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultFaces()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultNames"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultNames()</span></code></a></li>
@@ -74,25 +150,36 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#opm.io.schedule.Schedule"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__contains__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__len__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule._groups"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule._groups()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_injection_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_injection_properties()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_production_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_production_properties()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_well()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_wells"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_wells()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.insert_keywords"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.open_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.shut_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.stop_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.well_names"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.well_names()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#opm.io.sim.SummaryState"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__contains__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__getitem__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.__setitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__setitem__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.elapsed"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.elapsed()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.group_var()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.has_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_group_var()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.has_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_well_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_group_var()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_well_var()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.well_var()</span></code></a></li>
@@ -129,6 +216,384 @@
              
   <section id="opm-common-python-documentation">
 <h1>OPM Common Python Documentation<a class="headerlink" href="#opm-common-python-documentation" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Connection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Connection</span></span><a class="headerlink" href="#Connection" title="Link to this definition"></a></dt>
+<dd><p>The Connection class represents a connection point in a reservoir simulation. It includes properties for spatial indices, state, and various physical attributes of the connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.attached_to_segment</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></span></dt>
+<dd><p>Checks if the connection is attached to a segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if attached to a segment, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.center_depth</span> <span class="pre">-&gt;</span> <span class="pre">double</span></span></dt>
+<dd><p>Returns the center depth of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The center depth of the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.cf</span> <span class="pre">-&gt;</span> <span class="pre">double</span></span></dt>
+<dd><p>Returns the static connection transmissibility factor of the connection. This quantity is calculated from the connection input quantities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The static connection transmissibility factor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.complnum</span> <span class="pre">-&gt;</span> <span class="pre">int</span></span></dt>
+<dd><p>Returns the completion number of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The completion number.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.direction</span> <span class="pre">-&gt;</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the direction of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The direction of the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Connection.getI">
+<span class="sig-prename descclassname"><span class="pre">Connection.</span></span><span class="sig-name descname"><span class="pre">getI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#Connection.getI" title="Link to this definition"></a></dt>
+<dd><p>Returns the ‘i’ index of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ‘i’ index of the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Connection.getJ">
+<span class="sig-prename descclassname"><span class="pre">Connection.</span></span><span class="sig-name descname"><span class="pre">getJ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#Connection.getJ" title="Link to this definition"></a></dt>
+<dd><p>Returns the ‘j’ index of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ‘j’ index of the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Connection.getK">
+<span class="sig-prename descclassname"><span class="pre">Connection.</span></span><span class="sig-name descname"><span class="pre">getK</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#Connection.getK" title="Link to this definition"></a></dt>
+<dd><p>Returns the ‘k’ index of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ‘k’ index of the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.kh</span> <span class="pre">-&gt;</span> <span class="pre">double</span></span></dt>
+<dd><p>Returns the static ‘Kh’ product for the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The static ‘Kh’ product for the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.number</span> <span class="pre">-&gt;</span> <span class="pre">int</span></span></dt>
+<dd><p>DEPRECATED: Use ‘complnum’ instead. Returns the completion number of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The completion number.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.pos</span> <span class="pre">-&gt;</span> <span class="pre">tuple</span></span></dt>
+<dd><p>Returns the position of the connection as a tuple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The position of the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.rw</span> <span class="pre">-&gt;</span> <span class="pre">double</span></span></dt>
+<dd><p>Returns the radius of the well (rw) at the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The radius of the well (rw).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.sat_table_id</span> <span class="pre">-&gt;</span> <span class="pre">int</span></span></dt>
+<dd><p>Returns the saturation table ID for the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The saturation table ID.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.segment_number</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></span></dt>
+<dd><p>Returns the segment number associated with the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The segment number.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Connection.state</span> <span class="pre">-&gt;</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the current state of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current state of the connection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Deck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Deck</span></span><a class="headerlink" href="#Deck" title="Link to this definition"></a></dt>
+<dd><p>The Deck class represents a collection of keywords and their associated data used in reservoir simulations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.__contains__">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Deck.__contains__" title="Link to this definition"></a></dt>
+<dd><p>Checks if the specified keyword exists in the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The keyword to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the keyword exists, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.__getitem__">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#Deck.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Returns the keyword at the specified index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index of the keyword.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The keyword at the specified index.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key:</span> <span class="pre">tuple(keyword_name:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index:</span> <span class="pre">int)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Returns the entry at the index of the DeckView of the specified keyword name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>tuple</em><em> (</em><em>str</em><em>, </em><em>int</em><em>)</em>) – The tuple key to access the entry.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The the entry at the index of the DeckView of the specified keyword name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Returns the last entry of the DeckView of the specified keyword name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The name of the keyword.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The last entry of the DeckView of the specified keyword name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.__iter__">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#Deck.__iter__" title="Link to this definition"></a></dt>
+<dd><p>Returns an iterator over the keywords in the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An iterator over the keywords.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.__len__">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#Deck.__len__" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of keywords in the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of keywords.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.__str__">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#Deck.__str__" title="Link to this definition"></a></dt>
+<dd><p>Returns a string representation of the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string representation of the deck.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.active_unit_system">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">active_unit_system</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">UnitSystem</span></span></span><a class="headerlink" href="#Deck.active_unit_system" title="Link to this definition"></a></dt>
+<dd><p>Returns the active unit system of the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The active unit system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.add">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Deck.add" title="Link to this definition"></a></dt>
+<dd><p>Adds a new keyword to the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><em>DeckKeyword</em></a>) – The keyword to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.count">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#Deck.count" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of occurrences of the specified keyword in the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The keyword to count.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of occurrences of the keyword.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Deck.default_unit_system">
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">default_unit_system</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">UnitSystem</span></span></span><a class="headerlink" href="#Deck.default_unit_system" title="Link to this definition"></a></dt>
+<dd><p>Returns the default unit system of the deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The default unit system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="DeckRecord">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeckRecord</span></span><a class="headerlink" href="#DeckRecord" title="Link to this definition"></a></dt>
+<dd><p>Represents a record of data in the deck. A DeckRecord holds a collection of <a href="#id2"><span class="problematic" id="id3">`</span></a>DeckItem &lt;#opm.io.deck.DeckItem&gt;`_s and provides access to them in various ways.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DeckRecord.__getitem__">
+<span class="sig-prename descclassname"><span class="pre">DeckRecord.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckItem" title="opm.io.deck.DeckItem"><span class="pre">DeckItem</span></a></span></span><a class="headerlink" href="#DeckRecord.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Returns the <a class="reference external" href="#opm.io.deck.DeckItem">DeckItem</a> at the specified index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to retrieve the DeckItem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The DeckItem at the specified index.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#opm.io.deck.DeckItem" title="opm.io.deck.DeckItem">DeckItem</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DeckRecord.__iter__">
+<span class="sig-prename descclassname"><span class="pre">DeckRecord.</span></span><span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">iterator</span></span></span><a class="headerlink" href="#DeckRecord.__iter__" title="Link to this definition"></a></dt>
+<dd><p>Returns an iterator for the DeckRecord, allowing iteration over the contained DeckItems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An iterator for iterating through the DeckItems.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>iterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DeckRecord.__len__">
+<span class="sig-prename descclassname"><span class="pre">DeckRecord.</span></span><span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#DeckRecord.__len__" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of <a class="reference external" href="#opm.io.deck.DeckItem">DeckItems</a> in the DeckRecord.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of DeckItems.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="DeckRecord.__repr__">
+<span class="sig-prename descclassname"><span class="pre">DeckRecord.</span></span><span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#DeckRecord.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Returns a string representation of the DeckRecord.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string representation of the DeckRecord.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="Group">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Group</span></span><a class="headerlink" href="#Group" title="Link to this definition"></a></dt>
@@ -213,7 +678,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Well.connections">
-<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#Well.connections" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Connection" title="Connection"><span class="pre">Connection</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#Well.connections" title="Link to this definition"></a></dt>
 <dd><p>Gets a list of all connections associated with the well.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -248,9 +713,612 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.deck.</span></span><span class="sig-name descname"><span class="pre">DeckItem</span></span><a class="headerlink" href="#opm.io.deck.DeckItem" title="Link to this definition"></a></dt>
+<dd><p>Represents an item in the deck.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.__defaulted">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">__defaulted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.__defaulted" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the DeckItem’s value at index is the default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to check if the DeckItem’s value is the default.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the value at index is defaulted, False otherwise.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.__has_value">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">__has_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.__has_value" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the DeckItem has a value at index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to check if the DeckItem has a value.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the DeckItem has a value at index, False otherwise.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.__is_numeric">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">__is_numeric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.__is_numeric" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the UDA data of the DeckItem is numeric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the value is numeric, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.__len__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.__len__" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of data elements in the DeckItem. If if the number returned by this method is less than what is semantically expected (e.g. size() is less than the number of cells in the grid for keywords like e.g. SGL), then the remaining values are defaulted. The deck creates the defaulted items if all their sizes are fully specified by the keyword, though.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of elements.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.__uda_double">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">__uda_double</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.__uda_double" title="Link to this definition"></a></dt>
+<dd><p>Returns the double value of the UDA data of the DeckItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The double value of the UDA data.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.__uda_str">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">__uda_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.__uda_str" title="Link to this definition"></a></dt>
+<dd><p>Returns the string value of the UDA data of the DeckItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string value of the UDA data.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_SI">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_SI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_SI" title="Link to this definition"></a></dt>
+<dd><p>Returns the SI double data of the DeckItem at the given index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to retrieve the SI double data from the DeckItem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The SI double data of the DeckItem at the given index.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_SI_data_list">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_SI_data_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_SI_data_list" title="Link to this definition"></a></dt>
+<dd><p>Returns the list of SI double data elements contained in the DeckItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of SI double data elements in the DeckItem.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_data_list">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_data_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_data_list" title="Link to this definition"></a></dt>
+<dd><p>Returns the list of data elements contained in the DeckItem for int or string data elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of data elements in the DeckItem.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_int">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_int" title="Link to this definition"></a></dt>
+<dd><p>Returns the integer data of the DeckItem at the given index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to retrieve the integer data from the DeckItem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The integer data of the DeckItem at the given index.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_raw">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_raw" title="Link to this definition"></a></dt>
+<dd><p>Returns the raw double data of the DeckItem at the given index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to retrieve the raw double data from the DeckItem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The raw double data of the DeckItem at the given index.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_raw_data_list">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_raw_data_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_raw_data_list" title="Link to this definition"></a></dt>
+<dd><p>Returns the list of raw data elements (as doubles) contained in the DeckItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of raw data elements in the DeckItem.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_str">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_str" title="Link to this definition"></a></dt>
+<dd><p>Returns the string data of the DeckItem at the given index, if the DeckItem is of type string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to retrieve the string data from the DeckItem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The string representation of the DeckItem at the given index’s data.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.get_uda">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">get_uda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue"><span class="pre">UDAValue</span></a></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.get_uda" title="Link to this definition"></a></dt>
+<dd><p>Returns the UDA data of the DeckItem at the given index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index used to retrieve the UDA data from the DeckItem.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The UDA data of the DeckItem at the given index.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue">UDAValue</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.is_double">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">is_double</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.is_double" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the DeckItem holds double data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the DeckItem is of type double, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.is_int">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">is_int</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.is_int" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the DeckItem holds integer data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the DeckItem is of type int, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.is_string">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">is_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.is_string" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the DeckItem holds string data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the DeckItem is of type string, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.is_uda">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">is_uda</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.is_uda" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the DeckItem holds UDA data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the DeckItem is UDA, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckItem.name">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckItem.</span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.DeckItem.name" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the DeckItem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The name of the DeckItem.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.deck.</span></span><span class="sig-name descname"><span class="pre">DeckKeyword</span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword" title="Link to this definition"></a></dt>
+<dd><p>Represents a keyword in the Deck.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.__getitem__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DeckValue</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Returns the record at the specified index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index of the record to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The record at the specified index.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DeckValue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.__init__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes a DeckKeyword with a specified ParserKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parser_keyword</strong> (<em>ParserKeyword</em>) – The ParserKeyword to initialize the DeckKeyword with.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array_t</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Initializes a DeckKeyword with a specified ParserKeyword, double data, and two UnitSystem objects for active and default systems. For this, the keyword must be a data keyword!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parser_keyword</strong> (<em>ParserKeyword</em>) – The ParserKeyword to initialize the DeckKeyword with.</p></li>
+<li><p><strong>py_data</strong> (<em>array_t</em><em>[</em><em>double</em><em>]</em>) – The double data array.</p></li>
+<li><p><strong>active_system</strong> (<em>UnitSystem</em>) – The active UnitSystem to interpret the data.</p></li>
+<li><p><strong>default_system</strong> (<em>UnitSystem</em>) – The default UnitSystem to interpret the data.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array_t</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Initializes a DeckKeyword with a specified ParserKeyword and integer data. For this, the keyword must be a data keyword!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parser_keyword</strong> (<em>ParserKeyword</em>) – The ParserKeyword to initialize the DeckKeyword with.</p></li>
+<li><p><strong>py_data</strong> (<em>array_t</em><em>[</em><em>int</em><em>]</em>) – The integer data array.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Initializes a DeckKeyword with a specified ParserKeyword, a list of records, and two UnitSystem objects for active and default systems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parser_keyword</strong> (<em>ParserKeyword</em>) – The ParserKeyword to initialize the DeckKeyword with.</p></li>
+<li><p><strong>record_list</strong> (<em>list</em>) – A list of records containing the keyword data as also specified in the parser_keyword.</p></li>
+<li><p><strong>active_system</strong> (<em>UnitSystem</em>) – The active UnitSystem.</p></li>
+<li><p><strong>default_system</strong> (<em>UnitSystem</em>) – The default UnitSystem.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.__iter__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">iterator</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.__iter__" title="Link to this definition"></a></dt>
+<dd><p>Returns an iterator over the records of the DeckKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An iterator for the records.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>iterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.__len__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.__len__" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of records in the DeckKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of records in the DeckKeyword.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.__repr__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the DeckKeyword as a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The name of the DeckKeyword.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.__str__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.__str__" title="Link to this definition"></a></dt>
+<dd><p>Returns a string representation of the DeckKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string representation of the DeckKeyword.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.get_SI_array">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_SI_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_SI_array" title="Link to this definition"></a></dt>
+<dd><p>Returns the SI double data of the DeckKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The SI double data.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.get_int_array">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_int_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_int_array" title="Link to this definition"></a></dt>
+<dd><p>Returns the integer data of the DeckKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The integer data.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.get_raw_array">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_raw_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_raw_array" title="Link to this definition"></a></dt>
+<dd><p>Returns the raw doule data of the DeckKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The raw double data.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.name">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.name" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the DeckKeyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The name of the DeckKeyword.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.deck.</span></span><span class="sig-name descname"><span class="pre">UDAValue</span></span><a class="headerlink" href="#opm.io.deck.UDAValue" title="Link to this definition"></a></dt>
+<dd><p>Represents a UDA (User-Defined Arguments) in the deck.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue.__init__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">double</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dimension</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue"><span class="pre">UDAValue</span></a></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes a UDA with a double value and a dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>double</em>) – The double value to store.</p></li>
+<li><p><strong>dimension</strong> (<em>Dimension</em>) – The dimension associated with this UDA.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dimension</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue"><span class="pre">UDAValue</span></a></span></span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
+<dd><p>Initializes a UDA with a string value and a dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>str</em>) – The string value to store.</p></li>
+<li><p><strong>dimension</strong> (<em>Dimension</em>) – The dimension associated with this UDA.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue.__repr__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Returns a string representation of the UDA. This works for both string and double UDAs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string representation of the UDA.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue.dimension">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dimension</span></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.dimension" title="Link to this definition"></a></dt>
+<dd><p>Returns the dimension associated with this UDA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dimension of the UDA.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dimension</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue.get_double">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">get_double</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.get_double" title="Link to this definition"></a></dt>
+<dd><p>Returns the double value of the UDA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The double value of the UDA.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue.get_string">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">get_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.get_string" title="Link to this definition"></a></dt>
+<dd><p>Returns the string value of the UDA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string value of the UDA.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue.is_double">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">is_double</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.is_double" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the UDA is of type double.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the UDA is a double, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.UDAValue.is_string">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">is_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.is_string" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the UDA is of type string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the UDA is a string, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.</span></span><span class="sig-name descname"><span class="pre">EclipseState</span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState" title="Link to this definition"></a></dt>
-<dd><p>The EclipseState class - this is a representation of all static properties in the model,ranging from porosity to relperm tables.
+<dd><p>The EclipseState class - this is a representation of all static properties in the model, ranging from porosity to relperm tables.
 The content of the EclipseState is immutable and may not be changed at runtime.</p>
 </dd></dl>
 
@@ -283,10 +1351,12 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 <dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.input_nnc">
 <span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">input_nnc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.input_nnc" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of non-neighboring connections.</p>
-<p>One non-neighboring connection is a tuple containing the following elements:
-- index1 (int): Index of the first cell.
-- index2 (int): Index of the second cell.
-- transmissibility (double): Transmissibility between the two cells.</p>
+<p>One non-neighboring connection is a tuple containing the following elements:</p>
+<ul class="simple">
+<li><p>index1 (int): Index of the first cell.</p></li>
+<li><p>index2 (int): Index of the second cell.</p></li>
+<li><p>transmissibility (double): Transmissibility between the two cells.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A list of non-neighboring connections.</p>
@@ -297,7 +1367,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.jfunc">
 <span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">jfunc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.jfunc" title="Link to this definition"></a></dt>
-<dd><p>Function returning a dictionary with the following entries: [‘FLAG’, ‘DIRECTION’, ‘ALPHA_FACTOR’, ‘BETA_FACTOR’, ‘OIL_WATER’, ‘GAS_OIL’]</p>
+<dd><p>Function returning a dictionary with the following entries:</p>
+<p>[‘FLAG’, ‘DIRECTION’, ‘ALPHA_FACTOR’, ‘BETA_FACTOR’, ‘OIL_WATER’, ‘GAS_OIL’]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dictionary containing the specified entries.</p>
@@ -323,15 +1394,41 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.__contains__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.__contains__" title="Link to this definition"></a></dt>
+<dd><p>Checks if a well exists in the Schedule at the current report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>well_name</strong> (<em>str</em>) – The name of the well to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the well exists, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="opm.io.schedule.Schedule.__getitem__">
 <span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ScheduleState" title="ScheduleState"><span class="pre">ScheduleState</span></a></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.__getitem__" title="Link to this definition"></a></dt>
-<dd><p>Returns the ScheduleState at the given report step.</p>
+<dd><p>Returns the <a class="reference external" href="#ScheduleState">ScheduleState</a> at the given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>report_step</strong> (<em>int</em>) – The report step.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The ScheduleState at the given report step.</p>
+<dd class="field-even"><p><p>The <a class="reference external" href="#ScheduleState">ScheduleState</a> at the given report step.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.__len__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.__len__" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of report steps, i.e., the length of the Schedule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of report steps.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -346,6 +1443,17 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A list containing all groups at the specified report step.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.schedule.Schedule.end</span> <span class="pre">-&gt;</span> <span class="pre">datetime.datetime</span></span></dt>
+<dd><p>Retrieves the end time of the schedule as a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime.datetime</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The end time of the schedule.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -403,14 +1511,68 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.io.schedule.Schedule.get_wells">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">get_wells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.get_wells" title="Link to this definition"></a></dt>
-<dd><p>Gets the names of wells matching a specified pattern.</p>
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">get_wells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.get_wells" title="Link to this definition"></a></dt>
+<dd><p>Gets the names of wells at the given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>well_name_pattern</strong> (<em>str</em>) – The pattern for well names, where ‘*’ acts as a wildcard.</p>
+<dd class="field-odd"><p><strong>report_step</strong> (<em>int</em>) – The report step.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list containing the names of wells that match the specified pattern.</p>
+<dd class="field-even"><p>A list containing the names of wells at the given report step.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.insert_keywords">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.insert_keywords" title="Link to this definition"></a></dt>
+<dd><p>Inserts the given keywords into the Schedule at the current report step using the unit system of the Schedule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>str</em>) – The deck string to be inserted into the Schedule.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dd><p>Inserts the given keywords into the Schedule at the given report step using the unit system of the Schedule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>str</em>) – The deck string to be inserted into the Schedule.</p></li>
+<li><p><strong>step</strong> (<em>int</em>) – The report step.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
+<dd><p>Inserts the given keywords into the Schedule at the given report step using the given unit system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>str</em>) – The deck string to be inserted into the Schedule.</p></li>
+<li><p><strong>step</strong> (<em>int</em>) – The report step.</p></li>
+<li><p><strong>unit_system</strong> (<em>UnitSystem</em>) – The unit system.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
+<dd><p>Inserts the given keywords into the Schedule at the given report step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keywords</strong> – A Python list of strings, contianing the keywords.</p></li>
+<li><p><strong>step</strong> (<em>int</em>) – The report step.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -427,8 +1589,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id12">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
 <dd><p>Opens a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -439,6 +1601,17 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the report step is in the past or exceeds the duration of the simulation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.schedule.Schedule.reportsteps</span> <span class="pre">-&gt;</span> <span class="pre">list[datetime.datetime]</span></span></dt>
+<dd><p>Retrieves a list of all report steps in the schedule as a Python list of <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime.datetime</a> objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list containing the report steps of the schedule.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -455,8 +1628,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id14">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id14" title="Link to this definition"></a></dt>
 <dd><p>Shuts down a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -464,6 +1637,17 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 <li><p><strong>well_name</strong> (<em>str</em>) – The name of the well to shut down.</p></li>
 <li><p><strong>step</strong> (<em>int</em>) – The report step at which to shut down the well.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.schedule.Schedule.start</span> <span class="pre">-&gt;</span> <span class="pre">datetime.datetime</span></span></dt>
+<dd><p>Retrieves the start time of the schedule as a <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime.datetime</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The start time of the schedule.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -480,8 +1664,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id16">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
 <dd><p>Stops a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -496,11 +1680,67 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.schedule.Schedule.well_names">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">well_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.schedule.Schedule.well_names" title="Link to this definition"></a></dt>
+<dd><p>Gets the names of wells matching a specified pattern.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>well_name_pattern</strong> (<em>str</em>) – The pattern for well names, where ‘*’ acts as a wildcard.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the names of wells that match the specified pattern.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="opm.io.sim.SummaryState">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.sim.</span></span><span class="sig-name descname"><span class="pre">SummaryState</span></span><a class="headerlink" href="#opm.io.sim.SummaryState" title="Link to this definition"></a></dt>
-<dd><p>The SummaryState class - this is where the current summary results of the simulator are stored.
-The SummaryState class has methods to get hold of well, group and general variables.</p>
+<dd><p>The <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</a> class - this is where the current summary results of the simulator are stored.
+The <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</a> class has methods to get hold of well, group and general variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.__contains__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.__contains__" title="Link to this definition"></a></dt>
+<dd><p>Checks if a variable exists in the <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the variable exists, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.__getitem__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Gets the value of a variable of the <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the specified variable for the well.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.__setitem__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">double</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.__setitem__" title="Link to this definition"></a></dt>
+<dd><p>Updates or insert the variable of the <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to update or insert.</p></li>
+<li><p><strong>new_value</strong> (<em>double</em>) – The new value of the variable.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -572,6 +1812,20 @@ The SummaryState class has methods to get hold of well, group and general variab
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the variable exists for the well, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.sim.SummaryState.update">
+<span class="sig-prename descclassname"><span class="pre">opm.io.sim.SummaryState.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">double</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.sim.SummaryState.update" title="Link to this definition"></a></dt>
+<dd><p>Updates or increments the given variable of the <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</a>, depending on whether the variable is cumulative or not. The variable must already exist in the <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</a> for this.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable_name</strong> (<em>str</em>) – The name of the variable to update or increment.</p></li>
+<li><p><strong>value</strong> (<em>double</em>) – The value to set or increment the variable by.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
