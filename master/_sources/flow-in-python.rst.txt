@@ -36,18 +36,16 @@ If you installed in a non-standard directory by specifying -DCMAKE_INSTALL_PREFI
 
 		PYTHONPATH=/opt/opm/lib/python3.11/site-packages python3 spe1case1.py
 
-Here, spe1case1.py could be:
+Here, the example script spe1case1.py could be:
 
 .. code-block:: python
 
-		import os
 		from opm.simulators import BlackOilSimulator
 		from opm.io.parser import Parser
 		from opm.io.ecl_state import EclipseState
 		from opm.io.schedule import Schedule
 		from opm.io.summary import SummaryConfig
 
-		os.chdir("SPE1CASE1")
 		deck  = Parser().parse('SPE1CASE1.DATA')
 		state = EclipseState(deck)
 		schedule = Schedule( deck, state )
@@ -61,3 +59,5 @@ Here, spe1case1.py could be:
 		sim.set_porosity(poro)
 		sim.step()
 		sim.step_cleanup()
+
+where you could use the SPE1CASE1.DATA file from `the opm-test repository <https://github.com/OPM/opm-tests/tree/master/spe1>`_.

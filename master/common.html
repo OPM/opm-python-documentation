@@ -47,142 +47,146 @@
 <li class="toctree-l1"><a class="reference internal" href="flow-in-python.html">Run OPM Flow from Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="embedded-python.html">Run Python embedded in OPM Flow</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OPM Common Python Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Connection"><code class="docutils literal notranslate"><span class="pre">Connection</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Connection.getI"><code class="docutils literal notranslate"><span class="pre">Connection.getI()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Connection.getJ"><code class="docutils literal notranslate"><span class="pre">Connection.getJ()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Connection.getK"><code class="docutils literal notranslate"><span class="pre">Connection.getK()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#note-on-import-paths">Note on Import Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Connection"><code class="docutils literal notranslate"><span class="pre">Connection</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Connection.getI"><code class="docutils literal notranslate"><span class="pre">Connection.getI()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Connection.getJ"><code class="docutils literal notranslate"><span class="pre">Connection.getJ()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Connection.getK"><code class="docutils literal notranslate"><span class="pre">Connection.getK()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Deck"><code class="docutils literal notranslate"><span class="pre">Deck</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.__contains__"><code class="docutils literal notranslate"><span class="pre">Deck.__contains__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.__getitem__"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.__iter__"><code class="docutils literal notranslate"><span class="pre">Deck.__iter__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.__len__"><code class="docutils literal notranslate"><span class="pre">Deck.__len__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.__str__"><code class="docutils literal notranslate"><span class="pre">Deck.__str__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.active_unit_system"><code class="docutils literal notranslate"><span class="pre">Deck.active_unit_system()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.add"><code class="docutils literal notranslate"><span class="pre">Deck.add()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.count"><code class="docutils literal notranslate"><span class="pre">Deck.count()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Deck.default_unit_system"><code class="docutils literal notranslate"><span class="pre">Deck.default_unit_system()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Deck"><code class="docutils literal notranslate"><span class="pre">Deck</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.__contains__"><code class="docutils literal notranslate"><span class="pre">Deck.__contains__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.__getitem__"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Deck.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.__iter__"><code class="docutils literal notranslate"><span class="pre">Deck.__iter__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.__len__"><code class="docutils literal notranslate"><span class="pre">Deck.__len__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.__str__"><code class="docutils literal notranslate"><span class="pre">Deck.__str__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.active_unit_system"><code class="docutils literal notranslate"><span class="pre">Deck.active_unit_system()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.add"><code class="docutils literal notranslate"><span class="pre">Deck.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.count"><code class="docutils literal notranslate"><span class="pre">Deck.count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Deck.default_unit_system"><code class="docutils literal notranslate"><span class="pre">Deck.default_unit_system()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#DeckRecord"><code class="docutils literal notranslate"><span class="pre">DeckRecord</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__getitem__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__getitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__iter__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__iter__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__len__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__len__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DeckRecord.__repr__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__repr__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DeckRecord"><code class="docutils literal notranslate"><span class="pre">DeckRecord</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DeckRecord.__getitem__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DeckRecord.__iter__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__iter__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DeckRecord.__len__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__len__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DeckRecord.__repr__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__repr__()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Group.name"><code class="docutils literal notranslate"><span class="pre">Group.name()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Group.num_wells"><code class="docutils literal notranslate"><span class="pre">Group.num_wells()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Group.well_names"><code class="docutils literal notranslate"><span class="pre">Group.well_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Group.name"><code class="docutils literal notranslate"><span class="pre">Group.name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Group.num_wells"><code class="docutils literal notranslate"><span class="pre">Group.num_wells()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Group.well_names"><code class="docutils literal notranslate"><span class="pre">Group.well_names()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ScheduleState"><code class="docutils literal notranslate"><span class="pre">ScheduleState</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ScheduleState.get_group"><code class="docutils literal notranslate"><span class="pre">ScheduleState.get_group()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ScheduleState.nupcol"><code class="docutils literal notranslate"><span class="pre">ScheduleState.nupcol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ScheduleState"><code class="docutils literal notranslate"><span class="pre">ScheduleState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ScheduleState.get_group"><code class="docutils literal notranslate"><span class="pre">ScheduleState.get_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ScheduleState.nupcol"><code class="docutils literal notranslate"><span class="pre">ScheduleState.nupcol()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Well"><code class="docutils literal notranslate"><span class="pre">Well</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Well.available_gctrl"><code class="docutils literal notranslate"><span class="pre">Well.available_gctrl()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Well.connections"><code class="docutils literal notranslate"><span class="pre">Well.connections()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Well.isdefined"><code class="docutils literal notranslate"><span class="pre">Well.isdefined()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Well.pos"><code class="docutils literal notranslate"><span class="pre">Well.pos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Well"><code class="docutils literal notranslate"><span class="pre">Well</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Well.available_gctrl"><code class="docutils literal notranslate"><span class="pre">Well.available_gctrl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.connections"><code class="docutils literal notranslate"><span class="pre">Well.connections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.isdefined"><code class="docutils literal notranslate"><span class="pre">Well.isdefined()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.pos"><code class="docutils literal notranslate"><span class="pre">Well.pos()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#opm.io.deck.DeckItem"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__defaulted"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__defaulted()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__has_value"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__has_value()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__is_numeric"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__is_numeric()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__len__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__uda_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__uda_double()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.__uda_str"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__uda_str()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_SI"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_SI()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_SI_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_SI_data_list()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_data_list()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_int"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_int()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_raw"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_raw()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_raw_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_raw_data_list()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_str"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_str()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.get_uda"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_uda()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_double()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_int"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_int()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_string()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.is_uda"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_uda()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem.name"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckItem"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.__defaulted"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__defaulted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.__has_value"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__has_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.__is_numeric"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__is_numeric()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__len__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.__uda_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__uda_double()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.__uda_str"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.__uda_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_SI"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_SI()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_SI_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_SI_data_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_data_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_int"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_int()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_raw"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_raw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_raw_data_list"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_raw_data_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_str"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_str()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.get_uda"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.get_uda()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.is_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_double()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.is_int"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_int()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.is_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.is_uda"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.is_uda()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckItem.name"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckItem.name()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#opm.io.deck.DeckKeyword"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__getitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__iter__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__iter__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__len__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__repr__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__str__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__str__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_SI_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_SI_array()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_int_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_int_array()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_raw_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_raw_array()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword.name"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.DeckKeyword"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__iter__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__iter__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__len__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__repr__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__str__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__str__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_SI_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_SI_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_int_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_int_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_raw_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_raw_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.name"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.name()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#opm.io.deck.UDAValue"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__repr__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.dimension"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.dimension()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.get_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_double()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.get_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_string()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.is_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_double()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue.is_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__repr__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.dimension"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.dimension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.get_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_double()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.get_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.is_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_double()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.is_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_string()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#opm.io.ecl_state.EclipseState"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultFaces"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultFaces()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultNames"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultNames()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.input_nnc"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.input_nnc()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.jfunc"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.jfunc()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.simulation"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.simulation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultFaces"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultFaces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultNames"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultNames()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.input_nnc"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.input_nnc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.jfunc"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.jfunc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.simulation"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.simulation()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#opm.io.schedule.Schedule"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__contains__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__getitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__len__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule._groups"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule._groups()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_injection_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_injection_properties()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_production_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_production_properties()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.get_wells"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_wells()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.insert_keywords"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.open_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.shut_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.stop_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule.well_names"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.well_names()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__contains__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__len__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule._groups"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule._groups()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_injection_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_injection_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_production_properties"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_production_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_wells"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_wells()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.insert_keywords"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.open_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.shut_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.stop_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.well_names"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.well_names()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#opm.io.sim.SummaryState"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__contains__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__getitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.__setitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__setitem__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.elapsed"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.elapsed()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.group_var()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.has_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_group_var()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.has_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_well_var()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_group_var()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.update_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_well_var()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState.well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.well_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.sim.SummaryState"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__contains__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__getitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.__setitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.__setitem__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.elapsed"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.elapsed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.group_var()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.has_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_group_var()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.has_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.has_well_var()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.update"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.update_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_group_var()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.update_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_well_var()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.well_var()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -216,6 +220,22 @@
              
   <section id="opm-common-python-documentation">
 <h1>OPM Common Python Documentation<a class="headerlink" href="#opm-common-python-documentation" title="Link to this heading"></a></h1>
+<section id="note-on-import-paths">
+<h2>Note on Import Paths<a class="headerlink" href="#note-on-import-paths" title="Link to this heading"></a></h2>
+<p>In this documentation, you may notice that some classes are referenced with their full import paths (e.g., opm.io.deck.DeckItem), while others are shown with just the class name. This distinction reflects how these classes are structured within the package:</p>
+<ul class="simple">
+<li><p>Fully Qualified Paths: Classes displayed with their full import paths can be directly imported from their respective modules. For example:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opm.io.deck</span> <span class="kn">import</span> <span class="n">DeckItem</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Simplified Class Names: Classes displayed with just their names, e.g. Connectoin, are intended for internal use or may require additional context when importing. Refer to the specific module documentation for the correct import path if needed.</p></li>
+</ul>
+<p>This structure allows for a organized and modular package, helping to easily access commonly used classes while maintaining clarity for internal components.</p>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="Connection">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Connection</span></span><a class="headerlink" href="#Connection" title="Link to this definition"></a></dt>
@@ -1888,6 +1908,7 @@ The <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</
 </dl>
 </dd></dl>
 
+</section>
 </section>
 
 

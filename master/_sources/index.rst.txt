@@ -7,6 +7,11 @@ There are two Python APIs within OPM Flow:
 - running a Python script embedded in a simulation (see :doc:`embedded-python`)
 
 
+This site further contains the documentation of:
+
+- the classes available from OPM Common (see :doc:`common`)
+- the classes available from OPM Simulators (see :doc:`simulators`)
+
 Contents
 ========
 .. toctree::

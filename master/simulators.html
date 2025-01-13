@@ -47,26 +47,30 @@
 <li class="toctree-l1"><a class="reference internal" href="embedded-python.html">Run Python embedded in OPM Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common.html">OPM Common Python Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">OPM Simulators Python Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#opm.simulators.BlackOilSimulator"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.__init__"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.advance"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.advance()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.check_simulation_finished"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.check_simulation_finished()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.current_step"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.current_step()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_cell_volumes"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_cell_volumes()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_dt"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_dt()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_fluid_state_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_fluid_state_variable()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_porosity"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_porosity()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_var_meaning"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_var_meaning()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_var_meaning_map"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_var_meaning_map()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_variable()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.mpi_init"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.mpi_init()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.run"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.run()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.set_porosity"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.set_porosity()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.set_primary_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.set_primary_variable()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step_cleanup"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step_cleanup()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step_init"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step_init()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#note-on-import-paths">Note on Import Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opm.simulators.BlackOilSimulator"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.__init__"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.advance"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.advance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.check_simulation_finished"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.check_simulation_finished()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.current_step"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.current_step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_cell_volumes"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_cell_volumes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_dt"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_dt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_fluid_state_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_fluid_state_variable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_porosity"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_porosity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_var_meaning"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_var_meaning()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_var_meaning_map"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_var_meaning_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.get_primary_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.get_primary_variable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.mpi_init"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.mpi_init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.run"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.set_porosity"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.set_porosity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.set_primary_variable"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.set_primary_variable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step_cleanup"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step_cleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.simulators.BlackOilSimulator.step_init"><code class="docutils literal notranslate"><span class="pre">opm.simulators.BlackOilSimulator.step_init()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -99,6 +103,15 @@
              
   <section id="opm-simulators-python-documentation">
 <h1>OPM Simulators Python Documentation<a class="headerlink" href="#opm-simulators-python-documentation" title="Link to this heading"></a></h1>
+<section id="note-on-import-paths">
+<h2>Note on Import Paths<a class="headerlink" href="#note-on-import-paths" title="Link to this heading"></a></h2>
+<p>In this documentation, the BlackOilSimulator class is referenced with its full import path, i.e., opm.simulators.BlackOilSimulator. This reflects how the BlackOilSimulator class can be imported:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opm.simulators</span> <span class="kn">import</span> <span class="n">BlackOilSimulator</span>
+</pre></div>
+</div>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="opm.simulators.BlackOilSimulator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.simulators.</span></span><span class="sig-name descname"><span class="pre">BlackOilSimulator</span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator" title="Link to this definition"></a></dt>
@@ -340,6 +353,7 @@
 </dl>
 </dd></dl>
 
+</section>
 </section>
 
 
