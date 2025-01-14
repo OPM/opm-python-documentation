@@ -120,7 +120,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.simulators.BlackOilSimulator.__init__">
-<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#Deck" title="Deck"><span class="pre">Deck</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><span class="pre">EclipseState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><span class="pre">Schedule</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SummaryConfig</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator.__init__" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#Deck" title="Deck"><span class="pre">Deck</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><span class="pre">EclipseState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><span class="pre">Schedule</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="common.html#opm.io.summary.SummaryConfig" title="opm.io.summary.SummaryConfig"><span class="pre">SummaryConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.simulators.BlackOilSimulator.__init__" title="Link to this definition"></a></dt>
 <dd><p>Constructor using Deck, EclipseState, Schedule, and SummaryConfig objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -128,7 +128,7 @@
 <li><p><strong>deck</strong> (<a class="reference internal" href="common.html#Deck" title="Deck"><em>Deck</em></a>) – Deck object.</p></li>
 <li><p><strong>state</strong> (<a class="reference internal" href="common.html#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><em>EclipseState</em></a>) – EclipseState object.</p></li>
 <li><p><strong>schedule</strong> (<a class="reference internal" href="common.html#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><em>Schedule</em></a>) – Schedule object.</p></li>
-<li><p><strong>summary_config</strong> (<em>SummaryConfig</em>) – SummaryConfig object.</p></li>
+<li><p><strong>summary_config</strong> (<a class="reference internal" href="common.html#opm.io.summary.SummaryConfig" title="opm.io.summary.SummaryConfig"><em>SummaryConfig</em></a>) – SummaryConfig object.</p></li>
 </ul>
 </dd>
 </dl>
@@ -136,11 +136,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">opm.simulators.BlackOilSimulator.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.simulators.BlackOilSimulator" title="opm.simulators.BlackOilSimulator"><span class="pre">BlackOilSimulator</span></a></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
 <dd><p>Constructor using a deck file name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>deck_filename</strong> (<em>str</em>) – The file name of the deck to be used for the simulation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The BlackOilSimulator.</p>
 </dd>
 </dl>
 </dd></dl>

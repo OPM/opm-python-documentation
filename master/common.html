@@ -76,10 +76,40 @@
 <li class="toctree-l4"><a class="reference internal" href="#DeckRecord.__repr__"><code class="docutils literal notranslate"><span class="pre">DeckRecord.__repr__()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#EclipseConfig"><code class="docutils literal notranslate"><span class="pre">EclipseConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseConfig.init"><code class="docutils literal notranslate"><span class="pre">EclipseConfig.init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#EclipseGrid"><code class="docutils literal notranslate"><span class="pre">EclipseGrid</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid._getXYZ"><code class="docutils literal notranslate"><span class="pre">EclipseGrid._getXYZ()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.cartesianSize"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.cartesianSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellDepth1G"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellDepth1G()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellDepth3"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellDepth3()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellDepthAll"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellDepthAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellDepthMask"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellDepthMask()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellVolume1G"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellVolume1G()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellVolume3"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellVolume3()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellVolumeAll"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellVolumeAll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getCellVolumeMask"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getCellVolumeMask()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.getIJK"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.getIJK()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.globalIndex"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.globalIndex()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.nactive"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.nactive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.nx"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.nx()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.ny"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.ny()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.nz"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.nz()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Group.name"><code class="docutils literal notranslate"><span class="pre">Group.name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Group.num_wells"><code class="docutils literal notranslate"><span class="pre">Group.num_wells()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Group.well_names"><code class="docutils literal notranslate"><span class="pre">Group.well_names()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#IOConfig"><code class="docutils literal notranslate"><span class="pre">IOConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#InitConfig"><code class="docutils literal notranslate"><span class="pre">InitConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#InitConfig.getRestartStep"><code class="docutils literal notranslate"><span class="pre">InitConfig.getRestartStep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#InitConfig.hasEquil"><code class="docutils literal notranslate"><span class="pre">InitConfig.hasEquil()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#InitConfig.restartRequested"><code class="docutils literal notranslate"><span class="pre">InitConfig.restartRequested()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ScheduleState"><code class="docutils literal notranslate"><span class="pre">ScheduleState</span></code></a><ul>
@@ -120,8 +150,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__getitem__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__iter__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__iter__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__len__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.__repr__()</span></code></a></li>
@@ -134,13 +164,33 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.__repr__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.dimension"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.dimension()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.get_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_double()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.get_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.get_string()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.is_double"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_double()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.UDAValue.is_string"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue.is_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl.EclFile"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.EclFile.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile.__contains__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.EclFile.__get_data"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile.__get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile.__get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile.__get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.EclFile.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.EclFile.__len__"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile.__len__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.EclFile.count"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.EclFile.count()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl.eclArrType"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.eclArrType.C0nn"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType.C0nn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.eclArrType.CHAR"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType.CHAR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.eclArrType.DOUB"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType.DOUB()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.eclArrType.INTE"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType.INTE()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.eclArrType.LOGI"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType.LOGI()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.eclArrType.MESS"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType.MESS()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl.eclArrType.REAL"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl.eclArrType.REAL()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState</span></code></a><ul>
@@ -161,15 +211,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_wells"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_wells()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.insert_keywords"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.open_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.shut_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.stop_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.well_names"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.well_names()</span></code></a></li>
 </ul>
 </li>
@@ -185,6 +235,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.update_group_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_group_var()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.update_well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.update_well_var()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.sim.SummaryState.well_var"><code class="docutils literal notranslate"><span class="pre">opm.io.sim.SummaryState.well_var()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.summary.SummaryConfig"><code class="docutils literal notranslate"><span class="pre">opm.io.summary.SummaryConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.summary.SummaryConfig.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.summary.SummaryConfig.__contains__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.summary.SummaryConfig.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.summary.SummaryConfig.__init__()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -552,7 +607,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="DeckRecord">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DeckRecord</span></span><a class="headerlink" href="#DeckRecord" title="Link to this definition"></a></dt>
-<dd><p>Represents a record of data in the deck. A DeckRecord holds a collection of <a href="#id2"><span class="problematic" id="id3">`</span></a>DeckItem &lt;#opm.io.deck.DeckItem&gt;`_s and provides access to them in various ways.</p>
+<dd><p>Represents a record of data in the deck. A DeckRecord holds a collection of <a class="reference external" href="#opm.io.deck.DeckItem">DeckItems</a> and provides access to them in various ways.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -615,6 +670,283 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="EclipseConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EclipseConfig</span></span><a class="headerlink" href="#EclipseConfig" title="Link to this definition"></a></dt>
+<dd><p>Represents the configuration for an Eclipse simulation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseConfig.init">
+<span class="sig-prename descclassname"><span class="pre">EclipseConfig.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#InitConfig" title="InitConfig"><span class="pre">InitConfig</span></a></span></span><a class="headerlink" href="#EclipseConfig.init" title="Link to this definition"></a></dt>
+<dd><p>Returns the initialization configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The initialization configuration.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#InitConfig" title="InitConfig">InitConfig</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="EclipseGrid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EclipseGrid</span></span><a class="headerlink" href="#EclipseGrid" title="Link to this definition"></a></dt>
+<dd><p>Represents the grid configuration for an Eclipse simulation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid._getXYZ">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">_getXYZ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#EclipseGrid._getXYZ" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of cells in XYZ direction for the grid as a tuple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple containing the number of cells in XYZ direction.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple(int,int,int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.cartesianSize">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">cartesianSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#EclipseGrid.cartesianSize" title="Link to this definition"></a></dt>
+<dd><p>Returns the Cartesian size of the grid, i.e., the number of all cells.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The Cartesian size of the grid.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellDepth1G">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellDepth1G</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#EclipseGrid.getCellDepth1G" title="Link to this definition"></a></dt>
+<dd><p>Returns the depth of the grid cell corresponding to the given global index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>g</strong> (<em>int</em>) – The global index of the grid cell.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The depth of the grid cell with the specified global index.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellDepth3">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellDepth3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#EclipseGrid.getCellDepth3" title="Link to this definition"></a></dt>
+<dd><p>Returns the depth of the grid cell specified by the given IJK indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – The I index of the grid cell.</p></li>
+<li><p><strong>j</strong> (<em>int</em>) – The J index of the grid cell.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – The K index of the grid cell.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The depth of the grid cell with the specified IJK indices.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellDepthAll">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellDepthAll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#EclipseGrid.getCellDepthAll" title="Link to this definition"></a></dt>
+<dd><p>Returns a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a> containing the depths of all grid cells. Each entry in the array corresponds to the depth of a grid cell, with the array index matching the global index of that cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A numpy.ndarray each entry represents the depth of a grid cell, and the index being the global index.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray[double]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellDepthMask">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellDepthMask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#EclipseGrid.getCellDepthMask" title="Link to this definition"></a></dt>
+<dd><p>Returns the depths for the cell with the global ids given in the input list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The depths for the given cells.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray[double]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellVolume1G">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellVolume1G</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#EclipseGrid.getCellVolume1G" title="Link to this definition"></a></dt>
+<dd><p>Returns the cell volume for the grid cell at the global index g.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>g</strong> (<em>int</em>) – The global index of the grid cell.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The volume of the grid cell.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellVolume3">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellVolume3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">double</span></span></span><a class="headerlink" href="#EclipseGrid.getCellVolume3" title="Link to this definition"></a></dt>
+<dd><p>Returns the cell volume for a grid cell identified by its (i, j, k) indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – The I index of the grid cell.</p></li>
+<li><p><strong>j</strong> (<em>int</em>) – The J index of the grid cell.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – The K index of the grid cell.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The volume of the grid cell identified by the (i, j, k) indices.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellVolumeAll">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellVolumeAll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#EclipseGrid.getCellVolumeAll" title="Link to this definition"></a></dt>
+<dd><p>Returns a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a> containing the volumes of all grid cells. Each entry in the array corresponds to the volume of a grid cell, with the array index matching the global index of that cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A numpy.ndarray each entry represents the volume of a grid cell, the index being to the global index.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray[double]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getCellVolumeMask">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getCellVolumeMask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#EclipseGrid.getCellVolumeMask" title="Link to this definition"></a></dt>
+<dd><p>Returns the cell volumes for the cells with the global ids given in the input list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The cell volumes for the given cells.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray[double]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.getIJK">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">getIJK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#EclipseGrid.getIJK" title="Link to this definition"></a></dt>
+<dd><p>Returns a tuple containing the IJK indices of the grid cell with global index g.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A a tuple containing the IJK indices of the grid cell with global index g.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple(int,int,int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.globalIndex">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">globalIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#EclipseGrid.globalIndex" title="Link to this definition"></a></dt>
+<dd><p>Returns the global index of the grid cell at the specified (i, j, k) coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – The I index of the grid cell.</p></li>
+<li><p><strong>j</strong> (<em>int</em>) – The J index of the grid cell.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – The K index of the grid cell.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The global index of the grid cell at the specified coordinates.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.nactive">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">nactive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#EclipseGrid.nactive" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of active cells in the Eclipse grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of active cells.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.nx">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">nx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#EclipseGrid.nx" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of cells along the X-axis in the Eclipse grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of cells along the X-axis.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.ny">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">ny</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#EclipseGrid.ny" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of cells along the Y-axis in the Eclipse grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of cells along the Y-axis.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseGrid.nz">
+<span class="sig-prename descclassname"><span class="pre">EclipseGrid.</span></span><span class="sig-name descname"><span class="pre">nz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#EclipseGrid.nz" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of cells along the Z-axis in the Eclipse grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of cells along the Z-axis.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="Group">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Group</span></span><a class="headerlink" href="#Group" title="Link to this definition"></a></dt>
 <dd><p>The Group class.</p>
@@ -649,6 +981,60 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A list of all well names in this group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="IOConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IOConfig</span></span><a class="headerlink" href="#IOConfig" title="Link to this definition"></a></dt>
+<dd><p>Represents the configuration for the input/output settings.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="InitConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InitConfig</span></span><a class="headerlink" href="#InitConfig" title="Link to this definition"></a></dt>
+<dd><p>Represents the initialization configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="InitConfig.getRestartStep">
+<span class="sig-prename descclassname"><span class="pre">InitConfig.</span></span><span class="sig-name descname"><span class="pre">getRestartStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#InitConfig.getRestartStep" title="Link to this definition"></a></dt>
+<dd><p>Returns the step number to restart at.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The restart step number.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="InitConfig.hasEquil">
+<span class="sig-prename descclassname"><span class="pre">InitConfig.</span></span><span class="sig-name descname"><span class="pre">hasEquil</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#InitConfig.hasEquil" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the initialization configuration includes the keword ‘EQUIL’, which defines the equilibration initialization data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if ‘EQUIL’ is present, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="InitConfig.restartRequested">
+<span class="sig-prename descclassname"><span class="pre">InitConfig.</span></span><span class="sig-name descname"><span class="pre">restartRequested</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#InitConfig.restartRequested" title="Link to this definition"></a></dt>
+<dd><p>Returns whether a restart is requested for the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if a restart is requested, False otherwise.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1051,7 +1437,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.__init__">
 <span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes a DeckKeyword with a specified ParserKeyword.</p>
+<dd><p>Creates a DeckKeyword with a specified ParserKeyword.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>parser_keyword</strong> (<em>ParserKeyword</em>) – The ParserKeyword to initialize the DeckKeyword with.</p>
@@ -1061,13 +1447,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id4">
-<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array_t</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
-<dd><p>Initializes a DeckKeyword with a specified ParserKeyword, double data, and two UnitSystem objects for active and default systems. For this, the keyword must be a data keyword!</p>
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Creates a DeckKeyword with a specified ParserKeyword, double data (as a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a>, and two UnitSystem objects for active and default systems. For this, the keyword must be a data keyword!</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parser_keyword</strong> (<em>ParserKeyword</em>) – The ParserKeyword to initialize the DeckKeyword with.</p></li>
-<li><p><strong>py_data</strong> (<em>array_t</em><em>[</em><em>double</em><em>]</em>) – The double data array.</p></li>
+<li><p><strong>py_data</strong> (<em>numpy.ndarray</em><em>[</em><em>double</em><em>]</em>) – The double data array.</p></li>
 <li><p><strong>active_system</strong> (<em>UnitSystem</em>) – The active UnitSystem to interpret the data.</p></li>
 <li><p><strong>default_system</strong> (<em>UnitSystem</em>) – The default UnitSystem to interpret the data.</p></li>
 </ul>
@@ -1076,23 +1462,23 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id5">
-<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array_t</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
-<dd><p>Initializes a DeckKeyword with a specified ParserKeyword and integer data. For this, the keyword must be a data keyword!</p>
+<dt class="sig sig-object py" id="id6">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Creates a DeckKeyword with a specified ParserKeyword and integer data (as a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a>). For this, the keyword must be a data keyword!</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parser_keyword</strong> (<em>ParserKeyword</em>) – The ParserKeyword to initialize the DeckKeyword with.</p></li>
-<li><p><strong>py_data</strong> (<em>array_t</em><em>[</em><em>int</em><em>]</em>) – The integer data array.</p></li>
+<li><p><strong>py_data</strong> (<em>numpy.ndarray</em><em>[</em><em>int</em><em>]</em>) – The integer data array.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id6">
-<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
-<dd><p>Initializes a DeckKeyword with a specified ParserKeyword, a list of records, and two UnitSystem objects for active and default systems.</p>
+<dt class="sig sig-object py" id="id8">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser_keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ParserKeyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></span><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
+<dd><p>Creates a DeckKeyword with a specified ParserKeyword, a list of records, and two UnitSystem objects for active and default systems.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1163,42 +1549,42 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.get_SI_array">
-<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_SI_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_SI_array" title="Link to this definition"></a></dt>
-<dd><p>Returns the SI double data of the DeckKeyword.</p>
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_SI_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_SI_array" title="Link to this definition"></a></dt>
+<dd><p>Returns the SI double data of the DeckKeyword in a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The SI double data.</p>
 </dd>
 <dt class="field-even">Type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
+<dd class="field-even"><p>numpy.ndarray[double]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.get_int_array">
-<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_int_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_int_array" title="Link to this definition"></a></dt>
-<dd><p>Returns the integer data of the DeckKeyword.</p>
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_int_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_int_array" title="Link to this definition"></a></dt>
+<dd><p>Returns the integer data of the DeckKeyword in a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The integer data.</p>
 </dd>
 <dt class="field-even">Type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
+<dd class="field-even"><p>numpy.ndarray[int]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.get_raw_array">
-<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_raw_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_raw_array" title="Link to this definition"></a></dt>
-<dd><p>Returns the raw doule data of the DeckKeyword.</p>
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">get_raw_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">double</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.get_raw_array" title="Link to this definition"></a></dt>
+<dd><p>Returns the raw doule data of the DeckKeyword in a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">numpy.ndarray</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The raw double data.</p>
 </dd>
 <dt class="field-even">Type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
+<dd class="field-even"><p>numpy.ndarray[double]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1226,7 +1612,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="opm.io.deck.UDAValue.__init__">
 <span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">double</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dimension</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue"><span class="pre">UDAValue</span></a></span></span><a class="headerlink" href="#opm.io.deck.UDAValue.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes a UDA with a double value and a dimension.</p>
+<dd><p>Creates a UDA with a double value and a dimension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1234,19 +1620,31 @@
 <li><p><strong>dimension</strong> (<em>Dimension</em>) – The dimension associated with this UDA.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The UDAValue.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue">UDAValue</a></p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id7">
-<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dimension</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue"><span class="pre">UDAValue</span></a></span></span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
-<dd><p>Initializes a UDA with a string value and a dimension.</p>
+<dt class="sig sig-object py" id="id12">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.UDAValue.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dimension</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue"><span class="pre">UDAValue</span></a></span></span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
+<dd><p>Creates a UDA with a string value and a dimension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>str</em>) – The string value to store.</p></li>
 <li><p><strong>dimension</strong> (<em>Dimension</em>) – The dimension associated with this UDA.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The UDAValue.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#opm.io.deck.UDAValue" title="opm.io.deck.UDAValue">UDAValue</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1333,6 +1731,190 @@
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.ecl.EclFile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.ecl.</span></span><span class="sig-name descname"><span class="pre">EclFile</span></span><a class="headerlink" href="#opm.io.ecl.EclFile" title="Link to this definition"></a></dt>
+<dd><p>Represents a file in the ECL format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.EclFile.__contains__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.EclFile.</span></span><span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.ecl.EclFile.__contains__" title="Link to this definition"></a></dt>
+<dd><p>Checks if the array with the given name exists in the EclFile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name to check for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the array exists, False otherwise.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.EclFile.__get_data">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.EclFile.</span></span><span class="sig-name descname"><span class="pre">__get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">tuple(numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Opm::EclIO::eclArrType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.EclFile.__get_data" title="Link to this definition"></a></dt>
+<dd><p>Retrieves an array of the EclFile by index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tupe of the array and its type.</p>
+</dd>
+</dl>
+<p>:tuple(numpy.ndarray, Opm::EclIO::eclArrType)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.EclFile.</span></span><span class="sig-name descname"><span class="pre">__get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">tuple(numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Opm::EclIO::eclArrType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the first occurence of the array with the given name from the EclFile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tupe of the array and its type.</p>
+</dd>
+</dl>
+<p>:tuple(numpy.ndarray, Opm::EclIO::eclArrType)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.EclFile.</span></span><span class="sig-name descname"><span class="pre">__get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">occurrence:</span> <span class="pre">int)</span> <span class="pre">-&gt;</span> <span class="pre">tuple(numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Opm::EclIO::eclArrType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the given occurence of the array with the given name from the EclFile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name.</p></li>
+<li><p><strong>occurrence</strong> (<em>int</em>) – The occurrence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tupe of the array and its type.</p>
+</dd>
+</dl>
+<p>:tuple(numpy.ndarray, Opm::EclIO::eclArrType)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.EclFile.__init__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.EclFile.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.ecl.EclFile" title="opm.io.ecl.EclFile"><span class="pre">EclFile</span></a></span></span><a class="headerlink" href="#opm.io.ecl.EclFile.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates an EclFile instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – The path to the EclFile.</p></li>
+<li><p><strong>preload</strong> (<em>bool</em>) – Whether to already load the contents of the file.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The EclFile.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#opm.io.ecl.EclFile" title="opm.io.ecl.EclFile">EclFile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.EclFile.__len__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.EclFile.</span></span><span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#opm.io.ecl.EclFile.__len__" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of arrays in the EclFile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of arrays.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.ecl.EclFile.arrays</span> <span class="pre">-&gt;</span> <span class="pre">list[tuple(str,</span> <span class="pre">eclArrType,</span> <span class="pre">int)]</span></span></dt>
+<dd><p>Returns a list of all arrays in the EclFile, where one entry of the list is a tuple containing the array name, the array type and the array size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list the arrays in the EclFile.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[tuple(str, <a class="reference internal" href="#opm.io.ecl.eclArrType" title="opm.io.ecl.eclArrType">eclArrType</a>, int)]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.EclFile.count">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.EclFile.</span></span><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#opm.io.ecl.EclFile.count" title="Link to this definition"></a></dt>
+<dd><p>Returns the total number of arrays with the given name in the EclFile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name to check for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of records.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.ecl.</span></span><span class="sig-name descname"><span class="pre">eclArrType</span></span><a class="headerlink" href="#opm.io.ecl.eclArrType" title="Link to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/enum.html">Python enum</a> with the types of arrays used in the Eclipese file format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType.C0nn">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.eclArrType.</span></span><span class="sig-name descname"><span class="pre">C0nn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.eclArrType.C0nn" title="Link to this definition"></a></dt>
+<dd><p>Represents an array type used for strings with a length &gt; 8 characters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType.CHAR">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.eclArrType.</span></span><span class="sig-name descname"><span class="pre">CHAR</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.eclArrType.CHAR" title="Link to this definition"></a></dt>
+<dd><p>Represents a character array type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType.DOUB">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.eclArrType.</span></span><span class="sig-name descname"><span class="pre">DOUB</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.eclArrType.DOUB" title="Link to this definition"></a></dt>
+<dd><p>Represents a double-precision real array type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType.INTE">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.eclArrType.</span></span><span class="sig-name descname"><span class="pre">INTE</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.eclArrType.INTE" title="Link to this definition"></a></dt>
+<dd><p>Represents an integer array type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType.LOGI">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.eclArrType.</span></span><span class="sig-name descname"><span class="pre">LOGI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.eclArrType.LOGI" title="Link to this definition"></a></dt>
+<dd><p>Represents a boolean array type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType.MESS">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.eclArrType.</span></span><span class="sig-name descname"><span class="pre">MESS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.eclArrType.MESS" title="Link to this definition"></a></dt>
+<dd><p>Represents a data array type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl.eclArrType.REAL">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl.eclArrType.</span></span><span class="sig-name descname"><span class="pre">REAL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.ecl.eclArrType.REAL" title="Link to this definition"></a></dt>
+<dd><p>Represents a single-precision float array type.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -1555,8 +2137,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id9">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id16">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
 <dd><p>Inserts the given keywords into the Schedule at the given report step using the unit system of the Schedule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1569,8 +2151,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id10">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id17">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id17" title="Link to this definition"></a></dt>
 <dd><p>Inserts the given keywords into the Schedule at the given report step using the given unit system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1584,8 +2166,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id11">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id18">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id18" title="Link to this definition"></a></dt>
 <dd><p>Inserts the given keywords into the Schedule at the given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1609,8 +2191,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id12">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id19">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id19" title="Link to this definition"></a></dt>
 <dd><p>Opens a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1648,8 +2230,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id14">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id14" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id21">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id21" title="Link to this definition"></a></dt>
 <dd><p>Shuts down a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1684,8 +2266,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id16">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id23">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id23" title="Link to this definition"></a></dt>
 <dd><p>Stops a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1904,6 +2486,50 @@ The <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A list of strings representing all well names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.summary.SummaryConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.summary.</span></span><span class="sig-name descname"><span class="pre">SummaryConfig</span></span><a class="headerlink" href="#opm.io.summary.SummaryConfig" title="Link to this definition"></a></dt>
+<dd><p>Represents the configuration for the summary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.summary.SummaryConfig.__contains__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.summary.SummaryConfig.</span></span><span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.summary.SummaryConfig.__contains__" title="Link to this definition"></a></dt>
+<dd><p>Checks whether a keyword exists in the SummaryConfig.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The keyword to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the keyword exists, False otherwise.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.summary.SummaryConfig.__init__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.summary.SummaryConfig.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Deck" title="Deck"><span class="pre">Deck</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><span class="pre">EclipseState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><span class="pre">Schedule</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.summary.SummaryConfig" title="opm.io.summary.SummaryConfig"><span class="pre">SummaryConfig</span></a></span></span><a class="headerlink" href="#opm.io.summary.SummaryConfig.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates a SummaryConfig with the provided deck, state, and schedule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>deck</strong> (<a class="reference internal" href="#Deck" title="Deck"><em>Deck</em></a>) – The deck containing simulation data.</p></li>
+<li><p><strong>state</strong> (<a class="reference internal" href="#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><em>EclipseState</em></a>) – The EclipseState containing simulation state.</p></li>
+<li><p><strong>schedule</strong> (<a class="reference internal" href="#opm.io.schedule.Schedule" title="opm.io.schedule.Schedule"><em>Schedule</em></a>) – The schedule for the simulation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new instance of SummaryConfig.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#opm.io.summary.SummaryConfig" title="opm.io.summary.SummaryConfig">SummaryConfig</a></p>
 </dd>
 </dl>
 </dd></dl>
