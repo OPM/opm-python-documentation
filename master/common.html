@@ -99,6 +99,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#EclipseGrid.nz"><code class="docutils literal notranslate"><span class="pre">EclipseGrid.nz()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#EclipseState.config"><code class="docutils literal notranslate"><span class="pre">EclipseState.config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#EclipseState.field_props"><code class="docutils literal notranslate"><span class="pre">EclipseState.field_props()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#EclipseState.grid"><code class="docutils literal notranslate"><span class="pre">EclipseState.grid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#EclipseState.has_input_nnc"><code class="docutils literal notranslate"><span class="pre">EclipseState.has_input_nnc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#EclipseState.tables"><code class="docutils literal notranslate"><span class="pre">EclipseState.tables()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Group.name"><code class="docutils literal notranslate"><span class="pre">Group.name()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Group.num_wells"><code class="docutils literal notranslate"><span class="pre">Group.num_wells()</span></code></a></li>
@@ -194,6 +199,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.ecl_state.EclipseState"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultFaces"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultFaces()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.faultNames"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.faultNames()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.input_nnc"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.input_nnc()</span></code></a></li>
@@ -941,6 +947,76 @@
 </dd>
 <dt class="field-even">Type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseState.config">
+<span class="sig-prename descclassname"><span class="pre">EclipseState.</span></span><span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#EclipseConfig" title="EclipseConfig"><span class="pre">EclipseConfig</span></a></span></span><a class="headerlink" href="#EclipseState.config" title="Link to this definition"></a></dt>
+<dd><p>Returns the configuration for the Eclipse simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The simulation configuration.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#EclipseConfig" title="EclipseConfig">EclipseConfig</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseState.field_props">
+<span class="sig-prename descclassname"><span class="pre">EclipseState.</span></span><span class="sig-name descname"><span class="pre">field_props</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">FieldPropsManager</span></span></span><a class="headerlink" href="#EclipseState.field_props" title="Link to this definition"></a></dt>
+<dd><p>Returns the field properties for the Eclipse simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The field properties for the simulation.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>FieldPropsManager</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseState.grid">
+<span class="sig-prename descclassname"><span class="pre">EclipseState.</span></span><span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#EclipseGrid" title="EclipseGrid"><span class="pre">EclipseGrid</span></a></span></span><a class="headerlink" href="#EclipseState.grid" title="Link to this definition"></a></dt>
+<dd><p>Returns the EclipseGrid used for the Eclipse simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The grid used in the simulation.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#EclipseGrid" title="EclipseGrid">EclipseGrid</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseState.has_input_nnc">
+<span class="sig-prename descclassname"><span class="pre">EclipseState.</span></span><span class="sig-name descname"><span class="pre">has_input_nnc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#EclipseState.has_input_nnc" title="Link to this definition"></a></dt>
+<dd><p>Checks whether the Eclipse simulation contains input for non-neighboring connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the simulation has NNC input, otherwise False.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="EclipseState.tables">
+<span class="sig-prename descclassname"><span class="pre">EclipseState.</span></span><span class="sig-name descname"><span class="pre">tables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">TableManager</span></span></span><a class="headerlink" href="#EclipseState.tables" title="Link to this definition"></a></dt>
+<dd><p>Returns the table manager associated with the Eclipse simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The table manager for the simulation.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>TableManager</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1924,6 +2000,20 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.__init__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deck</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Deck" title="Deck"><span class="pre">Deck</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.ecl_state.EclipseState" title="opm.io.ecl_state.EclipseState"><span class="pre">EclipseState</span></a></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates an EclipseState from the given Deck.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deck</strong> (<a class="reference internal" href="#Deck" title="Deck"><em>Deck</em></a>) – The deck.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The EclipseState.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="opm.io.ecl_state.EclipseState.faultFaces">
 <span class="sig-prename descclassname"><span class="pre">opm.io.ecl_state.EclipseState.</span></span><span class="sig-name descname"><span class="pre">faultFaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fault_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#opm.io.ecl_state.EclipseState.faultFaces" title="Link to this definition"></a></dt>
 <dd><p>Returns a list of faces of a fault with the given name.</p>
@@ -1984,6 +2074,17 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The simulation configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.ecl_state.EclipseState.title</span> <span class="pre">-&gt;</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the title of the EclipseState.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The title.</p>
 </dd>
 </dl>
 </dd></dl>
