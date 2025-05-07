@@ -77,17 +77,15 @@
   <section id="run-opm-flow-from-python">
 <h1>Run OPM Flow from Python<a class="headerlink" href="#run-opm-flow-from-python" title="Link to this heading"></a></h1>
 <p>To run OPM from Python, you need to:</p>
-<ol class="arabic simple">
-<li><p>Compile Flow with python support:</p></li>
-</ol>
+<ol class="arabic">
+<li><p>Compile Flow with Python support:</p>
 <ul class="simple">
-<li><p>Add the cmake flags -DOPM_ENABLE_PYTHON=ON and -DOPM_INSTALL_PYTHON=ON.</p></li>
-<li><p>Optionally add prefix -DCMAKE_INSTALL_PREFIX=/opt/opm to install outside the standard directories.</p></li>
-<li><p>Optionally specify python binary -DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3 if you don’t want to use the system python, e.g. use a python from pyenv or from a conda environment.</p></li>
+<li><p>Add the cmake flags <code class="docutils literal notranslate"><span class="pre">-DOPM_ENABLE_PYTHON=ON</span></code> and <code class="docutils literal notranslate"><span class="pre">-DOPM_INSTALL_PYTHON=ON</span></code> (you can also change these settings in the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> of <code class="docutils literal notranslate"><span class="pre">opm-common</span></code> and <code class="docutils literal notranslate"><span class="pre">opm-simulators</span></code>).</p></li>
+<li><p>Optionally add prefix <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX=/opt/opm</span></code> to install outside the standard directories.</p></li>
+<li><p>Optionally specify Python binary <code class="docutils literal notranslate"><span class="pre">-DPython3_EXECUTABLE=/home/user/miniconda3/envs/rkt/bin/python3</span></code> if you don’t want to use the system Python, e.g. use a Python from pyenv or from a conda environment.</p></li>
 </ul>
-<p>Sample compilation on linux:</p>
+<p>Sample compilation on Linux:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
-
 <span class="nv">flags</span><span class="o">=</span><span class="s2">&quot;-DPython3_EXECUTABLE=/home/hakon/miniconda3/envs/rkt/bin/python3 -DOPM_ENABLE_PYTHON=ON -DOPM_INSTALL_PYTHON=ON -DCMAKE_INSTALL_PREFIX=/opt/opm&quot;</span>
 <span class="k">for</span><span class="w"> </span>repo<span class="w"> </span><span class="k">in</span><span class="w"> </span>opm-common<span class="w"> </span>opm-grid<span class="w"> </span>opm-models<span class="w"> </span>opm-simulators
 <span class="k">do</span>
@@ -102,14 +100,13 @@
 <span class="k">done</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Now you should be able to use the module from a Python script.</p></li>
-</ol>
-<p>If you installed in a non-standard directory by specifying -DCMAKE_INSTALL_PREFIX you may need to set the PYTHONPATH environment variable before running your Python script, for example:</p>
+</li>
+<li><p>Now you should be able to use the module from a Python script.</p>
+<p>If you installed in a non-standard directory by specifying <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX</span></code>, you may need to set the <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable before running your Python script, for example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHONPATH</span><span class="o">=</span>/opt/opm/lib/python3.11/site-packages<span class="w"> </span>python3<span class="w"> </span>spe1case1.py
 </pre></div>
 </div>
-<p>Here, the example script spe1case1.py could be:</p>
+<p>Here, the example script <code class="docutils literal notranslate"><span class="pre">spe1case1.py</span></code> could be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opm.simulators</span> <span class="kn">import</span> <span class="n">BlackOilSimulator</span>
 <span class="kn">from</span> <span class="nn">opm.io.parser</span> <span class="kn">import</span> <span class="n">Parser</span>
 <span class="kn">from</span> <span class="nn">opm.io.ecl_state</span> <span class="kn">import</span> <span class="n">EclipseState</span>
@@ -118,20 +115,23 @@
 
 <span class="n">deck</span>  <span class="o">=</span> <span class="n">Parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;SPE1CASE1.DATA&#39;</span><span class="p">)</span>
 <span class="n">state</span> <span class="o">=</span> <span class="n">EclipseState</span><span class="p">(</span><span class="n">deck</span><span class="p">)</span>
-<span class="n">schedule</span> <span class="o">=</span> <span class="n">Schedule</span><span class="p">(</span> <span class="n">deck</span><span class="p">,</span> <span class="n">state</span> <span class="p">)</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">Schedule</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 <span class="n">summary_config</span> <span class="o">=</span> <span class="n">SummaryConfig</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">schedule</span><span class="p">)</span>
 
 <span class="n">sim</span> <span class="o">=</span> <span class="n">BlackOilSimulator</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">schedule</span><span class="p">,</span> <span class="n">summary_config</span><span class="p">)</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">step_init</span><span class="p">()</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 <span class="n">poro</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">get_porosity</span><span class="p">()</span>
-<span class="n">poro</span> <span class="o">=</span> <span class="n">poro</span> <span class="o">*</span><span class="mf">.95</span>
+<span class="n">poro</span> <span class="o">=</span> <span class="n">poro</span> <span class="o">*</span> <span class="mf">0.95</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">set_porosity</span><span class="p">(</span><span class="n">poro</span><span class="p">)</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 <span class="n">sim</span><span class="o">.</span><span class="n">step_cleanup</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>where you could use the SPE1CASE1.DATA file from <a class="reference external" href="https://github.com/OPM/opm-tests/tree/master/spe1">the opm-test repository</a>.</p>
+<p>You could use the <code class="docutils literal notranslate"><span class="pre">SPE1CASE1.DATA</span></code> file from the <code class="docutils literal notranslate"><span class="pre">opm-tests</span></code> repository:
+<a class="reference external" href="https://github.com/OPM/opm-tests/tree/master/spe1">https://github.com/OPM/opm-tests/tree/master/spe1</a></p>
+</li>
+</ol>
 </section>
 
 

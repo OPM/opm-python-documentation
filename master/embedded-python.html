@@ -88,18 +88,21 @@ This is not so for PYACTION where there is one Python script in which both
 conditions can be evaluated and changes applied.</p>
 <p>See also: PYACTION in the <a class="reference external" href="https://opm-project.org/?page_id=955">reference manual</a> for more information and <a class="reference external" href="https://github.com/OPM/opm-tests/tree/master/pyaction">opm-tests</a> for examples.</p>
 <p>In order to enable the PYACTION keyword:</p>
-<p>1. OPM Flow must be compiled with the cmake switches -DOPM ENABLE EMBEDDED PYTHON=ON and -DOPM ENABLE PYTHON=ON, the default is to build with these switches set to OFF.
-You can also change these settings in the CMakeLists.txt of opm-common.</p>
-<ol class="arabic simple" start="2">
-<li><p>The keyword PYACTION must be added to the SCHEDULE section:</p></li>
+<ol class="arabic simple">
+<li><p>Compile Flow with Embedded Python support:</p>
+<ul class="simple">
+<li><p>Add the cmake flags <code class="docutils literal notranslate"><span class="pre">-DOPM_ENABLE_PYTHON=ON</span></code> and <code class="docutils literal notranslate"><span class="pre">-DOPM_ENABLE_EMBEDDED_PYTHON=ON</span></code> (you can also change these settings in the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> of <code class="docutils literal notranslate"><span class="pre">opm-common</span></code> and <code class="docutils literal notranslate"><span class="pre">opm-simulators</span></code>).</p></li>
+</ul>
+</li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">PYACTION</span>\<span class="n">_NAME</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">SINGLE</span><span class="o">/</span><span class="n">UNLIMITED</span><span class="o">&gt;</span> <span class="o">/</span>
+<ol class="arabic" start="2">
+<li><p>The keyword PYACTION must be added to the SCHEDULE section:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">PYACTION_NAME</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">SINGLE</span><span class="o">/</span><span class="n">UNLIMITED</span><span class="o">&gt;</span> <span class="o">/</span>
 <span class="o">&lt;</span><span class="n">pythonscript</span><span class="o">&gt;</span> <span class="o">/</span> <span class="o">--</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">python</span> <span class="n">script</span><span class="p">,</span> <span class="n">relative</span> <span class="n">to</span> <span class="n">the</span> <span class="n">location</span> <span class="n">of</span> <span class="n">the</span> <span class="n">DATA</span><span class="o">-</span><span class="n">file</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>You need to provide the Python script.</p></li>
-</ol>
+</li>
+<li><p>You need to provide the Python script.</p>
 <p>To interact with the simulator in the embedded Python code, you can access four variables from the simulator:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python module opm_embedded</span>
 <span class="kn">import</span> <span class="nn">opm_embedded</span>
@@ -114,11 +117,13 @@ You can also change these settings in the CMakeLists.txt of opm-common.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>current_ecl_state: An instance of the <a class="reference external" href="common.html#opm.io.ecl_state.EclipseState">EclipseState</a> class - this is a representation of all static properties in the model, ranging from porosity to relperm tables. The content of the ecl state is immutable - you are not allowed to change the static properties at runtime.</p></li>
-<li><p>current_schedule: An instance of the <a class="reference external" href="common.html#opm.io.schedule.Schedule">Schedule</a> class - this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping.</p></li>
-<li><p>current_report_step: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.</p></li>
-<li><p>current_summary_state: An instance of the <a class="reference external" href="common.html#opm.io.sim.SummaryState">SummaryState</a> class, this is where the current summary results of the simulator are stored. The SummaryState class has methods to get hold of well, group and general variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_ecl_state</span></code>: An instance of the <a class="reference external" href="common.html#opm.io.ecl_state.EclipseState">EclipseState</a> class — this is a representation of all static properties in the model, ranging from porosity to relperm tables. The content of the ecl state is immutable — you are not allowed to change the static properties at runtime.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_schedule</span></code>: An instance of the <a class="reference external" href="common.html#opm.io.schedule.Schedule">Schedule</a> class — this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_report_step</span></code>: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_summary_state</span></code>: An instance of the <a class="reference external" href="common.html#opm.io.sim.SummaryState">SummaryState</a> class — this is where the current summary results of the simulator are stored. The <a class="reference external" href="common.html#opm.io.sim.SummaryState">SummaryState</a> class has methods to get hold of well, group, and general variables.</p></li>
 </ul>
+</li>
+</ol>
 </section>
 
 

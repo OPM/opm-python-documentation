@@ -17,39 +17,40 @@ See also: PYACTION in the `reference manual <https://opm-project.org/?page_id=95
 
 In order to enable the PYACTION keyword:
 
-1. OPM Flow must be compiled with the cmake switches -DOPM ENABLE EMBEDDED PYTHON=ON and -DOPM ENABLE PYTHON=ON, the default is to build with these switches set to OFF.
-You can also change these settings in the CMakeLists.txt of opm-common.
+1. Compile Flow with Embedded Python support:
+
+   - Add the cmake flags ``-DOPM_ENABLE_PYTHON=ON`` and ``-DOPM_ENABLE_EMBEDDED_PYTHON=ON`` (you can also change these settings in the ``CMakeLists.txt`` of ``opm-common`` and ``opm-simulators``).
+
+..
 
 2. The keyword PYACTION must be added to the SCHEDULE section:
 
-.. code-block:: python
+   .. code-block:: python
 
-	<PYACTION\_NAME>  <SINGLE/UNLIMITED> /
-	<pythonscript> / -- path to the python script, relative to the location of the DATA-file
+      <PYACTION_NAME>  <SINGLE/UNLIMITED> /
+      <pythonscript> / -- path to the python script, relative to the location of the DATA-file
 
 3. You need to provide the Python script.
 
+   To interact with the simulator in the embedded Python code, you can access four variables from the simulator:
 
-To interact with the simulator in the embedded Python code, you can access four variables from the simulator:
+   .. code-block:: python
 
-.. code-block:: python
+      # Python module opm_embedded
+      import opm_embedded
+      # The current EclipseState
+      ecl_state = opm_embedded.current_ecl_state
+      # The current Schedule
+      schedule = opm_embedded.current_schedule
+      # The current SummaryState
+      summary_state = opm_embedded.current_summary_state
+      # The current report step
+      report_step = opm_embedded.current_report_step
 
-	# Python module opm_embedded
-	import opm_embedded
-	# The current EclipseState
-	ecl_state = opm_embedded.current_ecl_state
-	# The current Schedule
-	schedule = opm_embedded.current_schedule
-	# The current SummaryState
-	summary_state = opm_embedded.current_summary_state
-	# The current report step
-	report_step = opm_embedded.current_report_step 
+   - ``current_ecl_state``: An instance of the `EclipseState <common.html#opm.io.ecl_state.EclipseState>`_ class — this is a representation of all static properties in the model, ranging from porosity to relperm tables. The content of the ecl state is immutable — you are not allowed to change the static properties at runtime.
 
+   - ``current_schedule``: An instance of the `Schedule <common.html#opm.io.schedule.Schedule>`_ class — this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping.
 
-- current_ecl_state: An instance of the `EclipseState <common.html#opm.io.ecl_state.EclipseState>`_ class - this is a representation of all static properties in the model, ranging from porosity to relperm tables. The content of the ecl state is immutable - you are not allowed to change the static properties at runtime.
+   - ``current_report_step``: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.
 
-- current_schedule: An instance of the `Schedule <common.html#opm.io.schedule.Schedule>`_ class - this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping.
-
-- current_report_step: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.
-
-- current_summary_state: An instance of the `SummaryState <common.html#opm.io.sim.SummaryState>`_ class, this is where the current summary results of the simulator are stored. The SummaryState class has methods to get hold of well, group and general variables.
+   - ``current_summary_state``: An instance of the `SummaryState <common.html#opm.io.sim.SummaryState>`_ class — this is where the current summary results of the simulator are stored. The `SummaryState <common.html#opm.io.sim.SummaryState>`_ class has methods to get hold of well, group, and general variables.
