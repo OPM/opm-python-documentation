@@ -13,6 +13,8 @@ the SCHEDULE section when the condition evaluates to true.
 This is not so for PYACTION where there is one Python script in which both
 conditions can be evaluated and changes applied.
 
+See also: PYACTION in the `reference manual <https://opm-project.org/?page_id=955>`_ for more information and `opm-tests <https://github.com/OPM/opm-tests/tree/master/pyaction>`_ for examples.
+
 In order to enable the PYACTION keyword:
 
 1. OPM Flow must be compiled with the cmake switches -DOPM ENABLE EMBEDDED PYTHON=ON and -DOPM ENABLE PYTHON=ON, the default is to build with these switches set to OFF.
@@ -51,5 +53,3 @@ To interact with the simulator in the embedded Python code, you can access four 
 - current_report_step: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.
 
 - current_summary_state: An instance of the `SummaryState <common.html#opm.io.sim.SummaryState>`_ class, this is where the current summary results of the simulator are stored. The SummaryState class has methods to get hold of well, group and general variables.
-
-See also: PYACTION in the `reference manual <https://opm-project.org/?page_id=955>`_ for more information.

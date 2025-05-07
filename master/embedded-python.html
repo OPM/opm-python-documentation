@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Run Python embedded in OPM Flow &mdash; OPM Python Documentation 2025.04-pre documentation</title>
+  <title>Run Python embedded in OPM Flow &mdash; OPM Python Documentation 2025.10-pre documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/_rst_properties.css" type="text/css" />
@@ -14,7 +14,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=e2b3b6d8"></script>
+        <script src="_static/documentation_options.js?v=3ed3d3d8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -86,6 +86,7 @@ action part in the form of a list of keywords which are effectively injected in
 the SCHEDULE section when the condition evaluates to true.
 This is not so for PYACTION where there is one Python script in which both
 conditions can be evaluated and changes applied.</p>
+<p>See also: PYACTION in the <a class="reference external" href="https://opm-project.org/?page_id=955">reference manual</a> for more information and <a class="reference external" href="https://github.com/OPM/opm-tests/tree/master/pyaction">opm-tests</a> for examples.</p>
 <p>In order to enable the PYACTION keyword:</p>
 <p>1. OPM Flow must be compiled with the cmake switches -DOPM ENABLE EMBEDDED PYTHON=ON and -DOPM ENABLE PYTHON=ON, the default is to build with these switches set to OFF.
 You can also change these settings in the CMakeLists.txt of opm-common.</p>
@@ -118,7 +119,6 @@ You can also change these settings in the CMakeLists.txt of opm-common.</p>
 <li><p>current_report_step: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.</p></li>
 <li><p>current_summary_state: An instance of the <a class="reference external" href="common.html#opm.io.sim.SummaryState">SummaryState</a> class, this is where the current summary results of the simulator are stored. The SummaryState class has methods to get hold of well, group and general variables.</p></li>
 </ul>
-<p>See also: PYACTION in the <a class="reference external" href="https://opm-project.org/?page_id=955">reference manual</a> for more information.</p>
 </section>
 
 
