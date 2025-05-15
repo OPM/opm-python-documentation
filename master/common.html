@@ -324,14 +324,13 @@
 <h1>OPM Common Python Documentation<a class="headerlink" href="#opm-common-python-documentation" title="Link to this heading"></a></h1>
 <section id="note-on-import-paths">
 <h2>Note on Import Paths<a class="headerlink" href="#note-on-import-paths" title="Link to this heading"></a></h2>
-<p>In this documentation, some classes are referenced with their full import paths (e.g., opm.io.deck.DeckItem), while others are shown with just the class name. This distinction reflects how these classes are structured within the package:</p>
-<ul class="simple">
-<li><p>Fully Qualified Class Names: Classes displayed with their full import paths can be imported from their respective modules. They have constructors and can be directly instantiated in Python using the __init__ method. For example:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opm.io.deck</span> <span class="kn">import</span> <span class="n">DeckItem</span>
+<p>In this documentation, some classes are referenced with their full import paths (e.g., <a class="reference external" href="common.html#opm.io.ecl.EGrid">opm.io.ecl.EGrid</a>), while others are shown with just the class name. This distinction reflects how these classes are structured within the package:</p>
+<ul>
+<li><p>Fully Qualified Class Names: Classes displayed with their full import paths can be imported from their respective modules. They have constructors and can be directly instantiated in Python using the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opm.io.ecl</span> <span class="kn">import</span> <span class="n">EGrid</span>
 </pre></div>
 </div>
-<ul class="simple">
+</li>
 <li><p>Unqualified Class Names: Classes displayed with just their names, e.g., Connection, do not have constructors in Python and cannot be directly instantiated in Python. Objects of these classes might be return values of methods of other classes.</p></li>
 </ul>
 </section>
