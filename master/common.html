@@ -127,8 +127,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#Well"><code class="docutils literal notranslate"><span class="pre">Well</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Well.available_gctrl"><code class="docutils literal notranslate"><span class="pre">Well.available_gctrl()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Well.connections"><code class="docutils literal notranslate"><span class="pre">Well.connections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.group"><code class="docutils literal notranslate"><span class="pre">Well.group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.guide_rate"><code class="docutils literal notranslate"><span class="pre">Well.guide_rate()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Well.isdefined"><code class="docutils literal notranslate"><span class="pre">Well.isdefined()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.isinjector"><code class="docutils literal notranslate"><span class="pre">Well.isinjector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.isproducer"><code class="docutils literal notranslate"><span class="pre">Well.isproducer()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Well.pos"><code class="docutils literal notranslate"><span class="pre">Well.pos()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Well.status"><code class="docutils literal notranslate"><span class="pre">Well.status()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.OpmLog"><code class="docutils literal notranslate"><span class="pre">opm.io.OpmLog</span></code></a><ul>
@@ -288,6 +293,19 @@
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.ecl_state.EclipseState.tables"><code class="docutils literal notranslate"><span class="pre">opm.io.ecl_state.EclipseState.tables()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.parser.ParseContext"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.ParseContext</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.parser.ParseContext.__init__"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.ParseContext.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.ParseContext.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.parser.ParseContext.ignore_keyword"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.ParseContext.ignore_keyword()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.parser.ParseContext.update"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.ParseContext.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.parser.action"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.action</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.parser.action.ignore"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.action.ignore()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.parser.action.throw"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.action.throw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.parser.action.warn"><code class="docutils literal notranslate"><span class="pre">opm.io.parser.action.warn()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.schedule.Schedule"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__contains__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.__getitem__"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.__getitem__()</span></code></a></li>
@@ -298,15 +316,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.get_wells"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.get_wells()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.insert_keywords"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.insert_keywords()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.open_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.open_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.shut_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.shut_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.stop_well"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.stop_well()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.schedule.Schedule.well_names"><code class="docutils literal notranslate"><span class="pre">opm.io.schedule.Schedule.well_names()</span></code></a></li>
 </ul>
 </li>
@@ -331,9 +349,9 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.util.EModel"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#opm.util.EModel.__add_filter"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__add_filter()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id44"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__add_filter()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id45"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__add_filter()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id46"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__add_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id47"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__add_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id48"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__add_filter()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.util.EModel.__contains__"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__contains__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.util.EModel.__init__"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.util.EModel.active_cells"><code class="docutils literal notranslate"><span class="pre">opm.util.EModel.active_cells()</span></code></a></li>
@@ -1280,6 +1298,28 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="Well.group">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#Well.group" title="Link to this definition"></a></dt>
+<dd><p>Returns the name of the group the well belongs to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The group name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Well.guide_rate">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">guide_rate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#Well.guide_rate" title="Link to this definition"></a></dt>
+<dd><p>Returns the guide rate for the well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The guide rate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="Well.isdefined">
 <span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">isdefined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Well.isdefined" title="Link to this definition"></a></dt>
 <dd><p>Checks if the well is defined at a specific report step.</p>
@@ -1294,12 +1334,67 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="Well.isinjector">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">isinjector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Well.isinjector" title="Link to this definition"></a></dt>
+<dd><p>Checks whether the well is configured as an injector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the well is an injector, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Well.isproducer">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">isproducer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Well.isproducer" title="Link to this definition"></a></dt>
+<dd><p>Checks whether the well is configured as a producer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the well is a producer, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Well.name</span> <span class="pre">-&gt;</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the name of the well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The well name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="Well.pos">
 <span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#Well.pos" title="Link to this definition"></a></dt>
 <dd><p>Retrieves the position of the well.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A tuple containing the (i, j) coordinates and the reference depth of the well.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Well.preferred_phase</span> <span class="pre">-&gt;</span> <span class="pre">str</span></span></dt>
+<dd><p>Returns the preferred phase (e.g., oil, gas, water) for the well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The preferred phase.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Well.status">
+<span class="sig-prename descclassname"><span class="pre">Well.</span></span><span class="sig-name descname"><span class="pre">status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#Well.status" title="Link to this definition"></a></dt>
+<dd><p>Returns the operational status of the well, i.e., OPEN, SHUT, AUTO or STOP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The well status.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3310,6 +3405,92 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="opm.io.parser.ParseContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.parser.</span></span><span class="sig-name descname"><span class="pre">ParseContext</span></span><a class="headerlink" href="#opm.io.parser.ParseContext" title="Link to this definition"></a></dt>
+<dd><p>The ParseContext class manages how input parsing errors are handled for specific keywords.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.parser.ParseContext.__init__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.parser.ParseContext.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.parser.ParseContext" title="opm.io.parser.ParseContext"><span class="pre">ParseContext</span></a></span></span><a class="headerlink" href="#opm.io.parser.ParseContext.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates an empty ParseContext with default error handling behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ParseContext</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id28">
+<span class="sig-prename descclassname"><span class="pre">opm.io.parser.ParseContext.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#opm.io.parser.action" title="opm.io.parser.action"><span class="pre">action</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id28" title="Link to this definition"></a></dt>
+<dd><p>Initializes a ParseContext with a list of specific error handling actions for the given keyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action_list</strong> (<em>list</em><em>[</em><em>tuple</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#opm.io.parser.action" title="opm.io.parser.action"><em>action</em></a><em>]</em><em>]</em>) – A list of (keyword, action) pairs specifying how to handle errors for a keyword, wildcards ‘*’ are possible in the keyword.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ParseContext</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.parser.ParseContext.ignore_keyword">
+<span class="sig-prename descclassname"><span class="pre">opm.io.parser.ParseContext.</span></span><span class="sig-name descname"><span class="pre">ignore_keyword</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.parser.ParseContext.ignore_keyword" title="Link to this definition"></a></dt>
+<dd><p>Instructs the parser to ignore the specified keyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The keyword to ignore.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.parser.ParseContext.update">
+<span class="sig-prename descclassname"><span class="pre">opm.io.parser.ParseContext.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#opm.io.parser.action" title="opm.io.parser.action"><span class="pre">action</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#opm.io.parser.ParseContext.update" title="Link to this definition"></a></dt>
+<dd><p>Updates the error handling behavior for a specific keyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keyword</strong> (<em>str</em>) – The keyword to update, wildcards ‘*’ are possible in the keyword.</p></li>
+<li><p><strong>action</strong> (<a class="reference internal" href="#opm.io.parser.action" title="opm.io.parser.action"><em>action</em></a>) – The error handling action to associate with the keyword.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.parser.action">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.parser.</span></span><span class="sig-name descname"><span class="pre">action</span></span><a class="headerlink" href="#opm.io.parser.action" title="Link to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/enum.html">Python enum</a> with the types of input errors for parsing a file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.parser.action.ignore">
+<span class="sig-prename descclassname"><span class="pre">opm.io.parser.action.</span></span><span class="sig-name descname"><span class="pre">ignore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.parser.action.ignore" title="Link to this definition"></a></dt>
+<dd><p>Silently ignore the parsing error.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.parser.action.throw">
+<span class="sig-prename descclassname"><span class="pre">opm.io.parser.action.</span></span><span class="sig-name descname"><span class="pre">throw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.parser.action.throw" title="Link to this definition"></a></dt>
+<dd><p>Raise an exception when a parsing error occurs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.parser.action.warn">
+<span class="sig-prename descclassname"><span class="pre">opm.io.parser.action.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#opm.io.parser.action.warn" title="Link to this definition"></a></dt>
+<dd><p>Issue a warning when a parsing error occurs, but continue.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="opm.io.schedule.Schedule">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.schedule.</span></span><span class="sig-name descname"><span class="pre">Schedule</span></span><a class="headerlink" href="#opm.io.schedule.Schedule" title="Link to this definition"></a></dt>
 <dd><p>The Schedule class - this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping.</p>
@@ -3457,8 +3638,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id30">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id30" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id32">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id32" title="Link to this definition"></a></dt>
 <dd><p>Inserts the given keywords into the Schedule at the given report step using the unit system of the Schedule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3471,8 +3652,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id31">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id31" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id33">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_system</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UnitSystem</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id33" title="Link to this definition"></a></dt>
 <dd><p>Inserts the given keywords into the Schedule at the given report step using the given unit system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3486,8 +3667,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id32">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id32" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id34">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">insert_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id34" title="Link to this definition"></a></dt>
 <dd><p>Inserts the given keywords into the Schedule at the given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3511,8 +3692,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id33">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id33" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id35">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">open_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id35" title="Link to this definition"></a></dt>
 <dd><p>Opens a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3550,8 +3731,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id35">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id35" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id37">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">shut_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id37" title="Link to this definition"></a></dt>
 <dd><p>Shuts down a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3586,8 +3767,8 @@ The content of the EclipseState is immutable and may not be changed at runtime.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id37">
-<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id37" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id39">
+<span class="sig-prename descclassname"><span class="pre">opm.io.schedule.Schedule.</span></span><span class="sig-name descname"><span class="pre">stop_well</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">well_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id39" title="Link to this definition"></a></dt>
 <dd><p>Stops a well at a given report step.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3877,8 +4058,8 @@ The <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id44">
-<span class="sig-prename descclassname"><span class="pre">opm.util.EModel.</span></span><span class="sig-name descname"><span class="pre">__add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id44" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id46">
+<span class="sig-prename descclassname"><span class="pre">opm.util.EModel.</span></span><span class="sig-name descname"><span class="pre">__add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id46" title="Link to this definition"></a></dt>
 <dd><p>Adds an integer filter with two bounds, i.e., a range filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3893,8 +4074,8 @@ The <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id45">
-<span class="sig-prename descclassname"><span class="pre">opm.util.EModel.</span></span><span class="sig-name descname"><span class="pre">__add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id45" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id47">
+<span class="sig-prename descclassname"><span class="pre">opm.util.EModel.</span></span><span class="sig-name descname"><span class="pre">__add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id47" title="Link to this definition"></a></dt>
 <dd><p>Adds a float filter with a single value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3908,8 +4089,8 @@ The <a class="reference external" href="#opm.io.sim.SummaryState">SummaryState</
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id46">
-<span class="sig-prename descclassname"><span class="pre">opm.util.EModel.</span></span><span class="sig-name descname"><span class="pre">__add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id46" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id48">
+<span class="sig-prename descclassname"><span class="pre">opm.util.EModel.</span></span><span class="sig-name descname"><span class="pre">__add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id48" title="Link to this definition"></a></dt>
 <dd><p>Adds an integer filter with a single value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
