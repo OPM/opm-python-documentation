@@ -54,3 +54,118 @@ In order to enable the PYACTION keyword:
    - ``current_report_step``: This is an integer for the report step we are currently working on. Observe that the PYACTION is called for every simulator timestep, i.e. it will typically be called multiple times with the same value for the report step argument.
 
    - ``current_summary_state``: An instance of the `SummaryState <common.html#opm.io.sim.SummaryState>`_ class — this is where the current summary results of the simulator are stored. The `SummaryState <common.html#opm.io.sim.SummaryState>`_ class has methods to get hold of well, group, and general variables.
+
+
+Stateful behavior using Python classes
+--------------------------------------
+
+In the below code snippet, we use a ``WellController`` class to manage production wells by tracking their status and simulation timing.
+We create one instance of the WellController and use its internal state across multiple timesteps and PYACTION calls.
+
+.. code-block:: python
+
+   import opm_embedded
+   from datetime import datetime, timedelta
+
+   # Check if the setup has already been done to avoid reinitialization
+   if 'setup_done' not in locals():
+       # Target oil production rate in standard units (e.g., stb/day)
+       OIL_RATE_TARGET = 8000
+       # Minimum time in days between opening new wells
+       MIN_DAYS_BETWEEN_OPENINGS = 50
+
+       class WellController:
+           """
+           A controller to manage the opening of production wells based on
+           oil rate targets and elapsed simulation time.
+
+           Attributes:
+               closed_wells (list[str]): List of wells yet to be opened.
+               last_opening_time (datetime): Simulation time of the last well opening.
+                                             Initially, this is set to the simulation start time.
+           """
+           def __init__(self, well_names, start_time):
+               """
+               Initialize the WellController.
+
+               Args:
+                   well_names (list[str]): Names of wells to be controlled.
+                   start_time (datetime): Simulation start time.
+               """
+               self.closed_wells = list(well_names)
+               self.last_opening_time = start_time
+
+           def update(self, current_oil_rate, current_time):
+               """
+               Evaluate the current oil production and determine whether to open
+               a new well based on the target rate and time since the last opening.
+
+               Args:
+                   current_oil_rate (float): The current oil rate.
+                   current_time (datetime): Current simulation time.
+               """
+               days_since_last_opening = (current_time - self.last_opening_time).days
+
+               if (current_oil_rate < OIL_RATE_TARGET and
+                   days_since_last_opening >= MIN_DAYS_BETWEEN_OPENINGS and
+                   len(self.closed_wells) > 0):
+
+                   next_well = self.closed_wells.pop(0)
+                   self.last_opening_time = current_time
+
+                   schedule.open_well(next_well)
+                   opm_embedded.OpmLog.info(f"Opened well {next_well}")
+
+           def set_next_dt(self, current_time):
+               """
+               Insert the NEXTSTEP keyword to control the simulator's timestep,
+               adjusting based on whether a well was just opened.
+
+               Args:
+                   current_time (datetime): Current simulation time.
+               """
+               if self.closed_wells:
+                   days_since_last_opening = (current_time - self.last_opening_time).days
+                   if days_since_last_opening >= MIN_DAYS_BETWEEN_OPENINGS:
+                       next_dt = 10.0
+                   else:
+                       next_dt = 50.0
+                   kw = f"""
+                   NEXTSTEP
+                   {next_dt} /
+                   """
+                   schedule.insert_keywords(kw)
+
+       # Instantiate the controller with a list of wells and simulation start time
+       # This controller will be instatiated once and be used in all following PYACTION calls.
+       controller = WellController(well_names=['PROD01', 'PROD02'],
+                     start_time=opm_embedded.current_schedule.start)
+       setup_done = True
+
+   # Retrieve current simulation components from the OPM embedded module
+   schedule = opm_embedded.current_schedule
+   report_step = opm_embedded.current_report_step
+   summary_state = opm_embedded.current_summary_state
+
+   # Compute the current simulation time
+   current_time = schedule.start + timedelta(seconds=summary_state.elapsed())
+   current_oil_rate = summary_state.group_var('P', 'GOPR')
+
+   # Update well control logic based on current state
+   controller.update(current_oil_rate, current_time)
+   # Set the next simulation step duration
+   controller.set_next_dt(current_time)
+
+   # Optional logs to track the status of the two wells:
+   # opm_embedded.OpmLog.info("PROD01: {}".format(schedule.get_well("PROD01", report_step).status()))
+   # opm_embedded.OpmLog.info("PROD02: {}".format(schedule.get_well("PROD02", report_step).status()))
+
+Use this code snippet with the example `MSW-3D-TWO-PRODUCERS <https://github.com/OPM/opm-tests/blob/master/msw/MSW-3D-TWO-PRODUCERS.DATA>`_ by saving the file as ``wellcontroller.py`` at the same location as ``MSW-3D-TWO-PRODUCERS.DATA`` and adding
+
+.. code-block:: none
+
+   PYACTION
+   WELLCONTROLLER UNLIMITED /
+   'wellcontroller.py' /
+
+to the ``SCHEDULE`` section of ``MSW-3D-TWO-PRODUCERS.DATA``.

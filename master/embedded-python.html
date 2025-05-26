@@ -45,7 +45,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="flow-in-python.html">Run OPM Flow from Python</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Run Python embedded in OPM Flow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run Python embedded in OPM Flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#stateful-behavior-using-python-classes">Stateful behavior using Python classes</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="common.html">OPM Common Python Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simulators.html">OPM Simulators Python Documentation</a></li>
 </ul>
@@ -124,6 +127,115 @@ conditions can be evaluated and changes applied.</p>
 </ul>
 </li>
 </ol>
+<section id="stateful-behavior-using-python-classes">
+<h2>Stateful behavior using Python classes<a class="headerlink" href="#stateful-behavior-using-python-classes" title="Link to this heading"></a></h2>
+<p>In the below code snippet, we use a <code class="docutils literal notranslate"><span class="pre">WellController</span></code> class to manage production wells by tracking their status and simulation timing.
+We create one instance of the WellController and use its internal state across multiple timesteps and PYACTION calls.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">opm_embedded</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="c1"># Check if the setup has already been done to avoid reinitialization</span>
+<span class="k">if</span> <span class="s1">&#39;setup_done&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+    <span class="c1"># Target oil production rate in standard units (e.g., stb/day)</span>
+    <span class="n">OIL_RATE_TARGET</span> <span class="o">=</span> <span class="mi">8000</span>
+    <span class="c1"># Minimum time in days between opening new wells</span>
+    <span class="n">MIN_DAYS_BETWEEN_OPENINGS</span> <span class="o">=</span> <span class="mi">50</span>
+
+    <span class="k">class</span> <span class="nc">WellController</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A controller to manage the opening of production wells based on</span>
+<span class="sd">        oil rate targets and elapsed simulation time.</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            closed_wells (list[str]): List of wells yet to be opened.</span>
+<span class="sd">            last_opening_time (datetime): Simulation time of the last well opening.</span>
+<span class="sd">                                          Initially, this is set to the simulation start time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">well_names</span><span class="p">,</span> <span class="n">start_time</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Initialize the WellController.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                well_names (list[str]): Names of wells to be controlled.</span>
+<span class="sd">                start_time (datetime): Simulation start time.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">closed_wells</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">well_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_opening_time</span> <span class="o">=</span> <span class="n">start_time</span>
+
+        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_oil_rate</span><span class="p">,</span> <span class="n">current_time</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Evaluate the current oil production and determine whether to open</span>
+<span class="sd">            a new well based on the target rate and time since the last opening.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                current_oil_rate (float): The current oil rate.</span>
+<span class="sd">                current_time (datetime): Current simulation time.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">days_since_last_opening</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_opening_time</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">current_oil_rate</span> <span class="o">&lt;</span> <span class="n">OIL_RATE_TARGET</span> <span class="ow">and</span>
+                <span class="n">days_since_last_opening</span> <span class="o">&gt;=</span> <span class="n">MIN_DAYS_BETWEEN_OPENINGS</span> <span class="ow">and</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">closed_wells</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+
+                <span class="n">next_well</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed_wells</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">last_opening_time</span> <span class="o">=</span> <span class="n">current_time</span>
+
+                <span class="n">schedule</span><span class="o">.</span><span class="n">open_well</span><span class="p">(</span><span class="n">next_well</span><span class="p">)</span>
+                <span class="n">opm_embedded</span><span class="o">.</span><span class="n">OpmLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Opened well </span><span class="si">{</span><span class="n">next_well</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">set_next_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_time</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Insert the NEXTSTEP keyword to control the simulator&#39;s timestep,</span>
+<span class="sd">            adjusting based on whether a well was just opened.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                current_time (datetime): Current simulation time.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed_wells</span><span class="p">:</span>
+                <span class="n">days_since_last_opening</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_opening_time</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+                <span class="k">if</span> <span class="n">days_since_last_opening</span> <span class="o">&gt;=</span> <span class="n">MIN_DAYS_BETWEEN_OPENINGS</span><span class="p">:</span>
+                    <span class="n">next_dt</span> <span class="o">=</span> <span class="mf">10.0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">next_dt</span> <span class="o">=</span> <span class="mf">50.0</span>
+                <span class="n">kw</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                NEXTSTEP</span>
+<span class="s2">                </span><span class="si">{</span><span class="n">next_dt</span><span class="si">}</span><span class="s2"> /</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+                <span class="n">schedule</span><span class="o">.</span><span class="n">insert_keywords</span><span class="p">(</span><span class="n">kw</span><span class="p">)</span>
+
+    <span class="c1"># Instantiate the controller with a list of wells and simulation start time</span>
+    <span class="c1"># This controller will be instatiated once and be used in all following PYACTION calls.</span>
+    <span class="n">controller</span> <span class="o">=</span> <span class="n">WellController</span><span class="p">(</span><span class="n">well_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PROD01&#39;</span><span class="p">,</span> <span class="s1">&#39;PROD02&#39;</span><span class="p">],</span>
+                  <span class="n">start_time</span><span class="o">=</span><span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_schedule</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+    <span class="n">setup_done</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Retrieve current simulation components from the OPM embedded module</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_schedule</span>
+<span class="n">report_step</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_report_step</span>
+<span class="n">summary_state</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_summary_state</span>
+
+<span class="c1"># Compute the current simulation time</span>
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">schedule</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">summary_state</span><span class="o">.</span><span class="n">elapsed</span><span class="p">())</span>
+<span class="n">current_oil_rate</span> <span class="o">=</span> <span class="n">summary_state</span><span class="o">.</span><span class="n">group_var</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;GOPR&#39;</span><span class="p">)</span>
+
+<span class="c1"># Update well control logic based on current state</span>
+<span class="n">controller</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">current_oil_rate</span><span class="p">,</span> <span class="n">current_time</span><span class="p">)</span>
+<span class="c1"># Set the next simulation step duration</span>
+<span class="n">controller</span><span class="o">.</span><span class="n">set_next_dt</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+
+<span class="c1"># Optional logs to track the status of the two wells:</span>
+<span class="c1"># opm_embedded.OpmLog.info(&quot;PROD01: {}&quot;.format(schedule.get_well(&quot;PROD01&quot;, report_step).status()))</span>
+<span class="c1"># opm_embedded.OpmLog.info(&quot;PROD02: {}&quot;.format(schedule.get_well(&quot;PROD02&quot;, report_step).status()))</span>
+</pre></div>
+</div>
+<p>Use this code snippet with the example <a class="reference external" href="https://github.com/OPM/opm-tests/blob/master/msw/MSW-3D-TWO-PRODUCERS.DATA">MSW-3D-TWO-PRODUCERS</a> by saving the file as <code class="docutils literal notranslate"><span class="pre">wellcontroller.py</span></code> at the same location as <code class="docutils literal notranslate"><span class="pre">MSW-3D-TWO-PRODUCERS.DATA</span></code> and adding</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PYACTION
+WELLCONTROLLER UNLIMITED /
+&#39;wellcontroller.py&#39; /
+</pre></div>
+</div>
+<p>to the <code class="docutils literal notranslate"><span class="pre">SCHEDULE</span></code> section of <code class="docutils literal notranslate"><span class="pre">MSW-3D-TWO-PRODUCERS.DATA</span></code>.</p>
+</section>
 </section>
 
 
