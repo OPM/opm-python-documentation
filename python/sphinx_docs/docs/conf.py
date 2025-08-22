@@ -24,13 +24,21 @@ def extract_opm_simulators_release(version_file_path):
     except Exception:
         return "unknown"  # Fallback version
 
+# Determine JSON file location based on branch type
+# This prefix is used to set opm_simulators_docstrings_path and opm_common_docstrings_path below,
+# which are passed through Sphinx's config system to the sphinx_ext_docstrings extension.
+# The extension reads these paths to load JSON files and generate documentation.
+#
+# Branch handling for sphinx-versioned multi-version builds:
+# - Release branches (release-*): Use committed JSON snapshots in python/
+# - All other branches: Use downloaded master JSON files in python/master-tmp/
+#   This includes master itself and development branches, ensuring they all use
+#   the latest master JSON files without interfering with release snapshots.
 branch = get_git_branch()
-print(branch)
-if branch == "master":
-    prefix = "../../master-tmp"
-else:
+if branch.startswith("release-"):
     prefix = "../../"
-release = extract_opm_simulators_release(os.path.join(prefix, "dune.module"))
+else:
+    prefix = "../../master-tmp"
 
 # -- General configuration ---------------------------------------------------
 import sys
