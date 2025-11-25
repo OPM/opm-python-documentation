@@ -22,6 +22,12 @@ jobs:
         - name: Create tmp directories for master
           run: |
             mkdir python/master-tmp
+        # Download master JSON files to master-tmp/ directory
+        # This supports sphinx-versioned multi-version documentation builds:
+        # - sphinx-versioned builds docs for multiple branches (master, release-*, current branch)
+        # - Each branch version looks for JSON files in different locations (see conf.py)
+        # - master-tmp/ provides a shared location for current master JSON files that doesn't
+        #   interfere with committed release snapshots in python/ directory
         - name: Get docstrings_common.json from master branch of opm-common
           run: |
             curl -L -o python/master-tmp/docstrings_common.json https://raw.githubusercontent.com/OPM/opm-common/master/python/docstrings_common.json
