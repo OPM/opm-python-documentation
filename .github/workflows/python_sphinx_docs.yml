@@ -53,19 +53,20 @@ jobs:
             mkdir gh-pages
             touch gh-pages/.nojekyll
             cd sphinx_docs
-            # To add a new relase to this build system:
+            # To add a new release to this build system:
             # - add the respective branch <your-new-release> on this repository, replace the slashes "/" by dashes "-"
             #   (slashes mess with the navigation html created by sphinx-versioned)
             # - take a snapshot of https://raw.githubusercontent.com/OPM/opm-common/<your-new-release>/python/docstrings_common.json,
             #   https://raw.githubusercontent.com/OPM/opm-simulators/<your-new-release>/python/docstrings_simulators.json and
             #   https://raw.githubusercontent.com/OPM/opm-simulators/<your-new-release>/dune.module and put them
             #   in the python folder on that branch
-            # - add the respective branch <your-new-release> in the command below
-            if [ "${{ github.ref_name }}" == "master" ]; then
-              poetry run sphinx-versioned -m master -b "master release-2025.04" --force --git-root ../../
-            else
-              poetry run sphinx-versioned -m master -b "${{ github.ref_name }} master release-2025.04" --force --git-root ../../
-            fi
+            # Once created, the script below will automatically detect and include the new release branch
+
+            # Dynamically determine which branches to build documentation for
+            # This allows the workflow to work on forks that may not have all release branches
+            BRANCHES=$(../scripts/get_doc_branches.sh "${{ github.ref_name }}")
+            echo "Building documentation for branches: $BRANCHES"
+            poetry run sphinx-versioned -m master -b "$BRANCHES" --force --git-root ../../
         - name: Copy documentation to gh-pages
           run: |
             cp -r python/sphinx_docs/docs/_build/* python/gh-pages
