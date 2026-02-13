@@ -4,9 +4,15 @@ on:
     push:
         branches:
           - '**'
-    pull_request_target:
-        types: closed
-        branches: master
+    # Use pull_request (not pull_request_target) to build-test docs on PRs targeting master.
+    # When a PR is merged, only the 'push' event triggers deployment to gh-pages.
+    # Using pull_request_target here previously caused a race condition: merging a PR fired
+    # both 'push' and 'pull_request_target' simultaneously, producing two concurrent runs
+    # that both tried to force-push to gh-pages. The loser would fail with:
+    #   "cannot lock ref 'refs/heads/gh-pages': is at <new-sha> but expected <old-sha>"
+    # See: https://github.com/OPM/opm-python-documentation/actions/runs/21938360885
+    pull_request:
+        branches: [master]
     repository_dispatch:
       types: [docstrings_common_updated, docstrings_simulators_updated]
 permissions:
