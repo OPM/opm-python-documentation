@@ -70,7 +70,11 @@ jobs:
 
             # Dynamically determine which branches to build documentation for
             # This allows the workflow to work on forks that may not have all release branches
-            BRANCHES=$(../scripts/get_doc_branches.sh "${{ github.ref_name }}")
+            # For pull_request events, github.ref_name is the merge ref (e.g. "21/merge"),
+            # not a real branch. Use github.base_ref (the PR target branch, e.g. "master")
+            # instead, falling back to github.ref_name for push/dispatch events where
+            # github.base_ref is empty.
+            BRANCHES=$(../scripts/get_doc_branches.sh "${{ github.base_ref || github.ref_name }}")
             echo "Building documentation for branches: $BRANCHES"
             poetry run sphinx-versioned -m master -b "$BRANCHES" --force --git-root ../../
         - name: Copy documentation to gh-pages
