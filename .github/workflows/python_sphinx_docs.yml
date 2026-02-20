@@ -4,9 +4,15 @@ on:
     push:
         branches:
           - '**'
-    pull_request_target:
-        types: closed
-        branches: master
+    # Use pull_request (not pull_request_target) to build-test docs on PRs targeting master.
+    # When a PR is merged, only the 'push' event triggers deployment to gh-pages.
+    # Using pull_request_target here previously caused a race condition: merging a PR fired
+    # both 'push' and 'pull_request_target' simultaneously, producing two concurrent runs
+    # that both tried to force-push to gh-pages. The loser would fail with:
+    #   "cannot lock ref 'refs/heads/gh-pages': is at <new-sha> but expected <old-sha>"
+    # See: https://github.com/OPM/opm-python-documentation/actions/runs/21938360885
+    pull_request:
+        branches: [master]
     repository_dispatch:
       types: [docstrings_common_updated, docstrings_simulators_updated]
 permissions:
@@ -64,7 +70,11 @@ jobs:
 
             # Dynamically determine which branches to build documentation for
             # This allows the workflow to work on forks that may not have all release branches
-            BRANCHES=$(../scripts/get_doc_branches.sh "${{ github.ref_name }}")
+            # For pull_request events, github.ref_name is the merge ref (e.g. "21/merge"),
+            # not a real branch. Use github.base_ref (the PR target branch, e.g. "master")
+            # instead, falling back to github.ref_name for push/dispatch events where
+            # github.base_ref is empty.
+            BRANCHES=$(../scripts/get_doc_branches.sh "${{ github.base_ref || github.ref_name }}")
             echo "Building documentation for branches: $BRANCHES"
             poetry run sphinx-versioned -m master -b "$BRANCHES" --force --git-root ../../
         - name: Copy documentation to gh-pages
