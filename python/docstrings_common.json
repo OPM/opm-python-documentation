@@ -1,0 +1,1347 @@
+{
+    "SummaryStateClass":{
+        "type": "class",
+        "signature": "opm.io.sim.SummaryState",
+        "doc": "The `SummaryState <#opm.io.sim.SummaryState>`_ class - this is where the current summary results of the simulator are stored.\nThe `SummaryState <#opm.io.sim.SummaryState>`_ class has methods to get hold of well, group and general variables."
+    },
+    "SummaryState_update": {
+        "signature": "opm.io.sim.SummaryState.update(variable_name: str, value: double) -> None",
+        "doc": "Updates or increments the given variable of the `SummaryState <#opm.io.sim.SummaryState>`_, depending on whether the variable is cumulative or not. The variable must already exist in the `SummaryState <#opm.io.sim.SummaryState>`_ for this. \n\n:param variable_name: The name of the variable to update or increment.\n:type variable_name: str\n:param value: The value to set or increment the variable by.\n:type value: double"
+    },
+    "SummaryState_update_well_var": {
+        "signature": "opm.io.sim.SummaryState.update_well_var(well_name: str, variable_name: str, new_value: double) -> None",
+        "doc": "Updates the variable of a well.\n\n:param well_name: The name of the well.\n:type well_name: str\n:param variable_name: The name of the variable to update.\n:type variable_name: str\n:param new_value: The new value of the variable.\n:type new_value: double"
+    },
+    "SummaryState_update_group_var": {
+        "signature": "opm.io.sim.SummaryState.update_group_var(group_name: str, variable_name: str, new_value: double) -> None",
+        "doc": "Updates the variable of a group.\n\n:param group_name: The name of the group.\n:type group_name: str\n:param variable_name: The name of the variable to update.\n:type variable_name: str\n:param new_value: The new value of the variable.\n:type new_value: double"
+    },
+    "SummaryState_well_var": {
+        "signature": "opm.io.sim.SummaryState.well_var(well_name: str, variable_name: str) -> double",
+        "doc": "Gets the value of a variable for a well.\n\n:param well_name: The name of the well.\n:type well_name: str\n:param variable_name: The name of the variable to retrieve.\n:type variable_name: str\n\n:return: The value of the specified variable for the well. \n:type return: double"
+    },
+    "SummaryState_group_var": {
+        "signature": "opm.io.sim.SummaryState.group_var(group_name: str, variable_name: str) -> double",
+        "doc": "Gets the value of a variable for a group.\n\n:param group_name: The name of the group.\n:type group_name: str\n:param variable_name: The name of the variable to retrieve.\n:type variable_name: str\n\n:return: The value of the specified variable for the group. \n:type return: double"
+    },
+    "SummaryState_elapsed": {
+        "signature": "opm.io.sim.SummaryState.elapsed() -> double",
+        "doc": "Returns the elapsed time in seconds of the current simulation.\n\n:return: The elapsed time in seconds. \n:type return: double"
+    },
+    "SummaryState_groups": {
+        "signature": "opm.io.sim.SummaryState.groups -> list",
+        "doc": "Returns a list of strings containing all group names.\n\n:return: A list of strings representing all group names. \n:type return: list"
+    },
+    "SummaryState_wells": {
+        "signature": "opm.io.sim.SummaryState.wells -> list",
+        "doc": "Returns a list of strings containing all well names.\n\n:return: A list of strings representing all well names. \n:type return: list"
+    },
+    "SummaryState_contains": {
+        "signature": "opm.io.sim.SummaryState.__contains__(variable_name: str) -> bool",
+        "doc": "Checks if a variable exists in the `SummaryState <#opm.io.sim.SummaryState>`_.\n\n:param variable_name: The name of the variable to check.\n:type variable_name: str\n\n:return: True if the variable exists, False otherwise. \n:type return: bool"
+    },
+    "SummaryState_has_well_var": {
+        "signature": "opm.io.sim.SummaryState.has_well_var(well_name: str, variable_name: str) -> bool",
+        "doc": "Checks if a well variable exists.\n\n:param well_name: The name of the well.\n:type well_name: str\n:param variable_name: The name of the variable to check.\n:type variable_name: str\n\n:return: True if the variable exists for the well, False otherwise. \n:type return: bool"
+    },
+    "SummaryState_has_group_var": {
+        "signature": "opm.io.sim.SummaryState.has_group_var(group_name: str, variable_name: str) -> bool",
+        "doc": "Checks if a group variable exists.\n\n:param group_name: The name of the group.\n:type group_name: str\n:param variable_name: The name of the variable to check.\n:type variable_name: str\n\n:return: True if the variable exists for the group, False otherwise. \n:type return: bool"
+    },
+    "SummaryState_setitem": {
+        "signature": "opm.io.sim.SummaryState.__setitem__(variable_name: str, new_value: double) -> None",
+        "doc": "Updates or insert the variable of the `SummaryState <#opm.io.sim.SummaryState>`_.\n\n:param variable_name: The name of the variable to update or insert.\n:type variable_name: str\n:param new_value: The new value of the variable.\n:type new_value: double"
+    },
+    "SummaryState_getitem": {
+        "signature": "opm.io.sim.SummaryState.__getitem__(variable_name: str) -> double",
+        "doc": "Gets the value of a variable of the `SummaryState <#opm.io.sim.SummaryState>`_.\n\n:param variable_name: The name of the variable to retrieve.\n:type variable_name: str\n\n:return: The value of the specified variable for the well. \n:type return: double"
+    },
+    "EclipseStateClass": {
+        "type": "class",
+        "signature": "opm.io.ecl_state.EclipseState",
+        "doc": "The EclipseState class - this is a representation of all static properties in the model, ranging from porosity to relperm tables.\nThe content of the EclipseState is immutable and may not be changed at runtime."
+    },
+    "EclipseState_init": {
+        "signature": "opm.io.ecl_state.EclipseState.__init__(deck: Deck) -> None",
+        "doc": "Creates an EclipseState from the given Deck.\n\n:param deck: The deck.\n:type deck: Deck"
+    },
+    "EclipseState_title": {
+        "signature": "opm.io.ecl_state.EclipseState.title -> str",
+        "doc": "Returns the title of the EclipseState.\n\n:return: The title.\n:type return: str"
+    },
+    "EclipseState_field_props": {
+        "signature": "opm.io.ecl_state.EclipseState.field_props() -> FieldProperties",
+        "doc": "Returns the field properties for the Eclipse simulation. \n\n:return: The field properties for the simulation.\n:type: FieldProperties"
+    },
+    "EclipseState_grid": {
+        "signature": "opm.io.ecl_state.EclipseState.grid() -> EclipseGrid",
+        "doc": "Returns the EclipseGrid used for the Eclipse simulation.\n\n:return: The grid used in the simulation.\n:type: EclipseGrid"
+    },
+    "EclipseState_config": {
+        "signature": "opm.io.ecl_state.EclipseState.config() -> EclipseConfig",
+        "doc": "Returns the configuration for the Eclipse simulation.\n\n:return: The simulation configuration.\n:type: EclipseConfig"
+    },
+    "EclipseState_tables": {
+        "signature": "opm.io.ecl_state.EclipseState.tables() -> Tables",
+        "doc": "Returns the table manager associated with the Eclipse simulation.\n\n:return: The table manager for the simulation.\n:type: Tables"
+    },
+    "EclipseState_has_input_nnc": {
+        "signature": "opm.io.ecl_state.EclipseState.has_input_nnc() -> bool",
+        "doc": "Checks whether the Eclipse simulation contains input for non-neighboring connections.\n\n:return: True if the simulation has NNC input, otherwise False.\n:type: bool"
+    },
+    "EclipseState_input_nnc": {
+        "signature": "opm.io.ecl_state.EclipseState.input_nnc() -> list",
+        "doc": "Returns a list of non-neighboring connections.\n\nOne non-neighboring connection is a tuple containing the following elements:\n\n- index1 (int): Index of the first cell.\n\n- index2 (int): Index of the second cell.\n\n- transmissibility (double): Transmissibility between the two cells.\n\n:return: A list of non-neighboring connections. \n:type return: list"
+    },
+    "EclipseState_faultNames": {
+        "signature": "opm.io.ecl_state.EclipseState.faultNames() -> list",
+        "doc": "Returns a list of fault names.\n\n:return: A list containing the names of faults. \n:type return: list"
+    },
+    "EclipseState_faultFaces": {
+        "signature": "opm.io.ecl_state.EclipseState.faultFaces(fault_name: str) -> list",
+        "doc": "Returns a list of faces of a fault with the given name.\n\n:param fault_name: The name of the fault.\n:type fault_name: str\n\n:return: A list containing the faces of the specified fault. \n:type return: list"
+    },
+    "EclipseState_jfunc": {
+        "signature": "opm.io.ecl_state.EclipseState.jfunc() -> dict",
+        "doc": "Function returning a dictionary with the following entries:\n\n['FLAG', 'DIRECTION', 'ALPHA_FACTOR', 'BETA_FACTOR', 'OIL_WATER', 'GAS_OIL']\n\n:return: A dictionary containing the specified entries. \n:type return: dict"
+    },
+    "EclipseState_simulation": {
+        "signature": "opm.io.ecl_state.EclipseState.simulation() -> SimulationConfig",
+        "doc": "Returns the simulation configuration.\n\n:return: The simulation configuration. \n:type return: SimulationConfig"
+    },
+    "ScheduleClass": {
+        "type": "class",
+        "signature": "opm.io.schedule.Schedule",
+        "doc": "The Schedule class - this is a representation of all the content from the SCHEDULE section, notably all well and group information and the timestepping."
+    },
+    "Schedule_getitem": {
+        "signature": "opm.io.schedule.Schedule.__getitem__(report_step: int) -> ScheduleState",
+        "doc": "Returns the `ScheduleState <#ScheduleState>`_ at the given report step.\n\n:param report_step: The report step.\n:type report_step: int\n\n:return: The `ScheduleState <#ScheduleState>`_ at the given report step.\n:type return: ScheduleState"
+    },
+    "Schedule_shut_well_well_name_step": {
+        "signature": "opm.io.schedule.Schedule.shut_well(well_name: str, step: int) -> None",
+        "doc": "Shuts down a well at a given report step.\n\n:param well_name: The name of the well to shut down.\n:type well_name: str\n:param step: The report step at which to shut down the well.\n:type step: int"
+    },
+    "Schedule_shut_well_well_name": {
+        "signature": "opm.io.schedule.Schedule.shut_well(well_name: str) -> None",
+        "doc": "Shuts down a well at the current report step.\n\n:param well_name: The name of the well to shut down.\n:type well_name: str"
+    },
+    "Schedule_open_well_well_name_step": {
+        "signature": "opm.io.schedule.Schedule.open_well(well_name: str, step: int) -> None",
+        "doc": "Opens a well at a given report step.\n\n:param well_name: The name of the well to open.\n:type well_name: str\n:param step: The report step at which to open the well.\n:type step: int\n:raises ValueError: If the report step is in the past or exceeds the duration of the simulation."
+    },
+    "Schedule_open_well_well_name": {
+        "signature": "opm.io.schedule.Schedule.open_well(well_name: str) -> None",
+        "doc": "Opens a well at the current report step.\n\n:param well_name: The name of the well to open.\n:type well_name: str"
+    },
+    "Schedule_stop_well_well_name_step":{
+        "signature": "opm.io.schedule.Schedule.stop_well(well_name: str, step: int) -> None",
+        "doc": "Stops a well at a given report step.\n\n:param well_name: The name of the well to stop.\n:type well_name: str\n:param step: The report step at which to stop the well.\n:type step: int\n:raises ValueError: If the report step is in the past or exceeds the duration of the simulation."
+    },
+    "Schedule_stop_well_well_name": {
+        "signature": "opm.io.schedule.Schedule.stop_well(well_name: str) -> None",
+        "doc": "Stops a well at the current report step.\n\n:param well_name: The name of the well to stop.\n:type well_name: str"
+    },
+    "Schedule_get_injection_properties": {
+        "signature": "opm.io.schedule.Schedule.get_injection_properties(well_name: str, report_step: int) -> dict",
+        "doc": "Gets injection properties for a well at a specific report step.\n\n:param well_name: The name of the well.\n:type well_name: str\n:param report_step: The report step to retrieve properties for.\n:type report_step: int\n\n:return: A dict containing the properties surf_inj_rate, resv_inj_rate, bhp_target, thp_target. \n:type return: dict"
+    },
+    "Schedule_get_production_properties": {
+        "signature": "opm.io.schedule.Schedule.get_production_properties(well_name: str, report_step: int) -> dict",
+        "doc": "Gets production properties for a well at a specific report step.\n\n:param well_name: The name of the well.\n:type well_name: str\n:param report_step: The report step to retrieve properties for.\n:type report_step: int\n\n:return: A dict containing the properties oil_rate, gas_rate, water_rate, liquid_rate, resv_rate, bhp_target, thp_target, alq_value. \n:type return: dict"
+    },
+    "Schedule_groups": {
+        "signature": "opm.io.schedule.Schedule._groups(report_step: int) -> list",
+        "doc": "Gets a list of all groups at a specified report step.\n\n:param report_step: The report step to retrieve groups for.\n:type report_step: int\n\n:return: A list containing all groups at the specified report step. \n:type return: list"
+    },
+    "Schedule_start": {
+        "signature": "opm.io.schedule.Schedule.start -> datetime.datetime",
+        "doc": "Retrieves the start time of the schedule as a `datetime.datetime <https://docs.python.org/3/library/datetime.html#datetime.datetime>`_.\n\n:return: The start time of the schedule.\n:type return: datetime.datetime"
+    },
+    "Schedule_end": {
+        "signature": "opm.io.schedule.Schedule.end -> datetime.datetime",
+        "doc": "Retrieves the end time of the schedule as a `datetime.datetime <https://docs.python.org/3/library/datetime.html#datetime.datetime>`_.\n\n:return: The end time of the schedule.\n:type return: datetime.datetime"
+    },
+    "Schedule_reportsteps": {
+        "signature": "opm.io.schedule.Schedule.reportsteps -> list[datetime.datetime]",
+        "doc": "Retrieves a list of all report steps in the schedule as a Python list of `datetime.datetime <https://docs.python.org/3/library/datetime.html#datetime.datetime>`_ objects.\n\n:return: A list containing the report steps of the schedule.\n:type return: list"
+    },
+    "Schedule_len": {
+        "signature": "opm.io.schedule.Schedule.__len__() -> int",
+        "doc": "Returns the number of report steps, i.e., the length of the Schedule.\n\n:return: The number of report steps.\n:type return: int"
+    },
+    "Schedule_get_well": {
+        "signature": "opm.io.schedule.Schedule.get_well(well_name: str, report_step: int) -> Well",
+        "doc": "Retrieves a well at a given report step.\n\n:param well_name: The name of the well.\n:type well_name: str\n:param report_step: The report step.\n:type report_step: int\n\n:return: Well object at the given report step. \n:type return: well"
+    },
+    "Schedule_get_wells": {
+        "signature": "opm.io.schedule.Schedule.get_wells(report_step: int) -> list",
+        "doc": "Gets the names of wells at the given report step.\n\n:param report_step: The report step.\n:type report_step: int\n\n:return: A list containing the names of wells at the given report step. \n:type return: list"
+    },
+    "Schedule_well_names": {
+        "signature": "opm.io.schedule.Schedule.well_names(well_name_pattern: str) -> list",
+        "doc": "Gets the names of wells matching a specified pattern.\n\n:param well_name_pattern: The pattern for well names, where '*' acts as a wildcard.\n:type well_name_pattern: str\n\n:return: A list containing the names of wells that match the specified pattern. \n:type return: list"
+    },
+    "Schedule_insert_keywords_list": {
+        "signature": "opm.io.schedule.Schedule.insert_keywords(keywords: list, step: int) -> None",
+        "doc": "Inserts the given keywords into the Schedule at the given report step.\n\n:param keywords: A Python list of strings, contianing the keywords.\n:type keyword_list: list\n:param step: The report step.\n:type step: int"
+    },
+    "Schedule_insert_keywords_data_step_unit_system": {
+        "signature": "opm.io.schedule.Schedule.insert_keywords(data: str, step: int, unit_system: UnitSystem) -> None",
+        "doc": "Inserts the given keywords into the Schedule at the given report step using the given unit system.\n\n:param data: The deck string to be inserted into the Schedule.\n:type data: str\n:param step: The report step.\n:type step: int\n:param unit_system: The unit system.\n:type unit_system: UnitSystem"
+    },
+    "Schedule_insert_keywords_data_step": {
+        "signature": "opm.io.schedule.Schedule.insert_keywords(data: str, step: int) -> None",
+        "doc": "Inserts the given keywords into the Schedule at the given report step using the unit system of the Schedule.\n\n:param data: The deck string to be inserted into the Schedule.\n:type data: str\n:param step: The report step.\n:type step: int"
+    },
+    "Schedule_insert_keywords_data": {
+        "signature": "opm.io.schedule.Schedule.insert_keywords(data: str) -> None",
+        "doc": "Inserts the given keywords into the Schedule at the current report step using the unit system of the Schedule.\n\n:param data: The deck string to be inserted into the Schedule.\n:type data: str"
+    },
+    "Schedule_contains": {
+        "signature": "opm.io.schedule.Schedule.__contains__(well_name: str) -> bool",
+        "doc": "Checks if a well exists in the Schedule at the current report step.\n\n:param well_name: The name of the well to check.\n:type well_name: str\n\n:return: True if the well exists, False otherwise. \n:type return: bool"
+    },
+    "GroupClass": {
+        "signature": "Group",
+        "type": "class",
+        "doc": "The Group class."
+    },
+    "Group_name": {
+        "signature": "Group.name",
+        "doc": "Returns the name of this group.\n\n:return: The name of this group.\n:type return: str"
+    },
+    "Group_num_wells": {
+        "signature": "Group.num_wells",
+        "doc": "Returns the number of wells in this group.\n\n:return: The number of wells in this group.\n:type return: int"
+    },
+    "Group_well_names": {
+        "signature": "Group.well_names",
+        "doc": "Returns a list of all well names in this group.\n\n:return: A list of all well names in this group.\n:type return: list"
+    },
+    "ScheduleStateClass": {
+        "signature": "ScheduleState",
+        "type": "class",
+        "doc": "The ScheduleState class."
+    },
+    "ScheduleState_nupcol": {
+        "signature": "ScheduleState.nupcol",
+        "doc": "The NUPCOL value at this Schedule State. This is a positive integer that defines the maximum number of Newton iterations used to update well targets within a time step."
+    },
+    "ScheduleState_get_group": {
+        "signature": "ScheduleState.get_group(group_name: str) -> Group",
+        "doc": "Gets the group with the specified name from the schedule state.\n\n:param group_name: The name of the group to retrieve from the schedule state.\n:type group_name: str\n\n:return: The group with the specified name from the schedule state. \n:type return: Group"
+    },
+    "Well": {
+        "type": "class",
+        "signature": "Well",
+        "doc": "The Well class."
+    },
+    "Well_name": {
+        "signature": "Well.name -> str",
+        "doc": "Returns the name of the well.\n\n:return: The well name.\n:type return: str"
+    },
+    "Well_preferred_phase": {
+        "signature": "Well.preferred_phase -> str",
+        "doc": "Returns the preferred phase (e.g., oil, gas, water) for the well.\n\n:return: The preferred phase.\n:type return: str"
+    },
+    "Well_pos": {
+        "signature": "Well.pos() -> tuple",
+        "doc": "Retrieves the position of the well.\n\n:return: A tuple containing the (i, j) coordinates and the reference depth of the well. \n:type return: tuple"
+    },
+    "Well_status": {
+        "signature": "Well.status() -> str",
+        "doc": "Returns the operational status of the well, i.e., OPEN, SHUT, AUTO or STOP.\n\n:return: The well status.\n:type return: str"
+    },
+    "Well_isdefined": {
+        "signature": "Well.isdefined(report_step: int) -> bool",
+        "doc": "Checks if the well is defined at a specific report step.\n\n:param report_step: The report step to check for the well's definition.\n:type report_step: int\n\n:return: True if the well is defined at the specified report step, False otherwise. \n:type return: bool"
+    },
+    "Well_isinjector": {
+        "signature": "Well.isinjector() -> bool",
+        "doc": "Checks whether the well is configured as an injector.\n\n:return: True if the well is an injector, otherwise False.\n:type return: bool"
+    },
+    "Well_isproducer": {
+        "signature": "Well.isproducer() -> bool",
+        "doc": "Checks whether the well is configured as a producer.\n\n:return: True if the well is a producer, otherwise False.\n:type return: bool"
+    },
+    "Well_group": {
+        "signature": "Well.group() -> str",
+        "doc": "Returns the name of the group the well belongs to.\n\n:return: The group name.\n:type return: str"
+    },
+    "Well_guide_rate": {
+        "signature": "Well.guide_rate() -> float",
+        "doc": "Returns the guide rate for the well.\n\n:return: The guide rate.\n:type return: float"
+    },
+    "Well_available_gctrl": {
+        "signature": "Well.available_gctrl() -> bool",
+        "doc": "Checks if the well is available for group control.\n\n:return: True if the well is available for group control, False otherwise. \n:type return: bool"
+    },
+    "Well_connections": {
+        "signature": "Well.connections() -> list[Connection]",
+        "doc": "Gets a list of all connections associated with the well.\n\n:return: A list containing all connections of the well. \n:type return: list[Connection]"
+    },
+    "Connection": {
+        "type": "class",
+        "signature": "Connection",
+        "doc": "The Connection class represents a connection point in a reservoir simulation. It includes properties for spatial indices, state, and various physical attributes of the connection."
+    },
+    "Connection_direction": {
+        "signature": "Connection.direction -> str",
+        "doc": "Returns the direction of the connection.\n\n:return: The direction of the connection.\n:type return: str"
+    },
+    "Connection_state": {
+        "signature": "Connection.state -> str",
+        "doc": "Returns the current state of the connection.\n\n:return: The current state of the connection.\n:type return: str"
+    },
+    "Connection_getI": {
+        "signature": "Connection.getI() -> int",
+        "doc": "Returns the 'i' index of the connection.\n\n:return: The 'i' index of the connection.\n:type return: int"
+    },
+    "Connection_getJ": {
+        "signature": "Connection.getJ() -> int",
+        "doc": "Returns the 'j' index of the connection.\n\n:return: The 'j' index of the connection.\n:type return: int"
+    },
+    "Connection_getK": {
+        "signature": "Connection.getK() -> int",
+        "doc": "Returns the 'k' index of the connection.\n\n:return: The 'k' index of the connection.\n:type return: int"
+    },
+    "Connection_pos": {
+        "signature": "Connection.pos -> tuple",
+        "doc": "Returns the position of the connection as a tuple.\n\n:return: The position of the connection.\n:type return: tuple"
+    },
+    "Connection_attachedToSegment": {
+        "signature": "Connection.attached_to_segment -> bool",
+        "doc": "Checks if the connection is attached to a segment.\n\n:return: True if attached to a segment, otherwise False.\n:type return: bool"
+    },
+    "Connection_depth": {
+        "signature": "Connection.center_depth -> double",
+        "doc": "Returns the center depth of the connection.\n\n:return: The center depth of the connection.\n:type return: double"
+    },
+    "Connection_rw": {
+        "signature": "Connection.rw -> double",
+        "doc": "Returns the radius of the well (rw) at the connection.\n\n:return: The radius of the well (rw).\n:type return: double"
+    },
+    "Connection_complnum": {
+        "signature": "Connection.complnum -> int",
+        "doc": "Returns the completion number of the connection.\n\n:return: The completion number.\n:type return: int"
+    },
+    "Connection_number": {
+        "signature": "Connection.number -> int",
+        "doc": "DEPRECATED: Use 'complnum' instead. Returns the completion number of the connection.\n\n:return: The completion number.\n:type return: int"
+    },
+    "Connection_satTableId": {
+        "signature": "Connection.sat_table_id -> int",
+        "doc": "Returns the saturation table ID for the connection.\n\n:return: The saturation table ID.\n:type return: int"
+    },
+    "Connection_segment": {
+        "signature": "Connection.segment_number -> bool",
+        "doc": "Returns the segment number associated with the connection.\n\n:return: The segment number.\n:type return: int"
+    },
+    "Connection_CF": {
+        "signature": "Connection.cf -> double",
+        "doc": "Returns the static connection transmissibility factor of the connection. This quantity is calculated from the connection input quantities.\n\n:return: The static connection transmissibility factor.\n:type return: double"
+    },
+    "Connection_Kh": {
+        "signature": "Connection.kh -> double",
+        "doc": "Returns the static 'Kh' product for the connection.\n\n:return: The static 'Kh' product for the connection.\n:type return: double"
+    },
+    "Deck": {
+        "type": "class",
+        "signature": "Deck",
+        "doc": "The Deck class represents a collection of keywords and their associated data used in reservoir simulations."
+    },
+    "Deck_len": {
+        "signature": "Deck.__len__() -> int",
+        "doc": "Returns the number of keywords in the deck.\n\n:return: The number of keywords.\n:type return: int"
+    },
+    "Deck_contains": {
+        "signature": "Deck.__contains__(keyword: str) -> bool",
+        "doc": "Checks if the specified keyword exists in the deck.\n\n:param keyword: The keyword to check.\n:type keyword: str\n:return: True if the keyword exists, otherwise False.\n:type return: bool"
+    },
+    "Deck_iter": {
+        "signature": "Deck.__iter__() -> Iterator[DeckKeyword]",
+        "doc": "Returns an iterator over the keywords in the deck.\n\n:return: An iterator over the keywords.\n:type return: Iterator[DeckKeyword]"
+    },
+    "Deck_getitem_int": {
+        "signature": "Deck.__getitem__(index: int) -> DeckKeyword",
+        "doc": "Returns the keyword at the specified index.\n\n:param index: The index of the keyword.\n:type index: int\n:return: The keyword at the specified index.\n:type return: DeckKeyword"
+    },
+    "Deck_getitem_string": {
+        "signature": "Deck.__getitem__(keyword_name: str) -> DeckKeyword",
+        "doc": "Returns the last entry of the DeckView of the specified keyword name.\n\n:param keyword: The name of the keyword.\n:type keyword: str\n:return: The last entry of the DeckView of the specified keyword name.\n:type return: DeckKeyword"
+    },
+    "Deck_getitem_tuple": {
+        "signature": "Deck.__getitem__(key: tuple(keyword_name: str, index: int)) -> DeckKeyword",
+        "doc": "Returns the entry at the index of the DeckView of the specified keyword name.\n\n:param key: The tuple key to access the entry.\n:type key: tuple (str, int)\n:return: The the entry at the index of the DeckView of the specified keyword name.\n:type return: DeckKeyword"
+    },
+    "Deck_str": {
+        "signature": "Deck.__str__() -> str",
+        "doc": "Returns a string representation of the deck.\n\n:return: A string representation of the deck.\n:type return: str"
+    },
+    "Deck_active_unit_system": {
+        "signature": "Deck.active_unit_system() -> UnitSystem",
+        "doc": "Returns the active unit system of the deck.\n\n:return: The active unit system.\n:type return: UnitSystem"
+    },
+    "Deck_default_unit_system": {
+        "signature": "Deck.default_unit_system() -> UnitSystem",
+        "doc": "Returns the default unit system of the deck.\n\n:return: The default unit system.\n:type return: UnitSystem"
+    },
+    "Deck_count": {
+        "signature": "Deck.count(keyword: str) -> int",
+        "doc": "Returns the number of occurrences of the specified keyword in the deck.\n\n:param keyword: The keyword to count.\n:type keyword: str\n:return: The number of occurrences of the keyword.\n:type return: int"
+    },
+    "Deck_add": {
+        "signature": "Deck.add(keyword: DeckKeyword) -> None",
+        "doc": "Adds a new keyword to the deck.\n\n:param keyword: The keyword to add.\n:type keyword: DeckKeyword"
+    },
+    "DeckKeyword": {
+        "type": "class",
+        "signature": "opm.io.deck.DeckKeyword",
+        "doc": "Represents a keyword in the Deck."
+    },
+    "DeckKeyword_init_parser_keyword": {
+        "signature": "opm.io.deck.DeckKeyword.__init__(parser_keyword: ParserKeyword) -> None",
+        "doc": "Creates a DeckKeyword with a specified ParserKeyword.\n\n:param parser_keyword: The ParserKeyword to initialize the DeckKeyword with.\n:type parser_keyword: ParserKeyword"
+    },
+    "DeckKeyword_init_parser_keyword_record_list": {
+        "signature": "opm.io.deck.DeckKeyword.__init__(parser_keyword: ParserKeyword, record_list: list, active_system: UnitSystem, default_system: UnitSystem) -> None",
+        "doc": "Creates a DeckKeyword with a specified ParserKeyword, a list of records, and two UnitSystem objects for active and default systems.\n\n:param parser_keyword: The ParserKeyword to initialize the DeckKeyword with.\n:type parser_keyword: ParserKeyword\n:param record_list: A list of records containing the keyword data as also specified in the parser_keyword.\n:type record_list: list\n:param active_system: The active UnitSystem.\n:type active_system: UnitSystem\n:param default_system: The default UnitSystem.\n:type default_system: UnitSystem"
+    },
+    "DeckKeyword_repr": {
+        "signature": "opm.io.deck.DeckKeyword.__repr__() -> str",
+        "doc": "Returns the name of the DeckKeyword as a string.\n\n:return: The name of the DeckKeyword.\n:type: str"
+    },
+    "DeckKeyword_str": {
+        "signature": "opm.io.deck.DeckKeyword.__str__() -> str",
+        "doc": "Returns a string representation of the DeckKeyword.\n\n:return: The string representation of the DeckKeyword.\n:type: str"
+    },
+    "DeckKeyword_iter": {
+        "signature": "opm.io.deck.DeckKeyword.__iter__() -> iterator",
+        "doc": "Returns an iterator over the records of the DeckKeyword.\n\n:return: An iterator for the records.\n:type: iterator"
+    },
+    "DeckKeyword_getitem": {
+        "signature": "opm.io.deck.DeckKeyword.__getitem__(index: int) -> DeckValue",
+        "doc": "Returns the record at the specified index.\n\n:param index: The index of the record to retrieve.\n:type index: int\n\n:return: The record at the specified index.\n:type: DeckValue"
+    },
+    "DeckKeyword_len": {
+        "signature": "opm.io.deck.DeckKeyword.__len__() -> int",
+        "doc": "Returns the number of records in the DeckKeyword.\n\n:return: The number of records in the DeckKeyword.\n:type: int"
+    },
+    "DeckKeyword_name": {
+        "signature": "opm.io.deck.DeckKeyword.name() -> str",
+        "doc": "Returns the name of the DeckKeyword.\n\n:return: The name of the DeckKeyword.\n:type: str"
+    },
+    "DeckKeyword_init_parser_keyword_pydata_int": {
+        "signature": "opm.io.deck.DeckKeyword.__init__(parser_keyword: ParserKeyword, py_data: numpy.ndarray[int]) -> None",
+        "doc": "Creates a DeckKeyword with a specified ParserKeyword and integer data (as a `numpy.ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_). For this, the keyword must be a data keyword!\n\n:param parser_keyword: The ParserKeyword to initialize the DeckKeyword with.\n:type parser_keyword: ParserKeyword\n:param py_data: The integer data array.\n:type py_data: numpy.ndarray[int]"
+    },
+    "DeckKeyword_init_parser_keyword_pydata_double": {
+        "signature": "opm.io.deck.DeckKeyword.__init__(parser_keyword: ParserKeyword, py_data: numpy.ndarray[double], active_system: UnitSystem, default_system: UnitSystem) -> None",
+        "doc": "Creates a DeckKeyword with a specified ParserKeyword, double data (as a `numpy.ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_, and two UnitSystem objects for active and default systems. For this, the keyword must be a data keyword!\n\n:param parser_keyword: The ParserKeyword to initialize the DeckKeyword with.\n:type parser_keyword: ParserKeyword\n:param py_data: The double data array.\n:type py_data: numpy.ndarray[double]\n:param active_system: The active UnitSystem to interpret the data.\n:type active_system: UnitSystem\n:param default_system: The default UnitSystem to interpret the data.\n:type default_system: UnitSystem"
+    },
+    "DeckKeyword_get_int_array": {
+        "signature": "opm.io.deck.DeckKeyword.get_int_array() -> numpy.ndarray[int]",
+        "doc": "Returns the integer data of the DeckKeyword in a `numpy.ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_.\n\n:return: The integer data.\n:type: numpy.ndarray[int]"
+    },
+    "DeckKeyword_get_raw_array": {
+        "signature": "opm.io.deck.DeckKeyword.get_raw_array() -> numpy.ndarray[double]",
+        "doc": "Returns the raw doule data of the DeckKeyword in a `numpy.ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_.\n\n:return: The raw double data.\n:type: numpy.ndarray[double]"
+    },
+    "DeckKeyword_get_SI_array": {
+        "signature": "opm.io.deck.DeckKeyword.get_SI_array() -> numpy.ndarray[double]",
+        "doc": "Returns the SI double data of the DeckKeyword in a `numpy.ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_.\n\n:return: The SI double data.\n:type: numpy.ndarray[double]"
+    },
+    "DeckItem": {
+        "type": "class",
+        "signature": "opm.io.deck.DeckItem",
+        "doc": "Represents an item in the deck."
+    },
+    "DeckItem_len": {
+        "signature": "opm.io.deck.DeckItem.__len__() -> int",
+        "doc": "Returns the number of data elements in the DeckItem. If if the number returned by this method is less than what is semantically expected (e.g. size() is less than the number of cells in the grid for keywords like e.g. SGL), then the remaining values are defaulted. The deck creates the defaulted items if all their sizes are fully specified by the keyword, though.\n\n:return: The number of elements.\n:type: int"
+    },
+    "DeckItem_is_uda": {
+        "signature": "opm.io.deck.DeckItem.is_uda() -> bool",
+        "doc": "Returns whether the DeckItem holds UDA data.\n\n:return: True if the DeckItem is UDA, False otherwise.\n:type: bool"
+    },
+    "DeckItem_is_double": {
+        "signature": "opm.io.deck.DeckItem.is_double() -> bool",
+        "doc": "Returns whether the DeckItem holds double data.\n\n:return: True if the DeckItem is of type double, False otherwise.\n:type: bool"
+    },
+    "DeckItem_is_int": {
+        "signature": "opm.io.deck.DeckItem.is_int() -> bool",
+        "doc": "Returns whether the DeckItem holds integer data.\n\n:return: True if the DeckItem is of type int, False otherwise.\n:type: bool"
+    },
+    "DeckItem_is_string": {
+        "signature": "opm.io.deck.DeckItem.is_string() -> bool",
+        "doc": "Returns whether the DeckItem holds string data.\n\n:return: True if the DeckItem is of type string, False otherwise.\n:type: bool"
+    },
+    "DeckItem_get_str": {
+        "signature": "opm.io.deck.DeckItem.get_str(index: int) -> str",
+        "doc": "Returns the string data of the DeckItem at the given index, if the DeckItem is of type string.\n\n:param index: The index used to retrieve the string data from the DeckItem.\n:type index: int\n:return: The string representation of the DeckItem at the given index's data.\n:type: str"
+    },
+    "DeckItem_get_int": {
+        "signature": "opm.io.deck.DeckItem.get_int(index: int) -> int",
+        "doc": "Returns the integer data of the DeckItem at the given index.\n\n:param index: The index used to retrieve the integer data from the DeckItem.\n:type index: int\n:return: The integer data of the DeckItem at the given index.\n:type: int"
+    },
+    "DeckItem_get_raw": {
+        "signature": "opm.io.deck.DeckItem.get_raw(index: int) -> double",
+        "doc": "Returns the raw double data of the DeckItem at the given index.\n\n:param index: The index used to retrieve the raw double data from the DeckItem.\n:type index: int\n:return: The raw double data of the DeckItem at the given index.\n:type: double"
+    },
+    "DeckItem_get_uda": {
+        "signature": "opm.io.deck.DeckItem.get_uda(index: int) -> UDAValue",
+        "doc": "Returns the UDA data of the DeckItem at the given index.\n\n:param index: The index used to retrieve the UDA data from the DeckItem.\n:type index: int\n:return: The UDA data of the DeckItem at the given index.\n:type: UDAValue"
+    },
+    "DeckItem_get_SI": {
+        "signature": "opm.io.deck.DeckItem.get_SI(index: int) -> double",
+        "doc": "Returns the SI double data of the DeckItem at the given index.\n\n:param index: The index used to retrieve the SI double data from the DeckItem.\n:type index: int\n:return: The SI double data of the DeckItem at the given index.\n:type: double"
+    },
+    "DeckItem_get_data_list": {
+        "signature": "opm.io.deck.DeckItem.get_data_list() -> list",
+        "doc": "Returns the list of data elements contained in the DeckItem for int or string data elements.\n\n:return: A list of data elements in the DeckItem.\n:type: list"
+    },
+    "DeckItem_get_raw_data_list": {
+        "signature": "opm.io.deck.DeckItem.get_raw_data_list() -> list[double]",
+        "doc": "Returns the list of raw data elements (as doubles) contained in the DeckItem.\n\n:return: A list of raw data elements in the DeckItem.\n:type: list"
+    },
+    "DeckItem_get_SI_data_list": {
+        "signature": "opm.io.deck.DeckItem.get_SI_data_list() -> list[double]",
+        "doc": "Returns the list of SI double data elements contained in the DeckItem.\n\n:return: A list of SI double data elements in the DeckItem.\n:type: list"
+    },
+    "DeckItem_has_value": {
+        "signature": "opm.io.deck.DeckItem.__has_value(index: int) -> bool",
+        "doc": "Returns whether the DeckItem has a value at index.\n\n:param index: The index used to check if the DeckItem has a value.\n:type index: int\n:return: True if the DeckItem has a value at index, False otherwise.\n:type: bool"
+    },
+    "DeckItem_defaulted": {
+        "signature": "opm.io.deck.DeckItem.__defaulted(index: int) -> bool",
+        "doc": "Returns whether the DeckItem's value at index is the default.\n\n:param index: The index used to check if the DeckItem's value is the default.\n:type index: int\n:return: True if the value at index is defaulted, False otherwise.\n:type: bool"
+    },
+    "DeckItem_is_numeric": {
+        "signature": "opm.io.deck.DeckItem.__is_numeric() -> bool",
+        "doc": "Returns whether the UDA data of the DeckItem is numeric.\n\n:return: True if the value is numeric, False otherwise.\n:type: bool"
+    },
+    "DeckItem_uda_double": {
+        "signature": "opm.io.deck.DeckItem.__uda_double() -> double",
+        "doc": "Returns the double value of the UDA data of the DeckItem.\n\n:return: The double value of the UDA data.\n:type: double"
+    },
+    "DeckItem_uda_str": {
+        "signature": "opm.io.deck.DeckItem.__uda_str() -> str",
+        "doc": "Returns the string value of the UDA data of the DeckItem.\n\n:return: The string value of the UDA data.\n:type: str"
+    },
+    "DeckItem_name": {
+        "signature": "opm.io.deck.DeckItem.name() -> str",
+        "doc": "Returns the name of the DeckItem.\n\n:return: The name of the DeckItem.\n:type: str"
+    },
+    "DeckRecord": {
+        "type": "class",
+        "signature": "DeckRecord",
+        "doc": "Represents a record of data in the deck. A DeckRecord holds a collection of `DeckItems <#opm.io.deck.DeckItem>`_ and provides access to them in various ways."
+    },
+    "DeckRecord_repr": {
+        "signature": "DeckRecord.__repr__() -> str",
+        "doc": "Returns a string representation of the DeckRecord.\n\n:return: A string representation of the DeckRecord.\n:type: str"
+    },
+    "DeckRecord_iter": {
+        "signature": "DeckRecord.__iter__() -> iterator",
+        "doc": "Returns an iterator for the DeckRecord, allowing iteration over the contained DeckItems.\n\n:return: An iterator for iterating through the DeckItems.\n:type: iterator"
+    },
+    "DeckRecord_getitem": {
+        "signature": "DeckRecord.__getitem__(index: int) -> DeckItem",
+        "doc": "Returns the `DeckItem <#opm.io.deck.DeckItem>`_ at the specified index.\n\n:param index: The index used to retrieve the DeckItem.\n:type index: int\n:return: The DeckItem at the specified index.\n:type: DeckItem"
+    },
+    "DeckRecord_len": {
+        "signature": "DeckRecord.__len__() -> int",
+        "doc": "Returns the number of `DeckItems <#opm.io.deck.DeckItem>`_ in the DeckRecord.\n\n:return: The number of DeckItems.\n:type: int"
+    },
+    "UDAValue": {
+        "type": "class",
+        "signature": "opm.io.deck.UDAValue",
+        "doc": "Represents a UDA (User-Defined Arguments) in the deck."
+    },
+    "UDAValue_init_double": {
+        "signature": "opm.io.deck.UDAValue.__init__(value: double, dimension: Dimension) -> None",
+        "doc": "Creates a UDA with a double value and a dimension.\n\n:param value: The double value to store.\n:type value: double\n:param dimension: The dimension associated with this UDA.\n:type dimension: Dimension"
+    },
+    "UDAValue_init_string": {
+        "signature": "opm.io.deck.UDAValue.__init__(value: str, dimension: Dimension) -> None",
+        "doc": "Creates a UDA with a string value and a dimension.\n\n:param value: The string value to store.\n:type value: str\n:param dimension: The dimension associated with this UDA.\n:type dimension: Dimension"
+    },
+    "UDAValue_dimension": {
+        "signature": "opm.io.deck.UDAValue.dimension() -> Dimension",
+        "doc": "Returns the dimension associated with this UDA.\n\n:return: The dimension of the UDA.\n:type: Dimension"
+    },
+    "UDAValue_is_double": {
+        "signature": "opm.io.deck.UDAValue.is_double() -> bool",
+        "doc": "Returns whether the UDA is of type double.\n\n:return: True if the UDA is a double, False otherwise.\n:type: bool"
+    },
+    "UDAValue_is_string": {
+        "signature": "opm.io.deck.UDAValue.is_string() -> bool",
+        "doc": "Returns whether the UDA is of type string.\n\n:return: True if the UDA is a string, False otherwise.\n:type: bool"
+    },
+    "UDAValue_get_string": {
+        "signature": "opm.io.deck.UDAValue.get_string() -> str",
+        "doc": "Returns the string value of the UDA.\n\n:return: The string value of the UDA.\n:type: str"
+    },
+    "UDAValue_get_double": {
+        "signature": "opm.io.deck.UDAValue.get_double() -> double",
+        "doc": "Returns the double value of the UDA.\n\n:return: The double value of the UDA.\n:type: double"
+    },
+    "UDAValue_repr": {
+        "signature": "opm.io.deck.UDAValue.__repr__() -> str",
+        "doc": "Returns a string representation of the UDA. This works for both string and double UDAs.\n\n:return: A string representation of the UDA.\n:type: str"
+    },
+    "EclipseConfig": {
+        "type": "class",
+        "signature": "EclipseConfig",
+        "doc": "Represents the configuration for an Eclipse simulation."
+    },
+    "EclipseConfig_init": {
+        "signature": "EclipseConfig.init() -> InitConfig",
+        "doc": "Returns the initialization configuration.\n\n:return: The initialization configuration.\n:type: InitConfig"
+    },
+    "SummaryConfig": {
+        "type": "class",
+        "signature": "opm.io.summary.SummaryConfig",
+        "doc": "Represents the configuration for the summary."
+    },
+    "SummaryConfig_init": {
+        "signature": "opm.io.summary.SummaryConfig.__init__(deck: Deck, state: EclipseState, schedule: Schedule) -> None",
+        "doc": "Creates a SummaryConfig with the provided deck, state, and schedule.\n\n:param deck: The deck containing simulation data.\n:type deck: Deck\n:param state: The EclipseState containing simulation state.\n:type state: EclipseState\n:param schedule: The schedule for the simulation.\n:type schedule: Schedule"
+    },
+    "SummaryConfig_contains": {
+        "signature": "opm.io.summary.SummaryConfig.__contains__(keyword: str) -> bool",
+        "doc": "Checks whether a keyword exists in the SummaryConfig.\n\n:param keyword: The keyword to check.\n:type keyword: str\n:return: True if the keyword exists, False otherwise.\n:type: bool"
+    },
+    "InitConfig": {
+        "type": "class",
+        "signature": "InitConfig",
+        "doc": "Represents the initialization configuration."
+    },
+    "InitConfig_hasEquil": {
+        "signature": "InitConfig.hasEquil() -> bool",
+        "doc": "Returns whether the initialization configuration includes the keword 'EQUIL', which defines the equilibration initialization data.\n\n:return: True if 'EQUIL' is present, False otherwise.\n:type: bool"
+    },
+    "InitConfig_restartRequested": {
+        "signature": "InitConfig.restartRequested() -> bool",
+        "doc": "Returns whether a restart is requested for the simulation.\n\n:return: True if a restart is requested, False otherwise.\n:type: bool"
+    },
+    "InitConfig_getRestartStep": {
+        "signature": "InitConfig.getRestartStep() -> int",
+        "doc": "Returns the step number to restart at.\n\n:return: The restart step number.\n:type: int"
+    },
+    "IOConfig": {
+        "type": "class",
+        "signature": "IOConfig",
+        "doc": "Represents the configuration for the input/output settings."
+    },
+    "EclipseGrid": {
+        "type": "class",
+        "signature": "EclipseGrid",
+        "doc": "Represents the grid configuration for an Eclipse simulation."
+    },
+    "EclipseGrid_getXYZ": {
+        "signature": "EclipseGrid._getXYZ() -> tuple(int,int,int)",
+        "doc": "Returns the number of cells in XYZ direction for the grid as a tuple.\n\n:return: A tuple containing the number of cells in XYZ direction.\n:type: tuple(int,int,int)"
+    },
+    "EclipseGrid_nx": {
+        "signature": "EclipseGrid.nx() -> int",
+        "doc": "Returns the number of cells along the X-axis in the Eclipse grid.\n\n:return: The number of cells along the X-axis.\n:type: int"
+    },
+    "EclipseGrid_ny": {
+        "signature": "EclipseGrid.ny() -> int",
+        "doc": "Returns the number of cells along the Y-axis in the Eclipse grid.\n\n:return: The number of cells along the Y-axis.\n:type: int"
+    },
+    "EclipseGrid_nz": {
+        "signature": "EclipseGrid.nz() -> int",
+        "doc": "Returns the number of cells along the Z-axis in the Eclipse grid.\n\n:return: The number of cells along the Z-axis.\n:type: int"
+    },
+    "EclipseGrid_nactive": {
+        "signature": "EclipseGrid.nactive() -> int",
+        "doc": "Returns the number of active cells in the Eclipse grid.\n\n:return: The number of active cells.\n:type: int"
+    },
+    "EclipseGrid_cartesianSize": {
+        "signature": "EclipseGrid.cartesianSize() -> int",
+        "doc": "Returns the Cartesian size of the grid, i.e., the number of all cells.\n\n:return: The Cartesian size of the grid.\n:type: int"
+    },
+    "EclipseGrid_globalIndex": {
+        "signature": "EclipseGrid.globalIndex(i: int, j: int, k: int) -> int",
+        "doc": "Returns the global index of the grid cell at the specified (i, j, k) coordinates.\n\n:param i: The I index of the grid cell.\n:type i: int\n:param j: The J index of the grid cell.\n:type j: int\n:param k: The K index of the grid cell.\n:type k: int\n:return: The global index of the grid cell at the specified coordinates.\n:type: int"
+    },
+    "EclipseGrid_getIJK": {
+        "signature": "EclipseGrid.getIJK(g: int) -> tuple(int,int,int)",
+        "doc": "Returns a tuple containing the IJK indices of the grid cell with global index g.\n\n:return: A a tuple containing the IJK indices of the grid cell with global index g.\n:type: tuple(int,int,int)"
+    },
+    "EclipseGrid_getCellVolume1G": {
+        "signature": "EclipseGrid.getCellVolume(g: int) -> double",
+        "doc": "Returns the cell volume for the grid cell at the global index g.\n\n:param g: The global index of the grid cell.\n:type g: int\n:return: The volume of the grid cell.\n:type: double"
+    },
+    "EclipseGrid_getCellVolume3": {
+        "signature": "EclipseGrid.getCellVolume(i: int, j: int, k: int) -> double",
+        "doc": "Returns the cell volume for a grid cell identified by its (i, j, k) indices.\n\n:param i: The I index of the grid cell.\n:type i: int\n:param j: The J index of the grid cell.\n:type j: int\n:param k: The K index of the grid cell.\n:type k: int\n:return: The volume of the grid cell identified by the (i, j, k) indices.\n:type: double"
+    },
+    "EclipseGrid_getCellVolumeAll": {
+        "signature": "EclipseGrid.getCellVolume() -> numpy.ndarray[double]",
+        "doc": "Returns a `numpy.ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_ containing the volumes of all grid cells. Each entry in the array corresponds to the volume of a grid cell, with the array index matching the global index of that cell.\n\n:return: A numpy.ndarray each entry represents the volume of a grid cell, the index being to the global index.\n:type: numpy.ndarray[double]"
+    },
+    "EclipseGrid_getCellVolumeMask": {
+        "signature": "EclipseGrid.getCellVolume(mask: list[int]) -> numpy.ndarray[double]",
+        "doc": "Returns the cell volumes for the selected cells.\n\n:param mask: List containing one entry per grid cell, if the entry in the list is '1', this cell is selected by the mask.\n:type mask: list[int]\n:return: The cell volumes for the given cells.\n:type: numpy.ndarray[double]"
+    },
+   "EclipseGrid_getCellDepth1G": {
+        "signature": "EclipseGrid.getCellDepth(g: int) -> double",
+        "doc": "Returns the depth of the grid cell corresponding to the given global index.\n\n:param g: The global index of the grid cell.\n:type g: int\n:return: The depth of the grid cell with the specified global index.\n:type: double"
+    },
+    "EclipseGrid_getCellDepth3": {
+        "signature": "EclipseGrid.getCellDepth(i: int, j: int, k: int) -> double",
+        "doc": "Returns the depth of the grid cell specified by the given IJK indices.\n\n:param i: The I index of the grid cell.\n:type i: int\n:param j: The J index of the grid cell.\n:type j: int\n:param k: The K index of the grid cell.\n:type k: int\n:return: The depth of the grid cell with the specified IJK indices.\n:type: double"
+    },
+    "EclipseGrid_getCellDepthAll": {
+        "signature": "EclipseGrid.getCellDepth() -> numpy.ndarray[double]",
+        "doc": "Returns a `numpy.ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_ containing the depths of all grid cells. Each entry in the array corresponds to the depth of a grid cell, with the array index matching the global index of that cell.\n\n:return: A numpy.ndarray each entry represents the depth of a grid cell, and the index being the global index.\n:type: numpy.ndarray[double]"
+    },
+    "EclipseGrid_getCellDepthMask": {
+        "signature": "EclipseGrid.getCellDepthMask(mask: list[int]) -> numpy.ndarray[double]",
+        "doc": "Returns the depths for the selected cells.\n\n:param mask: List containing one entry per grid cell, if the entry in the list is '1', this cell is selected by the mask.\n:type mask: list[int]\n:return: The depths for the given cells.\n:type: numpy.ndarray[double]"
+    },
+    "eclArrType": {
+        "type": "class",
+        "signature": "opm.io.ecl.eclArrType",
+        "doc": "`Python enum <https://docs.python.org/3/library/enum.html>`_ with the types of arrays used in the Eclipese file format."
+    },
+    "eclArrType_INTE": {
+        "signature": "opm.io.ecl.eclArrType.INTE",
+        "doc": "Represents an integer array type."
+    },
+    "eclArrType_REAL": {
+        "signature": "opm.io.ecl.eclArrType.REAL",
+        "doc": "Represents a single-precision float array type."
+    },
+    "eclArrType_DOUB": {
+        "signature": "opm.io.ecl.eclArrType.DOUB",
+        "doc": "Represents a double-precision real array type."
+    },
+    "eclArrType_CHAR": {
+        "signature": "opm.io.ecl.eclArrType.CHAR",
+        "doc": "Represents a character array type."
+    },
+    "eclArrType_C0nn": {
+        "signature": "opm.io.ecl.eclArrType.C0nn",
+        "doc": "Represents an array type used for strings with a length > 8 characters."
+    },
+    "eclArrType_LOGI": {
+        "signature": "opm.io.ecl.eclArrType.LOGI",
+        "doc": "Represents a boolean array type."
+    },
+    "eclArrType_MESS": {
+        "signature": "opm.io.ecl.eclArrType.MESS",
+        "doc": "Represents a data array type."
+    },
+    "EclFile": {
+        "type": "class",
+        "signature": "opm.io.ecl.EclFile",
+        "doc": "Represents a file in the ECL format."
+    },
+    "EclFile_init": {
+        "signature": "opm.io.ecl.EclFile.__init__(filename: str, preload: bool = False) -> None",
+        "doc": "Creates an EclFile instance.\n\n:param filename: The path to the EclFile.\n:type filename: str\n:param preload: Whether to already load the contents of the file.\n:type preload: bool"
+    },
+    "EclFile_arrays": {
+        "signature": "opm.io.ecl.EclFile.arrays -> list[tuple(str, eclArrType, int)]",
+        "doc": "Returns a list of all arrays in the EclFile, where one entry of the list is a tuple containing the array name, the array type and the array size.\n\n:return: A list the arrays in the EclFile.\n:type: list[tuple(str, eclArrType, int)]"
+    },
+    "EclFile_contains": {
+        "signature": "opm.io.ecl.EclFile.__contains__(name: str) -> bool",
+        "doc": "Checks if the array with the given name exists in the EclFile.\n\n:param name: The name to check for.\n:type name: str\n:return: True if the array exists, False otherwise.\n:type: bool"
+    },
+    "EclFile_len": {
+        "signature": "opm.io.ecl.EclFile.__len__() -> int",
+        "doc": "Returns the number of arrays in the EclFile.\n\n:return: The number of arrays.\n:type: int"
+    },
+    "EclFile_count": {
+        "signature": "opm.io.ecl.EclFile.count(name: str) -> int",
+        "doc": "Returns the total number of arrays with the given name in the EclFile.\n\n:param name: The name to check for.\n:type name: str\n:return: The number of records.\n:type: int"
+    },
+    "EclFile_get_data_index": {
+        "signature": "opm.io.ecl.EclFile.__get_data(index: int) -> tuple(numpy.ndarray, Opm::EclIO::eclArrType)",
+        "doc": "Retrieves an array of the EclFile by index.\n\n:param index: The index.\n:type index: int\n:return: A tupe of the array and its type.\n:tuple(numpy.ndarray, Opm::EclIO::eclArrType)"
+    },
+    "EclFile_get_data_name": {
+        "signature": "opm.io.ecl.EclFile.__get_data(name: str) -> tuple(numpy.ndarray, Opm::EclIO::eclArrType)",
+        "doc": "Retrieves the first occurence of the array with the given name from the EclFile.\n\n:param name: The name.\n:type name: str\n:return: A tupe of the array and its type.\n:tuple(numpy.ndarray, Opm::EclIO::eclArrType)"
+    },
+    "EclFile_get_data_occurrence": {
+        "signature": "opm.io.ecl.EclFile.__get_data(name: str, occurrence: int) -> tuple(numpy.ndarray, Opm::EclIO::eclArrType)",
+        "doc": "Retrieves the given occurence of the array with the given name from the EclFile.\n\n:param name: The name.\n:type name: str\n:param occurrence: The occurrence.\n:type occurrence: int\n:return: A tupe of the array and its type.\n:tuple(numpy.ndarray, Opm::EclIO::eclArrType)"
+    },
+    "ERst": {
+        "type": "class",
+        "signature": "opm.io.ecl.ERst",
+        "doc": "Represents an Eclipse Restart file. This class inherits from the class EclFile."
+    },
+    "ERst_init": {
+        "signature": "opm.io.ecl.ERst.__init__(filename: str) -> None",
+        "doc": "Initializes the ERst object by loading the Restart file (and the underlying EclFile) from the specified path.\n\n:param filename: The path to the Restart file.\n:type filename: str"
+    },
+    "ERst_has_report_step": {
+        "signature": "opm.io.ecl.ERst.__has_report_step(report_step: int) -> bool",
+        "doc": "Checks if the specified report step exists in the file.\n\n:param report_step: The report step number to check.\n:type report_step: int\n:return: True if the report step exists, otherwise False.\n:type: bool"
+    },
+    "ERst_load_report_step": {
+        "signature": "opm.io.ecl.ERst.load_report_step(report_step: int) -> None",
+        "doc": "Loads the specified report step from the file into memory.\n\n:param report_step: The report step number to load.\n:type report_step: int"
+    },
+    "ERst_report_steps": {
+        "signature": "opm.io.ecl.ERst.report_steps -> list[int]",
+        "doc": "Returns a list of all available report step numbers in the file.\n\n:return: A list of integers representing the available report steps.\n:type: list[int]"
+    },
+    "ERst_len": {
+        "signature": "opm.io.ecl.ERst.__len__() -> int",
+        "doc": "Returns the number of available report steps in the file.\n\n:return: The number of report steps.\n:type: int"
+    },
+    "ERst_count": {
+        "signature": "opm.io.ecl.ERst.count(name: str, report_step: int) -> int",
+        "doc": "Counts the occurrences of vectors with the specified name for the given report step.\n\n:param name: The name of the array to count.\n:type name: str\n:param report_step: The report step number to load.\n:type report_step: int\n:return: The number of occurrences of the array for the given report step.\n:type: int"
+    },
+    "ERst_contains": {
+        "signature": "opm.io.ecl.ERst.__contains__(tuple: [name: str, report_step: int]) -> bool",
+        "doc": "Checks if the Restart file contains a vector with the given name at the given report step.\n\n:param name: The name to check.\n:type name: str\n:param report_step: The report step to check.\n:type report_step: int\n:return: True if such a vector exists, otherwise False.\n:type: bool"
+    },
+    "ERst_arrays": {
+        "signature": "opm.io.ecl.ERst.arrays(report_step: int) -> list[tuple[str, eclArrType, int]]",
+        "doc": "Returns the list of arrays at the given report step.\n\n:param report_step: The report step number.\n:type report_step: int\n:return: A list of tuples containing the name, type, and size of each array.\n:type: list[tuple[str, eclArrType, int]]"
+    },
+    "ERst_arrays_with_string": {
+        "signature": "opm.io.ecl.ERst.arrays(report_step: int, lgr_name: str) -> list[tuple[str, eclArrType, int]]",
+        "doc": "Returns a list of arrays matching the given LGR at the given report_step.\n\n:param report_step: The report step number.\n:type report_step: int\n:param lgr_name: The name of the LGR.\n:type lgr_name: str\n:return: A list of tuples containing the name, type, and size of each array.\n:type: list[tuple[str, eclArrType, int]]"
+    },
+    "ERst_get_data_by_index": {
+        "signature": "opm.io.ecl.ERst.__get_data(index: int, report_step: int) -> tuple[numpy.ndarray, eclArrType]",
+        "doc": "Retrieves the given index of the data at the given report step.\n\n:param index: The index.\n:type index: int\n:return: A tuple containing the data array and its associated type.\n:type return: tuple[numpy.ndarray, eclArrType]"
+    },
+    "ERst_get_data_vector": {
+        "signature": "opm.io.ecl.ERst.get_erst_vector(name: str, report_step: int, occurrence: int) -> tuple[numpy.ndarray, eclArrType]",
+        "doc": "Retrieves the data array of the given name a the given occurrence at the given report step.\n\n:param name: The name of the arrays.\n:type name: str\n:param report_step: The report step.\n:type report_step: int\n:param occurrence: The occurrence to retrieve.\n:type occurrence: int\n:return: A tuple containing the data array and its associated type.\n:type return: tuple[numpy.ndarray, eclArrType]"
+    },
+    "ESmry": {
+        "type": "class",
+        "signature": "opm.io.ecl.ESmry",
+        "doc": "Handles summary data from Eclipse simulations."
+    },
+    "ESmry_init": {
+        "signature": "opm.io.ecl.ESmry.__init__(filename: str, load_base_run: bool = False) -> None",
+        "doc": "Initializes the ESmry object by loading the summary file.\n\n:param filename: Path to the .SMSPEC or .ESMRY file.\n:type filename: str\n:param load_base_run: Whether to load base run data. Default is False.\n:type load_base_run: bool"
+    },
+    "ESmry_contains": {
+        "signature": "opm.io.ecl.ESmry.__contains__(key: str) -> bool",
+        "doc": "Checks if the specified key exists in the summary data.\n\n:param key: The key to check.\n:type key: str\n:return: True if the key exists, otherwise False.\n:type return: bool"
+    },
+    "ESmry_make_esmry_file": {
+        "signature": "opm.io.ecl.ESmry.make_esmry_file() -> None",
+        "doc": "Generates an ESMRY file from an SMSPEC input file."
+    },
+    "ESmry_len": {
+        "signature": "opm.io.ecl.ESmry.__len__() -> int",
+        "doc": "Returns the number of time steps in the summary data.\n\n:return: The number of available time steps.\n:type return: int"
+    },
+    "ESmry_get_all": {
+        "signature": "opm.io.ecl.ESmry.__get_all(key: str) -> numpy.ndarray",
+        "doc": "Retrieves the summary vector for the given key.\n\n:param key: The key.\n:type key: str\n:return: The summary for the specified key.\n:type return: numpy.ndarray"
+    },
+    "ESmry_get_at_rstep": {
+        "signature": "opm.io.ecl.ESmry.__get_at_rstep(key: str) -> numpy.ndarray",
+        "doc": "Retrieves the report step summary vector for the given key.\n\n:param key: The key.\n:type key: str\n:return: The report step summary for the specified key.\n:type return: numpy.ndarray"
+    },
+    "ESmry_start_date": {
+        "signature": "opm.io.ecl.ESmry.start_date -> datetime.datetime",
+        "doc": "The start date of the summary data as a `datetime.datetime <https://docs.python.org/3/library/datetime.html#datetime.datetime>`_.\n\n:return: The start date.\n:type return: datetime.datetime"
+    },
+    "ESmry_keys1": {
+        "signature": "opm.io.ecl.ESmry.keys() -> list[str]",
+        "doc": "Retrieves a list of summary keys.\n\n:return: A list of available summary keys.\n:type return: list[str]"
+    },
+    "ESmry_keys2": {
+        "signature": "opm.io.ecl.ESmry.keys(pattern: str) -> list[str]",
+        "doc": "Retrieves a list of summary keys matching the given pattern.\n\n:param pattern: A pattern to filter the keys.\n:type pattern: str\n:return: A list of available summary keys.\n:type return: list[str]"
+    },
+    "ESmry_dates": {
+        "signature": "opm.io.ecl.ESmry.dates() -> list[datetime.datetime]",
+        "doc": "Retrieves a list of dates corresponding to the time steps in the summary data.\n\n:return: A list of dates.\n:type return: list[datetime.datetime]"
+    },
+    "ESmry_units": {
+        "signature": "opm.io.ecl.ESmry.units(field: str) -> str",
+        "doc": "Retrieves the unit for a given field.\n\n:param field: The field name.\n:type field: str\n:return: The unit corresponding to the specified field.\n:type return: str"
+    },
+    "EGrid": {
+        "type": "class",
+        "signature": "opm.io.ecl.EGrid",
+        "doc": "Represents an Eclipse Grid file."
+    },
+    "EGrid_init": {
+        "signature": "opm.io.ecl.EGrid.__init__(filename: str, grid_name: str = 'global') -> None",
+        "doc": "Initializes an EGrid object by loading the grid file.\n\n:param filename: Path to the grid file.\n:type filename: str\n:param grid_name: The name of the grid (default is 'global').\n:type grid_name: str"
+    },
+    "EGrid_active_cells": {
+        "signature": "opm.io.ecl.EGrid.active_cells -> int",
+        "doc": "Returns the number of active cells in the grid.\n\n:return: Number of active cells.\n:type: int"
+    },
+    "EGrid_dimension": {
+        "signature": "opm.io.ecl.EGrid.dimension -> tuple[int, int, int]",
+        "doc": "Returns the dimensions of the grid.\n\n:return: The (x,y,z) dimensions.\n:type: tuple[int, int, int]"
+    },
+    "EGrid_ijk_from_global_index": {
+        "signature": "opm.io.ecl.EGrid.ijk_from_global_index(global_index: int) -> tuple[int, int, int]",
+        "doc": "Converts a global index to IJK indices.\n\n:param global_index: The global index of the cell.\n:type global_index: int\n:return: The (I, J, K) indices.\n:type: tuple[int, int, int]"
+    },
+    "EGrid_ijk_from_active_index": {
+        "signature": "opm.io.ecl.EGrid.ijk_from_active_index(active_index: int) -> tuple[int, int, int]",
+        "doc": "Converts an active cell index to IJK indices.\n\n:param active_index: The active cell index.\n:type active_index: int\n:return: The (I, J, K) indices.\n:type: tuple[int, int, int]"
+    },
+    "EGrid_active_index": {
+        "signature": "opm.io.ecl.EGrid.active_index(i: int, j: int, k: int) -> int",
+        "doc": "Returns the active index corresponding to the given IJK index.\n\n:param i: The i index.\n:type i: int\n:param j: The j index.\n:type j: int\n:param k: The k index.\n:type k: int\n:return: The active cell index.\n:type: int"
+    },
+    "EGrid_global_index": {
+        "signature": "opm.io.ecl.EGrid.global_index(i: int, j: int, k: int) -> int",
+        "doc": "Returns the global index corresponding to the given IJK index.\n\n:param i: The i index.\n:type i: int\n:param j: The j index.\n:type j: int\n:param k: The k index.\n:type k: int\n:return: The global index.\n:type: int"
+    },
+    "EGrid_export_mapaxes": {
+        "signature": "opm.io.ecl.EGrid.export_mapaxes() -> tuple[double, 8]",
+        "doc": "Exports the map axes transformation for visualization.\n\n:return: tuple[double, 8]"
+    },
+    "EGrid_xyz_from_ijk": {
+        "signature": "opm.io.ecl.EGrid.xyz_from_ijk(i: int, j: int, k: int) -> tuple[tuple[double, 8], tuple[double, 8], tuple[double, 8]]",
+        "doc": "Computes the XYZ coordinates of the 8 cell corners given its ijk indices.\n\n:param i: The i index of the cell.\n:type i: int\n:param j: The j index of the cell.\n:type j: int\n:param k: The k index of the cell.\n:type k: int\n:return: The XYZ coordinates, as three tuples.\n:type: tuple[tuple[double, 8], tuple[double, 8], tuple[double, 8]]"
+    },
+    "EGrid_xyz_from_ijk_mapaxes": {
+        "signature": "opm.io.ecl.EGrid.xyz_from_ijk(i: int, j: int, k: int, apply_mapaxes: bool) -> tuple[tuple[double, 8], tuple[double, 8], tuple[double, 8]]",
+        "doc": "Computes the XYZ coordinates of the 8 cell corners given its ijk indices.\n\n:param i: The i index of the cell.\n:type i: int\n:param j: The j index of the cell.\n:type j: int\n:param k: The k index of the cell.\n:type k: int\n:param apply_mapaxes: Boolean to indicate if a mapaxes tranformation (if available) should be carried out before.\n:type apply_mapaxes: bool\n:return: The XYZ coordinates, as three tuples.\n:type: tuple[tuple[double, 8], tuple[double, 8], tuple[double, 8]]"
+    },
+    "EGrid_xyz_from_active_index": {
+        "signature": "opm.io.ecl.EGrid.xyz_from_active_index(active_index: int) -> tuple[tuple[double, 8], tuple[double, 8], tuple[double, 8]]",
+        "doc": "Computes the XYZ coordinates of a cell given its active index.\n\n:param active_index: The active cell index.\n:type active_index: int\n:return: XYZ coordinates.\n:type: tuple[float, float, float]"
+    },
+    "EGrid_xyz_from_active_index_mapaxes": {
+        "signature": "opm.io.ecl.EGrid.xyz_from_active_index(active_index: int, apply_mapaxes: bool) -> tuple[tuple[double, 8], tuple[double, 8], tuple[double, 8]]",
+        "doc": "Computes the XYZ coordinates of a cell given its active index.\n\n:param active_index: The active cell index.\n:type active_index: int\n:param apply_mapaxes: Boolean to indicate if a mapaxes tranformation (if available) should be carried out before.\n:type apply_mapaxes: bool\n:return: XYZ coordinates.\n:type: tuple[float, float, float]"
+    },
+    "EGrid_cellvolumes": {
+        "signature": "opm.io.ecl.EGrid.cellvolumes() -> numpy.ndarray",
+        "doc": "Returns an array containing the volume of each cell in the grid.\n\n:return: A NumPy array containing cell volumes.\n:type: numpy.ndarray"
+    },
+    "EGrid_cellvolumes_mask": {
+        "signature": "opm.io.ecl.EGrid.cellvolumes(mask: list[int]) -> numpy.ndarray",
+        "doc": "Returns an array containing the volume of the selected cells.\n\n:param mask: List containing one entry per grid cell, if the entry in the list is '1', this cell is selected by the mask.\n:type mask: list[int]\n:return: A NumPy array containing cell volumes.\n:type: numpy.ndarray"
+    },
+    "ERft": {
+        "type": "class",
+        "signature": "opm.io.ecl.ERft",
+        "doc": "Handles RFT data from Eclipse simulation outputs."
+    },
+    "ERft_init": {
+        "signature": "opm.io.ecl.ERft.__init__(filename: str) -> None",
+        "doc": "Initializes the ERft object from the specified file.\n\n:param filename: Path to the RFT file.\n:type filename: str"
+    },
+    "ERft_list_of_rfts": {
+        "signature": "opm.io.ecl.ERft.list_of_rfts -> list[tuple[well_name: str, tuple[year: int, month: int, day: int]]]",
+        "doc": "Returns a list of RFT reports.\n\n:return: A list of tuples with well names and corresponding dates.\n:type return: list[tuple[well_name: str, tuple[year: int, month: int, day: int]]]"
+    },
+    "ERft_get_list_of_arrays1": {
+        "signature": "opm.io.ecl.ERft.__get_list_of_arrays(report_index: int) -> list[tuple[str, eclArrType, int]]",
+        "doc": "Returns the metadata for arrays for a specific report step.\n\n:param report_index: The report step index.\n:type report_index: int\n:return: List of array metadata (name, type, size).\n:type return: list[tuple[str, eclArrType, int]]"
+    },
+    "ERft_get_list_of_arrays2": {
+        "signature": "opm.io.ecl.ERft.__get_list_of_arrays(well_name: str, year: int, month: int, day: int) -> list[tuple[str, eclArrType, int]]",
+        "doc": "Returns the metadata for arrays for a specific well and date.\n\n:param well_name: Well name.\n:type well_name: str\n:param year: Year.\n:type year: int\n:param month: Month.\n:type month: int\n:param day: Day.\n:type day: int\n:return: List of array metadata (name, type, size).\n:type return: list[tuple[str, eclArrType, int]]"
+    },
+    "ERft_get_data1": {
+        "signature": "opm.io.ecl.ERft.__get_data(array_name: str, well_name: str, year: int, month: int, day: int) -> tuple[numpy.ndarray, eclArrType]",
+        "doc": "Retrieves the RFT array data for a specific well and date.\n\n:param array_name: Name of the array.\n:param well_name: Well name.\n:type well_name: str\n:param year: Year.\n:type year: int\n:param month: Month.\n:type month: int\n:param day: Day.\n:type day: int\n:type array_name: str\n:return: The RFT data as a NumPy array and the eclArrType.\n:type return: tuple[numpy.ndarray, eclArrType]"
+    },
+    "ERft_get_data2": {
+        "signature": "opm.io.ecl.ERft.__get_data(array_name: str, report_index: int) -> tuple[numpy.ndarray, eclArrType]",
+        "doc": "Retrieves RFT array data using a report index.\n\n:param array_name: Name of the array.\n:type array_name: str\n:param report_index: The report step index.\n:type report_index: int\n:return: The RFT data as a NumPy array and the eclArrType.\n:type return: tuple[numpy.ndarray, eclArrType]"
+    },
+    "ERft_has_rft": {
+        "signature": "opm.io.ecl.ERft.__has_rft(well_name: str, year: int, month: int, day: int) -> bool",
+        "doc": "Checks if an RFT exists for the given well and date.\n\n:param well_name: Well name.\n:type well_name: str\n:param year: Year.\n:type year: int\n:param month: Month.\n:type month: int\n:param day: Day.\n:type day: int\n:return: True if the RFT exists.\n:type return: bool"
+    },
+    "ERft_has_array1": {
+        "signature": "opm.io.ecl.ERft.__has_array(array_name: str, report_index: int) -> bool",
+        "doc": "Checks if an array exists for a specific report index.\n\n:param array_name: Name of the array.\n:type array_name: str\n:param report_index: The report index.\n:type report_index: int\n:return: True if the array exists.\n:type return: bool"
+    },
+    "ERft_has_array2": {
+        "signature": "opm.io.ecl.ERft.__has_array(array_name: str, well_name: str, date: tuple[int, int, int]) -> bool",
+        "doc": "Checks if an array exists for a given well and date.\n\n:param array_name: Name of the array.\n:type array_name: str\n:param well_name: Well name.\n:type well_name: str\n:param date: The date as a tuple(year, month, day).\n:type date: tuple[int, int, int]\n:return: True if the array exists.\n:type return: bool"
+    },
+    "ERft_len": {
+        "signature": "opm.io.ecl.ERft.__len__() -> int",
+        "doc": "Returns the number of reports, i.e., the length of the ERft.\n\n:return: The number of reports.\n:type return: int"
+    },
+    "EclOutput": {
+        "type": "class",
+        "signature": "opm.io.ecl.EclOutput",
+        "doc": "Class for writing Eclipse output files."
+    },
+    "EclOutput_init": {
+        "signature": "opm.io.ecl.EclOutput.__init__(filename: str, formatted: bool = False, append: bool = False) -> None",
+        "doc": "Initialize the EclOutput object.\n\n:param filename: The name of the output file.\n:type filename: str\n:param formatted: Whether to use formatted output.\n:type formatted: bool\n:param append: Whether to append to an existing file.\n:type append: bool"
+    },
+    "EclOutput_write_message": {
+        "signature": "opm.io.ecl.EclOutput.write_message(message: str) -> None",
+        "doc": "Write a plain message to the Eclipse output file.\n\n:param message: The message string to write.\n:type message: str"
+    },
+    "EclOutput_write_char_array": {
+        "signature": "opm.io.ecl.EclOutput.__write_char_array(array_name: str, data: list[str]) -> None",
+        "doc": "Write a string array to the Eclipse output file under the given array name.\n\n:param array_name: The array name for the data.\n:type array_name: str\n:param data: List of strings to write.\n:type data: list[str]"
+    },
+    "EclOutput_write_c0nn_array": {
+        "signature": "opm.io.ecl.EclOutput.__write_c0nn_array(array_name: str, data: list[str], element_size: int) -> None",
+        "doc": "Write connection (C0NN) data to the Eclipse output file.\n\n:param array_name: The array name for the data.\n:type array_name: str\n:param data: List of C0NN strings to write.\n:type data: list[bool]\n:param element_size: The element_size for type C0NN.\n:type element_size: int"
+    },
+    "EclOutput_write_logi_array": {
+        "signature": "opm.io.ecl.EclOutput.__write_logi_array(array_name: str, data: list[bool]) -> None",
+        "doc": "Write a boolean array to the Eclipse output file under the given array name.\n\n:param array_name: The array name for the data.\n:type array_name: str\n:param data: List of booleans to write.\n:type data: list[bool]"
+    },
+    "EclOutput_write_inte_array": {
+        "signature": "opm.io.ecl.EclOutput.__write_inte_array(array_name: str, data: list[int]) -> None",
+        "doc": "Write an integer array to the Eclipse output file under the given array name.\n\n:param array_name: The array name for the data.\n:type array_name: str\n:param data: List of integers to write.\n:type data: list[int]"
+    },
+    "EclOutput_write_real_array": {
+        "signature": "opm.io.ecl.EclOutput.__write_real_array(array_name: str, data: list[float]) -> None",
+        "doc": "Write a float array to the Eclipse output file under the given array name.\n\n:param array_name: The array name for the data.\n:type array_name: str\n:param data: List of floats to write.\n:type data: list[float]"
+    },
+    "EclOutput_write_doub_array": {
+        "signature": "opm.io.ecl.EclOutput.__write_doub_array(array_name: str, data: list[float]) -> None",
+        "doc": "Write a double-precision float array to the Eclipse output file under the given array name.\n\n:param array_name: The array name for the data.\n:type array_name: str\n:param data: List of double-precision floats to write.\n:type data: list[float]"
+    },
+    "FieldProperties": {
+        "type": "class",
+        "signature": "FieldProperties",
+        "doc": "Provides access to field-wide simulation properties."
+    },
+      "FieldProperties_contains": {
+        "signature": "FieldProperties.__contains__(keyword: str) -> bool",
+        "doc": "Checks whether the given keyword exists.\n\n:param keyword: Name of the keyword.\n:type keyword: str\n:return: True if the keyword exists.\n:type return: bool"
+    },
+      "FieldProperties_getitem": {
+        "signature": "FieldProperties.__getitem__(keyword: str) -> numpy.ndarray",
+        "doc": "Retrieves a double-precision floating-point or integer array associated for the given keyword.\n\n:param keyword: Name of the keyword.\n:type keyword: str\n:return: NumPy array of doubles or integers.\n:type return: numpy.ndarray"
+    },
+      "FieldProperties_get_double_array": {
+        "signature": "FieldProperties.get_double_array(keyword: str) -> numpy.ndarray",
+        "doc": "Returns a double-precision floating-point array for the given keyword.\n\n:param keyword: Name of the keyword.\n:type keyword: str\n:return: NumPy array of doubles.\n:type return: numpy.ndarray"
+    },
+      "FieldProperties_get_int_array": {
+        "signature": "FieldProperties.get_int_array(keyword: str) -> numpy.ndarray",
+        "doc": "Returns an integer array for the given keyword.\n\n:param keyword: Name of the keyword.\n:type keyword: str\n:return: NumPy array of integers.\n:type return: numpy.ndarray"
+    },
+    "EModel": {
+        "type": "class",
+        "signature": "opm.util.EModel",
+        "doc": "Represents an Eclipse model loaded from a simulation file."
+    },
+    "EModel_init": {
+        "signature": "opm.util.EModel.__init__(filename: str) -> None",
+        "doc": "Initializes the EModel instance using the provided file.\n\n:param filename: Path to the file.\n:type filename: str"
+    },
+    "EModel_contains": {
+        "signature": "opm.util.EModel.__contains__(parameter: str) -> bool",
+        "doc": "Checks if the given init or solution parameter exists in the model.\n\n:param parameter: Name of the parameter.\n:type parameter: str\n:return: True if the parameter exists.\n:type return: bool"
+    },
+    "EModel_grid_dims": {
+        "signature": "opm.util.EModel.grid_dims() -> tuple[int, int, int]",
+        "doc": "Returns the grid dimensions (I, J, K) of the simulation model.\n\n:return: Tuple containing the grid dimensions.\n:type return: tuple[int, int, int]"
+    },
+    "EModel_active_cells": {
+        "signature": "opm.util.EModel.active_cells() -> int",
+        "doc": "Returns the number of active cells in the simulation grid.\n\n:return: Number of active grid cells.\n:type return: int"
+    },
+    "EModel_set_depth_fwl": {
+        "signature": "opm.util.EModel.set_depth_fwl(fwl: list[float]) -> None",
+        "doc": "Sets the free water level depths.\n\n:param fwl: List of free water level depths.\n:type fwl: list[float]"
+    },
+    "EModel_add_hc_filter": {
+        "signature": "opm.util.EModel.add_hc_filter() -> None",
+        "doc": "Adds a HC volume filter to the model."
+    },
+    "EModel_get_list_of_arrays": {
+        "signature": "opm.util.EModel.get_list_of_arrays() -> list[tuple[str, eclArrType]]",
+        "doc": "Returns a list of available parameter arrays and their types.\n\n:return: List of tuples with parameter arrays and their types.\n:type return: list[tuple[str, eclArrType]]"
+    },
+    "EModel_active_report_step": {
+        "signature": "opm.util.EModel.active_report_step() -> int",
+        "doc": "Gets the currently active report step.\n\n:return: Active report step index.\n:type return: int"
+    },
+    "EModel_get_report_steps": {
+        "signature": "opm.util.EModel.get_report_steps() -> list[int]",
+        "doc": "Returns all available report steps.\n\n:return: List of report steps.\n:type return: list[int]"
+    },
+    "EModel_has_report_step": {
+        "signature": "opm.util.EModel.has_report_step(report_step: int) -> bool",
+        "doc": "Checks if the specified report step exists.\n\n:param report_step: The report step.\n:type report_step: int\n:return: True if the report step exists.\n:type return: bool"
+    },
+    "EModel_set_report_step": {
+        "signature": "opm.util.EModel.set_report_step(report_step: int) -> None",
+        "doc": "Sets the active report step to the given report step and initializes the solution data.\n\n:param report_step: The report step.\n:type report_step: int"
+    },
+    "EModel_reset_filter": {
+        "signature": "opm.util.EModel.reset_filter() -> None",
+        "doc": "Clears all filters currently applied to the model."
+    },
+    "EModel_get": {
+        "signature": "opm.util.EModel.get(key: str) -> numpy.ndarray",
+        "doc": "Retrieves a parameter array by key. Returns an array of floats or integers depending on the data type.\n\n:param key: Name of the parameter.\n:type key: str\n:return: Parameter data as a NumPy array.\n:type return: numpy.ndarray"
+    },
+    "EModel_add_filter_int1": {
+        "signature": "opm.util.EModel.__add_filter(key: str, operator: str, value: int) -> None",
+        "doc": "Adds an integer filter with a single value.\n\n:param key: Name of the parameter to filter.\n:type key: str\n:param operator: Comparison operator ('==', '>', '<' or 'eq', 'gt', 'lt').\n:type operator: str\n:param value: Integer value for the filter.\n:type value: int"
+    },
+    "EModel_add_filter_float1": {
+        "signature": "opm.util.EModel.__add_filter(key: str, operator: str, value: float) -> None",
+        "doc": "Adds a float filter with a single value.\n\n:param key: Name of the parameter to filter.\n:type key: str\n:param operator: Comparison operator ('==', '>', '<' or 'eq', 'gt', 'lt').\n:type operator: str\n:param value: Floating-point value for the filter.\n:type value: float"
+    },
+    "EModel_add_filter_int2": {
+        "signature": "opm.util.EModel.__add_filter(key: str, operator: str, value1: int, value2: int) -> None",
+        "doc": "Adds an integer filter with two bounds, i.e., a range filter.\n\n:param key: Name of the parameter to filter.\n:type key: str\n:param operator: Comparison operator ('between' or 'in').\n:type operator: str\n:param value1: Lower bound of the filter.\n:type value1: int\n:param value2: Upper bound of the filter.\n:type value2: int"
+    },
+    "EModel_add_filter_float2": {
+        "signature": "opm.util.EModel.__add_filter(key: str, operator: str, value1: float, value2: float) -> None",
+        "doc": "Adds a float filter with two bounds, i.e., a range filter.\n\n:param key: Name of the parameter to filter.\n:type key: str\n:param operator: Comparison operator ('between' or 'in').\n:type operator: str\n:param value1: Lower bound.\n:type value1: float\n:param value2: Upper bound.\n:type value2: float"
+    },
+    "EModel_add_filter": {
+        "signature": "opm.util.EModel.add_filter(key: str, operator: str, val1: int | float, val2: int | float | None = None) -> None",
+        "doc": "Adds a filter to the EModel based on parameter type and number of values.\n\nAutomatically determines the array type (integer or float) based on the key and dispatches the appropriate filter method.\n\n:param key: Name of the parameter to filter.\n:type key: str\n:param operator: Comparison operator (e.g., '==', '>', '<', '>=', '<=').\n:type operator: str\n:param val1: First comparison value.\n:type val1: int or float\n:param val2: Optional second value for range-based filters.\n:type val2: int or float or None\n:raises ValueError: If the report step is in the past or exceeds the duration of the simulation."
+    },
+    "OpmLog": {
+        "type": "class",
+        "signature": "opm.io.OpmLog",
+        "doc": "Fully static class providing logging functionality for OPM, for embedded python accessible via opm_embedded.OpmLog."
+    },
+      "OpmLog_info": {
+        "signature": "opm.io.OpmLog.info(msg: str) -> None",
+        "doc": "Add an info message to the OPM log.\n\n:param msg: Message to log.\n:type msg: str\n:return: None"
+    },
+      "OpmLog_warning": {
+        "signature": "opm.io.OpmLog.warning(msg: str) -> None",
+        "doc": "Add a warning message to the OPM log.\n\n:param msg: Warning message.\n:type msg: str\n:return: None"
+    },
+      "OpmLog_error": {
+        "signature": "opm.io.OpmLog.error(msg: str) -> None",
+        "doc": "Add an error message to the OPM log.\n\n:param msg: Error message.\n:type msg: str\n:return: None"
+    },
+      "OpmLog_problem": {
+        "signature": "opm.io.OpmLog.problem(msg: str) -> None",
+        "doc": "Add a problem message to the OPM log.\n\n:param msg: Problem description.\n:type msg: str\n:return: None"
+    },
+      "OpmLog_bug": {
+        "signature": "opm.io.OpmLog.bug(msg: str) -> None",
+        "doc": "Add a bug message to the OPM log.\n\n:param msg: Bug report message.\n:type msg: str\n:return: None"
+    },
+      "OpmLog_debug": {
+        "signature": "opm.io.OpmLog.debug(msg: str) -> None",
+        "doc": "Add a debug message to the OPM log.\n\n:param msg: Debug message.\n:type msg: str\n:return: None"
+    },
+      "OpmLog_note": {
+        "signature": "opm.io.OpmLog.note(msg: str) -> None",
+        "doc": "Add a note to the OPM log.\n\n:param msg: Note message.\n:type msg: str\n:return: None"
+    },
+    "ParseContext": {
+        "type": "class",
+        "signature": "opm.io.parser.ParseContext",
+        "doc": "The ParseContext class manages how input parsing errors are handled for specific keywords."
+    },
+    "ParseContext_init": {
+        "signature": "opm.io.parser.ParseContext.__init__() -> None",
+        "doc": "Creates an empty ParseContext with default error handling behavior."
+    },
+    "ParseContext_init_with_actions": {
+        "signature": "opm.io.parser.ParseContext.__init__(action_list: list[tuple[str, action]]) -> None",
+        "doc": "Initializes a ParseContext with a list of specific error handling actions for the given keyword.\n\n:param action_list: A list of (keyword, action) pairs specifying how to handle errors for a keyword, wildcards '*' are possible in the keyword.\n:type action_list: list[tuple[str, action]]"
+    },
+    "ParseContext_ignore_keyword": {
+        "signature": "opm.io.parser.ParseContext.ignore_keyword(keyword: str) -> None",
+        "doc": "Instructs the parser to ignore the specified keyword.\n\n:param keyword: The keyword to ignore.\n:type keyword: str\n:return: None\n:type return: None"
+    },
+    "ParseContext_update": {
+        "signature": "opm.io.parser.ParseContext.update(keyword: str, action: action) -> None",
+        "doc": "Updates the error handling behavior for a specific keyword.\n\n:param keyword: The keyword to update, wildcards '*' are possible in the keyword.\n:type keyword: str\n:param action: The error handling action to associate with the keyword.\n:type action: action\n:return: None\n:type return: None"
+    },
+    "action": {
+        "type": "class",
+        "signature": "opm.io.parser.action",
+        "doc": "`Python enum <https://docs.python.org/3/library/enum.html>`_ with the types of input errors for parsing a file."
+    },
+    "action_throw": {
+        "signature": "opm.io.parser.action.throw",
+        "doc": "Raise an exception when a parsing error occurs."
+    },
+    "action_warn": {
+        "signature": "opm.io.parser.action.warn",
+        "doc": "Issue a warning when a parsing error occurs, but continue."
+    },
+    "action_ignore": {
+        "signature": "opm.io.parser.action.ignore",
+        "doc": "Silently ignore the parsing error."
+    },
+    "ParserKeyword": {
+        "type": "class",
+        "signature": "ParserKeyword",
+        "doc": "The ParserKeyword class represents a keyword definition used during parsing of deck input files."
+    },
+    "ParserKeyword_name": {
+        "signature": "ParserKeyword.name -> str",
+        "doc": "Returns the name of the parser keyword.\n\n:return: The name of the keyword.\n:type return: str"
+    },
+    "eclSectionType": {
+        "type": "class",
+        "signature": "opm.io.parser.eclSectionType",
+        "doc": "`Python enum <https://docs.python.org/3/library/enum.html>`_ which defines the major sections found in an Eclipse-style reservoir simulation input deck."
+    },
+    "eclSectionType_RUNSPEC": {
+        "signature": "opm.io.parser.eclSectionType.RUNSPEC",
+        "doc": "Specifies the RUNSPEC section, which defines simulation run control parameters."
+    },
+    "eclSectionType_GRID": {
+        "signature": "opm.io.parser.eclSectionType.GRID",
+        "doc": "Specifies the GRID section, which contains grid geometry and dimensions."
+    },
+    "eclSectionType_EDIT": {
+        "signature": "opm.io.parser.eclSectionType.EDIT",
+        "doc": "Specifies the EDIT section, which allows modifications to the grid or properties."
+    },
+    "eclSectionType_PROPS": {
+        "signature": "opm.io.parser.eclSectionType.PROPS",
+        "doc": "Specifies the PROPS section, which defines rock and fluid properties."
+    },
+    "eclSectionType_REGIONS": {
+        "signature": "opm.io.parser.eclSectionType.REGIONS",
+        "doc": "Specifies the REGIONS section, which defines different rock, fluid, or control regions in the grid."
+    },
+    "eclSectionType_SOLUTION": {
+        "signature": "opm.io.parser.eclSectionType.SOLUTION",
+        "doc": "Specifies the SOLUTION section."
+    },
+    "eclSectionType_SUMMARY": {
+        "signature": "opm.io.parser.eclSectionType.SUMMARY",
+        "doc": "Specifies the SUMMARY section, which configures output variables and summaries."
+    },
+    "eclSectionType_SCHEDULE": {
+        "signature": "opm.io.parser.eclSectionType.SCHEDULE",
+        "doc": "Specifies the SCHEDULE section."
+    },
+    "Parser": {
+        "type": "class",
+        "signature": "opm.io.parser.Parser",
+        "doc": "The Parser class is responsible for parsing Eclipse-style deck files and strings."
+    },
+    "Parser_init": {
+        "signature": "opm.io.parser.Parser.__init__(add_default: bool = True) -> None",
+        "doc": "Creates a Parser.\n\n:param add_default: Boolean indicating if the default keywords should be known to the Parser, default is True.\n:type add_default: bool"
+    },
+    "Parser_parse_file": {
+        "signature": "opm.io.parser.Parser.parse(filename: str) -> Deck",
+        "doc": "Parses the contents of a file using the default parsing context.\n\n:param filename: Path to the file to parse.\n:type filename: str\n:return: A parsed Deck object.\n:type return: Deck"
+    },
+    "Parser_parse_file_context": {
+        "signature": "opm.io.parser.Parser.parse(filename: str, context: ParseContext) -> Deck",
+        "doc": "Parses the contents of a file using a custom ParseContext.\n\n:param filename: Path to the file.\n:param context: The context used to configure error handling during parsing.\n:type filename: str\n:type context: ParseContext\n:return: A parsed Deck object.\n:type return: Deck"
+    },
+    "Parser_parse_file_context_sections": {
+        "signature": "opm.io.parser.Parser.parse(filename: str, context: ParseContext, sections: list[eclSectionType]) -> Deck",
+        "doc": "Parses a file using a custom ParseContext and a list of sections to include.\n\n:param filename: Path to the file.\n:param context: The parsing context.\n:param sections: List of section types to be parsed.\n:type filename: str\n:type context: ParseContext\n:type sections: List[eclSectionType]\n:return: A parsed Deck object.\n:type return: Deck"
+    },
+    "Parser_parse_string": {
+        "signature": "opm.io.parser.Parser.parse_string(data: str) -> Deck",
+        "doc": "Parses a string representation of a deck.\n\n:param data: The input string to parse.\n:type data: str\n:return: A parsed Deck object.\n:type return: Deck"
+    },
+    "Parser_parse_string_context": {
+        "signature": "opm.io.parser.Parser.parse_string(data: str, context: ParseContext) -> Deck",
+        "doc": "Parses a string using a custom ParseContext.\n\n:param data: The input string.\n:param context: The parsing context.\n:type data: str\n:type context: ParseContext\n:return: A parsed Deck object.\n:type return: Deck"
+    },
+    "Parser_add_keyword": {
+        "signature": "opm.io.parser.Parser.add_keyword(keyword: ParserKeyword) -> None",
+        "doc": "Adds a new ParserKeyword to the parser.\n\n:param keyword: The keyword definition to add.\n:type keyword: ParserKeyword"
+    },
+    "Parser_add_keyword_json": {
+        "signature": "opm.io.parser.Parser.add_keyword(keyword: str) -> None",
+        "doc": "Adds a new ParserKeyword to the parser.\n\n:param keyword_json: The keyword definition to add as a JSON string.\n:type keyword_json: str"
+    },
+    "Parser_getitem": {
+        "signature": "opm.io.parser.Parser.__getitem__(keyword: str) -> ParserKeyword",
+        "doc": "Returns the ParserKeyword with the given name.\n\n:param keyword: The name of the keyword.\n:type keyword: str\n:return: The ParserKeyword instance.\n:type return: ParserKeyword"
+    },
+    "SimulationConfig": {
+        "type": "class",
+        "signature": "SimulationConfig",
+        "doc": "The SimulationConfig class encapsulates configuration flags used in reservoir simulation models."
+    },
+    "SimulationConfig_hasThresholdPressure": {
+        "signature": "SimulationConfig.hasThresholdPressure() -> bool",
+        "doc": "Returns whether threshold pressure is enabled.\n\n:return: True if threshold pressure is enabled, otherwise False.\n:type return: bool"
+    },
+    "SimulationConfig_useCPR": {
+        "signature": "SimulationConfig.useCPR() -> bool",
+        "doc": "Indicates if the CPR (Constrained Pressure Residual) preconditioner is enabled.\n\n:return: True if CPR is enabled, otherwise False.\n:type return: bool"
+    },
+    "SimulationConfig_useNONNC": {
+        "signature": "SimulationConfig.useNONNC() -> bool",
+        "doc": "Indicates whether the NONNC option is enabled in the simulation.\n\n:return: True if NONNC is enabled, otherwise False.\n:type return: bool"
+    },
+    "SimulationConfig_hasDISGAS": {
+        "signature": "SimulationConfig.hasDISGAS() -> bool",
+        "doc": "Indicates whether the DISGAS (dissolved gas) option is present.\n\n:return: True if DISGAS is enabled, otherwise False.\n:type return: bool"
+    },
+    "SimulationConfig_hasDISGASW": {
+        "signature": "SimulationConfig.hasDISGASW() -> bool",
+        "doc": "Indicates whether the DISGASW (dissolved gas in water) option is present.\n\n:return: True if DISGASW is enabled, otherwise False.\n:type return: bool"
+    },
+    "SimulationConfig_hasVAPOIL": {
+        "signature": "SimulationConfig.hasVAPOIL() -> bool",
+        "doc": "Indicates whether vaporized oil is considered in the simulation.\n\n:return: True if VAPOIL is enabled, otherwise False.\n:type return: bool"
+    },
+    "SimulationConfig_hasVAPWAT": {
+        "signature": "SimulationConfig.hasVAPWAT() -> bool",
+        "doc": "Indicates whether vaporized water is considered in the simulation.\n\n:return: True if VAPWAT is enabled, otherwise False.\n:type return: bool"
+    },
+    "Tables": {
+        "type": "class",
+        "signature": "Tables",
+        "doc": "The Tables class (or table manager) manages multiple named tables for data lookup and evaluation."
+    },
+    "Tables_contains": {
+        "signature": "Tables.__contains__(table_name: str) -> bool",
+        "doc": "Checks if tables with the specified name exist.\n\n:param table_name: The name of the table to check.\n:type table_name: str\n:return: True if the table exists, False otherwise.\n:type return: bool"
+    },
+    "Tables_evaluate": {
+        "signature": "Tables.evaluate(table_name: str, table_index: int, column_name: str, x: float) -> float",
+        "doc": "Evaluates the specified column in the table at a given index with input x.\n\n:param table_name: The name of the table.\n:type table_name: str\n:param table_index: The index of the table.\n:type table_index: int\n:param column_name: The name of the column to evaluate.\n:type column_name: str\n:param x: The input value to the evaluation.\n:type x: float\n:return: The evaluation result.\n:type return: float\n:raises KeyError: If the table or column is not found."
+    },
+    "UnitSystem": {
+        "type": "class",
+        "signature": "UnitSystem",
+        "doc": "Represents a unit system with a name describing the units used."
+    },
+    "UnitSystem_name": {
+        "signature": "UnitSystem.name -> str",
+        "doc": "Returns the name of the unit system.\n\n:return: The name of the unit system.\n:type return: str"
+    },
+    "Dimension": {
+        "type": "class",
+        "signature": "Dimension",
+        "doc": "Represents a physical dimension with SI scaling and optional offset."
+    },
+    "Dimension_scaling": {
+        "signature": "Dimension.scaling -> float",
+        "doc": "Returns the SI scaling factor of the dimension.\n\n:return: The SI scaling factor.\n:type return: float"
+    },
+    "Dimension_offset": {
+        "signature": "Dimension.offset -> float",
+        "doc": "Returns the SI offset of the dimension.\n\n:return: The SI offset.\n:type return: float"
+    },
+    "Dimension_repr": {
+        "signature": "Dimension.__repr__() -> str",
+        "doc": "Returns a string representation of the Dimension object.\n\n:return: A string representing the Dimension.\n:type return: str"
+    }
+
+}
