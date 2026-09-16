@@ -1,0 +1,41 @@
+# Dependabot configuration.
+#
+# Without this file GitHub only raises *security* alerts; it never opens
+# version-update pull requests. That is how the Poetry lock file was allowed to
+# drift several years behind upstream (see PR #27, which had to clear 23 open
+# alerts in one go).
+#
+# Everything is grouped into a single pull request per ecosystem, because
+# ungrouped updates are unmanageable here: GitPython alone went through eight
+# patch releases in the three weeks from 2026-07-21 to 2026-08-07, each of which
+# would have arrived as its own pull request.
+#
+# Note that this file only affects scheduled version updates. Security updates
+# are still opened immediately and individually whenever an advisory is
+# published, independently of the schedule below.
+version: 2
+updates:
+    # Python dependencies for the Sphinx documentation build. The directory is
+    # the one holding pyproject.toml / poetry.lock; the "pip" ecosystem covers
+    # Poetry projects.
+    - package-ecosystem: "pip"
+      directory: "/python/sphinx_docs"
+      schedule:
+          interval: "monthly"
+      groups:
+          python-dependencies:
+              patterns:
+                  - "*"
+
+    # Workflow action pins. Dependabot can only bump actions referenced by a
+    # version tag, so this covers actions/checkout and actions/setup-python.
+    # OPM/actions-poetry@master and OPM/github-pages-deploy-action@releases/v4
+    # are branch refs and are left alone.
+    - package-ecosystem: "github-actions"
+      directory: "/"
+      schedule:
+          interval: "monthly"
+      groups:
+          github-actions:
+              patterns:
+                  - "*"
