@@ -13,7 +13,7 @@ repository = "https://github.com/OPM/opm-simulators"
 python = "^3.10"
 requests = "^2.32.4"
 sphinx = "^7.2.5"
-sphinx-rtd-theme = "^1.3.0"
+sphinx-rtd-theme = ">=1.3,<4.0"
 click = "^8.1.7"
 sphinx-versioned-docs = "^1.3.1"
 
@@ -22,7 +22,7 @@ opmdoc-download-files = "opm_python_docs.download_files:main"
 opmdoc-view-doc = "opm_python_docs.view_docs:main"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.4"
+pytest = ">=8.3.4,<10.0.0"
 pytest-mock = "^3.14.0"
 gitpython = "^3.1.44"
 coverage = "^7.6.10"
