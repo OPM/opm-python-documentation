@@ -1,0 +1,21 @@
+{
+    "simulators": {
+        "PyBlackOilSimulator": {
+            "name": "BlackOilSimulator",
+            "class": "PyBlackOilSimulator",
+            "doc": "Simulator for black oil cases."
+        }
+    },
+    "constructors": {
+        "filename_constructor": {
+            "signature_template": "opm.simulators.{{name}}.__init__(filename: str) -> None",
+            "doc": "Constructor from a deck file name.\n\n:param filename: Path to the deck file.\n:type filename: str"
+        }
+    },
+    "common_methods": {
+        "advance": {
+            "signature_template": "opm.simulators.{{name}}.advance(report_step: int) -> None",
+            "doc": "Advances the simulation to a specific report step.\n\n:param report_step: Target report step to advance to.\n:type report_step: int"
+        }
+    }
+}
