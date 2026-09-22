@@ -108,7 +108,7 @@ conditions can be evaluated and changes applied.</p>
 <li><p>You need to provide the Python script.</p>
 <p>To interact with the simulator in the embedded Python code, you can access four variables from the simulator:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python module opm_embedded</span>
-<span class="kn">import</span> <span class="nn">opm_embedded</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">opm_embedded</span>
 <span class="c1"># The current EclipseState</span>
 <span class="n">ecl_state</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_ecl_state</span>
 <span class="c1"># The current Schedule</span>
@@ -131,8 +131,8 @@ conditions can be evaluated and changes applied.</p>
 <h2>Stateful behavior using Python classes<a class="headerlink" href="#stateful-behavior-using-python-classes" title="Link to this heading"></a></h2>
 <p>In the below code snippet, we use a <code class="docutils literal notranslate"><span class="pre">WellController</span></code> class to manage production wells by tracking their status and simulation timing.
 We create one instance of the WellController and use its internal state across multiple timesteps and PYACTION calls.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">opm_embedded</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">opm_embedded</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 
 <span class="c1"># Check if the setup has already been done to avoid reinitialization</span>
 <span class="k">if</span> <span class="s1">&#39;setup_done&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
@@ -141,7 +141,7 @@ We create one instance of the WellController and use its internal state across m
     <span class="c1"># Minimum time in days between opening new wells</span>
     <span class="n">MIN_DAYS_BETWEEN_OPENINGS</span> <span class="o">=</span> <span class="mi">50</span>
 
-    <span class="k">class</span> <span class="nc">WellController</span><span class="p">:</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">WellController</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A controller to manage the opening of production wells based on</span>
 <span class="sd">        oil rate targets and elapsed simulation time.</span>
@@ -151,7 +151,7 @@ We create one instance of the WellController and use its internal state across m
 <span class="sd">            last_opening_time (datetime): Simulation time of the last well opening.</span>
 <span class="sd">                                          Initially, this is set to the simulation start time.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">well_names</span><span class="p">,</span> <span class="n">start_time</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">well_names</span><span class="p">,</span> <span class="n">start_time</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Initialize the WellController.</span>
 
@@ -162,7 +162,7 @@ We create one instance of the WellController and use its internal state across m
             <span class="bp">self</span><span class="o">.</span><span class="n">closed_wells</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">well_names</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">last_opening_time</span> <span class="o">=</span> <span class="n">start_time</span>
 
-        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_oil_rate</span><span class="p">,</span> <span class="n">current_time</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_oil_rate</span><span class="p">,</span> <span class="n">current_time</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Evaluate the current oil production and determine whether to open</span>
 <span class="sd">            a new well based on the target rate and time since the last opening.</span>
@@ -183,7 +183,7 @@ We create one instance of the WellController and use its internal state across m
                 <span class="n">schedule</span><span class="o">.</span><span class="n">open_well</span><span class="p">(</span><span class="n">next_well</span><span class="p">)</span>
                 <span class="n">opm_embedded</span><span class="o">.</span><span class="n">OpmLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Opened well </span><span class="si">{</span><span class="n">next_well</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">set_next_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_time</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">set_next_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_time</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Insert the NEXTSTEP keyword to control the simulator&#39;s timestep,</span>
 <span class="sd">            adjusting based on whether a well was just opened.</span>
