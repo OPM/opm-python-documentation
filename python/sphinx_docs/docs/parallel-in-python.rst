@@ -11,26 +11,35 @@ This page assumes you can already run a serial simulation from Python. See
 :doc:`flow-in-python` for compiling Flow with Python support and for setting
 ``PYTHONPATH``.
 
-Running in parallel needs three things in addition:
+Running in parallel needs the following in addition:
 
-- **MPI enabled in the build.** Add ``-DUSE_MPI=ON`` to the cmake flags
-  alongside ``-DOPM_ENABLE_PYTHON=ON`` and ``-DOPM_INSTALL_PYTHON=ON``.
+- **MPI available at configure time.** ``USE_MPI`` is ``ON`` by default, so in
+  practice this just means having an MPI implementation installed where CMake
+  can find it.
 
-- **A graph partitioner** present at configure time, either Zoltan or
-  ParMETIS. Without one, the grid cannot be distributed across ranks.
+- **A graph partitioner** — Zoltan or METIS/ParMETIS — present at configure
+  time. The default partitioning method is ``zoltanwell``, so without one of
+  these libraries you will need ``--partition-method=simple``, which uses
+  OPM's built-in rectangular partitioning of the Cartesian grid instead.
 
-- **mpi4py** installed in the same Python environment as the ``opm`` module.
-  See the `mpi4py documentation <https://mpi4py.readthedocs.io/>`_.
+- **mpi4py**, *if the script itself needs MPI* — to print from one rank only,
+  or to combine the per-rank results of ``get_porosity()`` and friends. It is
+  not needed simply to run in parallel: with the defaults
+  ``init=True, finalize=True`` OPM initializes MPI itself, and
+  ``mpirun -np 4 python3 my_script.py`` works with no mpi4py at all. But once
+  mpi4py is imported, the flag values described under "Initializing MPI" below
+  become required rather than optional. See the
+  `mpi4py documentation <https://mpi4py.readthedocs.io/>`_.
 
 
-A script for parallel run example
-----------------------
+An example script for a parallel run
+------------------------------------
 
 .. code-block:: python
 
    from opm.simulators import BlackOilSimulator
 
-   # mpi4py owns MPI_Init/MPI_Finalize; importing it initialises MPI for the
+   # mpi4py owns MPI_Init/MPI_Finalize; importing it initializes MPI for the
    # whole process, including the simulator underneath.
    from mpi4py import MPI
 
@@ -43,14 +52,12 @@ A script for parallel run example
    def main():
        sim = BlackOilSimulator(filename=CASE)
 
-       # init=False: MPI is already initialised by mpi4py.
+       # init=False: MPI is already initialized by mpi4py.
        # finalize=False: keep MPI alive until the script exits.
        sim.setup_mpi(init=False, finalize=False)
 
-       # sim_step_init() return 1 is fail. So we have to check abit
-       rc = sim.step_init()
-       if rc != 0:
-           raise RuntimeError(f"step_init() failed with code {rc} on rank {RANK}")
+       # step_init() returns 0 on success and 1 on failure.
+       sim.step_init()
 
        sim.step()
 
@@ -87,10 +94,10 @@ and confirm the rank count in the print file:
 Good to know
 ------------
 
-The rest of this page covers behaviour that is easy to get wrong,
+The rest of this page covers behavior that is easy to get wrong,
 and the reasons behind the recommendations above.
 
-Initialising MPI
+Initializing MPI
 ~~~~~~~~~~~~~~~~
 
 ``setup_mpi()`` takes two flags, and both matter when mpi4py is in use:
@@ -101,13 +108,15 @@ Initialising MPI
 
 ``init=False``
    ``from mpi4py import MPI`` already called ``MPI_Init``. Letting OPM
-   initialise MPI a second time is an error.
+   initialize MPI a second time is an error.
 
 ``finalize=False``
    Leaves MPI running after the simulator shuts down. With ``finalize=True``
    OPM tears MPI down, and any collective call afterwards — including an
-   ``allgather`` used for checking results — aborts.
-
+   ``allgather`` used for checking results — aborts. The teardown happens in
+   the simulator's destructor, not in ``step_cleanup()``: in the example above
+   it fires when ``main()`` returns and ``sim`` goes out of scope, so
+   collectives still work immediately after ``step_cleanup()``.
 
 
 Constructing the simulator
@@ -123,5 +132,5 @@ Constructing the simulator
 
    The four-argument form documented for serial runs —
    ``BlackOilSimulator(deck, state, schedule, summary_config)`` — cannot run on
-   more than one rank.
-
+   more than one rank.  It aborts with
+   ``Parallel simulator setup is incorrect as it does not use ParallelEclipseState``.
