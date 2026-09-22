@@ -22,7 +22,7 @@ opmdoc-download-files = "opm_python_docs.download_files:main"
 opmdoc-view-doc = "opm_python_docs.view_docs:main"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.3.4"
+pytest = "^9.0.3"
 pytest-mock = "^3.14.0"
 gitpython = "^3.1.44"
 coverage = "^7.6.10"
