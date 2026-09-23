@@ -77,10 +77,6 @@ An example script for a parallel run
        main()
 
 
-``step_init()``, ``step()`` and ``step_cleanup()`` each return a status code:
-0 on success, 1 on failure. The example ignores them for brevity; check them
-in real scripts.
-
 Run it with:
 
 .. code-block:: bash
