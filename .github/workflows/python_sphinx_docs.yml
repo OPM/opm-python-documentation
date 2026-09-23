@@ -15,6 +15,11 @@ on:
         branches: [master]
     repository_dispatch:
       types: [docstrings_common_updated, docstrings_simulators_updated]
+    # Manual trigger ("Run workflow" in the Actions tab). Use it to rebuild and republish
+    # after a dispatch from opm-common or opm-simulators failed, e.g. because the token
+    # those repositories send it with has expired. Run on master it deploys to gh-pages;
+    # run on any other branch it only builds.
+    workflow_dispatch:
 permissions:
     contents: write
 jobs:
