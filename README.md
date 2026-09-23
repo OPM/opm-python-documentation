@@ -5,9 +5,43 @@
 The documentation of the current master can found [here](https://opm.github.io/opm-python-documentation/master/index.html)
 
 ## Building the documentation locally
-Follow the commands in `.github/workflows/python_sphinx_docs.yml` for your local setup!
 
-See also the script [opmdoc-download-files](https://github.com/OPM/opm-python-documentation/blob/master/python/sphinx_docs/README.md) for more information.
+Requires Python 3.10 or newer and [poetry](https://python-poetry.org/docs/).
+
+1. **Check out the branch you want to build, and commit your changes.**
+   `sphinx-versioned` builds from git history rather than from the working
+   tree, so uncommitted edits are invisible to it.
+
+2. **Install the helper scripts and fetch the docstring files.**
+
+   ```
+   cd python/sphinx_docs
+   poetry install
+   poetry run opmdoc-download-files
+   ```
+
+   The API pages are generated from `docstrings_common.json` and
+   `docstrings_simulators.json`, which live in `opm-common` and `opm-simulators`
+   rather than in this repository. `opmdoc-download-files` fetches the current
+   master copies. To build against a pull request in one of those repositories
+   instead, pass its number: `opmdoc-download-files --opm-simulators 1234`.
+
+3. **Build, and open the result.**
+
+   ```
+   poetry run make docs
+   poetry run make view-docs
+   ```
+
+   `make docs` builds the branch you are on; `make view-docs` opens it in your
+   default browser. Use `opmdoc-view-doc --branch=master` to open a different
+   branch. The generated pages are written to
+   `python/sphinx_docs/docs/_build/<branch>/` and open correctly straight from
+   disk, so no web server is needed.
+
+See [python/sphinx_docs/README.md](python/sphinx_docs/README.md) for the
+individual scripts, and `.github/workflows/python_sphinx_docs.yml` for how the
+published site is built.
 
 ## Building the documentation online on your fork
 - Turn on github actions at `https://github.com/<your-github-username>/opm-python-documentation/actions`
