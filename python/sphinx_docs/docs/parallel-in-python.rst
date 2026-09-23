@@ -56,7 +56,6 @@ An example script for a parallel run
        # finalize=False: keep MPI alive until the script exits.
        sim.setup_mpi(init=False, finalize=False)
 
-       # step_init() returns 0 on success and 1 on failure.
        sim.step_init()
 
        sim.step()
@@ -77,6 +76,10 @@ An example script for a parallel run
    if __name__ == "__main__":
        main()
 
+
+``step_init()``, ``step()`` and ``step_cleanup()`` each return a status code:
+0 on success, 1 on failure. The example ignores them for brevity; check them
+in real scripts.
 
 Run it with:
 
@@ -114,9 +117,10 @@ Initializing MPI
    Leaves MPI running after the simulator shuts down. With ``finalize=True``
    OPM tears MPI down, and any collective call afterwards — including an
    ``allgather`` used for checking results — aborts. The teardown happens in
-   the simulator's destructor, not in ``step_cleanup()``: in the example above
-   it fires when ``main()`` returns and ``sim`` goes out of scope, so
-   collectives still work immediately after ``step_cleanup()``.
+   the simulator's destructor, not in ``step_cleanup()``: had the example above
+   used ``finalize=True``, it would fire when ``main()`` returns and ``sim``
+   goes out of scope, so collectives still work immediately after
+   ``step_cleanup()``.
 
 
 Constructing the simulator
@@ -132,5 +136,5 @@ Constructing the simulator
 
    The four-argument form documented for serial runs —
    ``BlackOilSimulator(deck, state, schedule, summary_config)`` — cannot run on
-   more than one rank.  It aborts with
+   more than one rank. It aborts with
    ``Parallel simulator setup is incorrect as it does not use ParallelEclipseState``.
