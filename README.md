@@ -34,12 +34,12 @@ Requires Python 3.10 or newer and [poetry](https://python-poetry.org/docs/).
 
    ```
    poetry run make docs
-   poetry run make view-docs
+   poetry run opmdoc-view-doc
    ```
 
-   `make docs` builds the branch you are on; `make view-docs` opens it in your
-   default browser. Use `opmdoc-view-doc --branch=master` to open a different
-   branch. The generated pages are written to
+   `make docs` builds the branch you are on; `opmdoc-view-doc` opens it in your
+   default browser, on Linux, macOS and Windows alike. Add `--branch=master` to
+   open a different branch. The generated pages are written to
    `python/sphinx_docs/docs/_build/<branch>/` and open correctly straight from
    disk, so no web server is needed.
 
