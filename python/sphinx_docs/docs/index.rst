@@ -6,6 +6,9 @@ There are two Python APIs within OPM Flow:
 - running Flow from Python code using the Python bindings (see :doc:`flow-in-python`)
 - running a Python script embedded in a simulation (see :doc:`embedded-python`)
 
+The first of these can also be run in parallel across several MPI ranks
+(see :doc:`parallel-in-python`).
+
 
 This site further contains the documentation of:
 
@@ -18,6 +21,7 @@ Contents
     :maxdepth: 1
 
     flow-in-python
+    parallel-in-python
     embedded-python
     common
     simulators
