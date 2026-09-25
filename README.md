@@ -26,6 +26,10 @@ Requires Python 3.10 or newer and [poetry](https://python-poetry.org/docs/).
    master copies. To build against a pull request in one of those repositories
    instead, pass its number: `opmdoc-download-files --opm-simulators 1234`.
 
+   On a release branch (`release-*`), skip this download. Release branches build
+   from snapshots of these files committed under `python/`, and
+   `opmdoc-download-files` refuses to run there rather than overwrite them.
+
 3. **Build, and open the result.**
 
    ```

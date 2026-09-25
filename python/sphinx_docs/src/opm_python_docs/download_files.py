@@ -15,16 +15,13 @@ URL_DUNE_MODULE = "https://raw.githubusercontent.com/OPM/opm-simulators/master/d
 
 
 def docstrings_dir() -> Path:
-    """Return the directory the documentation build reads the JSON files from.
+    """Return the directory the documentation build reads downloaded files from.
 
-    docs/conf.py picks that directory by branch name: release branches use the
-    snapshots committed under python/, every other branch uses python/master-tmp/.
-    Downloading into the other one leaves the build unable to find the files.
+    docs/conf.py reads python/master-tmp/ on every branch except release
+    branches, which use snapshots committed under python/ instead. Nothing is
+    downloaded on a release branch; see main().
     """
-    git_root_dir = helpers.get_git_root()
-    if helpers.get_current_branch().startswith("release-"):
-        return git_root_dir / "python"
-    target = git_root_dir / "python" / "master-tmp"
+    target = helpers.get_git_root() / "python" / "master-tmp"
     target.mkdir(parents=True, exist_ok=True)
     return target
 
@@ -92,6 +89,15 @@ def download_dune_module() -> None:
 @click.option("--opm-common", type=int, help="PR number for opm-common")
 def main(opm_simulators: int|None, opm_common: int|None) -> None:
     logging.basicConfig(level=logging.INFO)
+    branch = helpers.get_current_branch()
+    if branch.startswith("release-"):
+        # The committed snapshot in python/ must not be replaced by master's files.
+        raise click.ClickException(
+            f"'{branch}' is a release branch. Release branches build from the "
+            "docstring snapshots committed in python/, so there is nothing to "
+            "download. To update a release snapshot, take the files from the "
+            "release's own branch or tag in opm-common and opm-simulators."
+        )
     download_docstring_file(URL_SIMULATORS, pr_number=opm_simulators)
     download_docstring_file(URL_COMMON, pr_number=opm_common)
     download_dune_module()
