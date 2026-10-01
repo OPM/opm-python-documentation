@@ -134,7 +134,3 @@ Constructing the simulator
    ``BlackOilSimulator(deck, state, schedule, summary_config)`` — cannot run on
    more than one rank. It aborts with
    ``Parallel simulator setup is incorrect as it does not use ParallelEclipseState``.
-
-
-To Reviewer
------------
