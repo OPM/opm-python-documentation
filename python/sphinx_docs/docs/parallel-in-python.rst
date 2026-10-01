@@ -37,44 +37,44 @@ An example script for a parallel run
 
 .. code-block:: python
 
-   from opm.simulators import BlackOilSimulator
+    from mpi4py import MPI  # noqa: E402  -- owns MPI_Init; must come before OPM
+    from opm.simulators import BlackOilSimulator  # noqa: E402
+    from opm.io.parser import Parser  # noqa: E402
+    from opm.io.ecl_state import EclipseState  # noqa: E402
+    from opm.io.schedule import Schedule  # noqa: E402
+    from opm.io.summary import SummaryConfig  # noqa: E402
 
-   # mpi4py owns MPI_Init/MPI_Finalize; importing it initializes MPI for the
-   # whole process, including the simulator underneath.
-   from mpi4py import MPI
+    CASE = "SPE1CASE1.DATA"
 
-   COMM = MPI.COMM_WORLD
-   RANK = COMM.Get_rank()
-
-   CASE = "SPE1CASE1.DATA"
-
-
-   def main():
-       sim = BlackOilSimulator(filename=CASE)
-
-       # init=False: MPI is already initialized by mpi4py.
-       # finalize=False: keep MPI alive until the script exits.
-       sim.setup_mpi(init=False, finalize=False)
-
-       sim.step_init()
-
-       sim.step()
-
-       # The grid is distributed, so each rank sees only its own cells
-       # (owned + overlap).
-       poro = sim.get_porosity()
-       sim.set_porosity(poro * 0.95)
-
-       sim.step()
-
-       sim.step_cleanup()
-
-       if RANK == 0:
-           print("done -- results written to SPE1CASE1.PRT", flush=True)
+    COMM = MPI.COMM_WORLD
+    RANK = COMM.Get_rank()
 
 
-   if __name__ == "__main__":
-       main()
+    def main():
+        deck = Parser().parse(CASE)
+        state = EclipseState(deck)            # needed to build the Schedule only
+        schedule = Schedule(deck, state)
+        summary_config = SummaryConfig(deck, state, schedule)
+
+        # The one change from the documented example: None instead of `state`.
+        sim = BlackOilSimulator(deck, None, schedule, summary_config)
+        sim.setup_mpi(init=False, finalize=False)
+
+        sim.step_init()
+
+        poro = sim.get_porosity()
+        sim.set_porosity(poro * 0.95)
+
+        sim.step()
+
+        sim.step_cleanup()
+
+        if RANK == 0:
+            print("done -- results written to SPE1CASE1.PRT", flush=True)
+
+    if __name__ == "__main__":
+        main()
+
 
 
 Run it with:
@@ -134,3 +134,7 @@ Constructing the simulator
    ``BlackOilSimulator(deck, state, schedule, summary_config)`` — cannot run on
    more than one rank. It aborts with
    ``Parallel simulator setup is incorrect as it does not use ParallelEclipseState``.
+
+
+To Reviewer
+-----------
