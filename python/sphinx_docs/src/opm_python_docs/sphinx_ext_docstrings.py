@@ -70,7 +70,7 @@ def process_template_docstrings(directive, config):
                 rst.append("", source="")
                 doc = expanded.get("doc", "")
                 if doc:
-                    for line in doc.split('\\n'):  # Handle escaped newlines
+                    for line in doc.split('\n'):
                         rst.append(f"      {line}", source="")
                 rst.append("", source="")
 
@@ -83,7 +83,7 @@ def process_template_docstrings(directive, config):
                 rst.append("", source="")
                 doc = expanded.get("doc", "")
                 if doc:
-                    for line in doc.split('\\n'):  # Handle escaped newlines
+                    for line in doc.split('\n'):
                         rst.append(f"      {line}", source="")
                 rst.append("", source="")
 
@@ -96,7 +96,6 @@ def process_template_docstrings(directive, config):
     return result
 
 def read_doc_strings(directive, docstrings_path):
-    print(docstrings_path)
     with open(docstrings_path, 'r') as file:
         docstrings = json.load(file)
 
