@@ -42,7 +42,9 @@ through the ``Schedule`` object it passes in, for example with
 simulator builds its own ``Schedule``, which the script cannot reach. Passing
 ``None`` for the ``EclipseState`` is what makes this work in parallel (see
 "Constructing the simulator" below). This is a workaround until the simulator
-offers a supported way to reach its own ``Schedule``.
+offers a supported way to reach its own ``Schedule``. In a parallel run, make
+every such change on every rank: each rank holds its own ``Schedule``, and a
+change made only under ``if RANK == 0:`` is silently ignored.
 
 .. code-block:: python
 
