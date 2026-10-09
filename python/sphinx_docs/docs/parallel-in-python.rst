@@ -37,12 +37,14 @@ An example script for a parallel run
 
 .. code-block:: python
 
-    from mpi4py import MPI  # noqa: E402  -- owns MPI_Init; must come before OPM
-    from opm.simulators import BlackOilSimulator  # noqa: E402
-    from opm.io.parser import Parser  # noqa: E402
-    from opm.io.ecl_state import EclipseState  # noqa: E402
-    from opm.io.schedule import Schedule  # noqa: E402
-    from opm.io.summary import SummaryConfig  # noqa: E402
+    # Importing mpi4py initializes MPI for the whole process,
+    # including the simulator underneath.
+    from mpi4py import MPI
+    from opm.simulators import BlackOilSimulator
+    from opm.io.parser import Parser
+    from opm.io.ecl_state import EclipseState
+    from opm.io.schedule import Schedule
+    from opm.io.summary import SummaryConfig
 
     CASE = "SPE1CASE1.DATA"
 
