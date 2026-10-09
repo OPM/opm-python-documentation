@@ -77,6 +77,8 @@ offers a supported way to reach its own ``Schedule``.
 
         sim.step_init()
 
+        # The grid is distributed, so each rank sees only its own cells
+        # (owned + overlap).
         poro = sim.get_porosity()
         sim.set_porosity(poro * 0.95)
 
