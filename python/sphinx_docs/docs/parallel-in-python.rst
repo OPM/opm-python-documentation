@@ -35,6 +35,15 @@ Running in parallel needs the following in addition:
 An example script for a parallel run
 ------------------------------------
 
+The example builds the simulator from objects parsed in Python, instead of from
+the file name, so that the script can change well controls during the run
+through the ``Schedule`` object it passes in, for example with
+``schedule.shut_well("PROD", step)``. With the filename constructor the
+simulator builds its own ``Schedule``, which the script cannot reach. Passing
+``None`` for the ``EclipseState`` is what makes this work in parallel (see
+"Constructing the simulator" below). This is a workaround until the simulator
+offers a supported way to reach its own ``Schedule``.
+
 .. code-block:: python
 
     # Importing mpi4py initializes MPI for the whole process,
