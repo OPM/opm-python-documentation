@@ -58,7 +58,9 @@ An example script for a parallel run
         schedule = Schedule(deck, state)
         summary_config = SummaryConfig(deck, state, schedule)
 
-        # The one change from the documented example: None instead of `state`.
+        # Compared with the serial example in "Run OPM Flow from Python", the only
+        # change is None in place of `state`: in parallel the simulator must build
+        # the EclipseState itself (see "Constructing the simulator" below).
         sim = BlackOilSimulator(deck, None, schedule, summary_config)
         sim.setup_mpi(init=False, finalize=False)
 
