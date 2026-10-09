@@ -125,7 +125,12 @@ summary file once the run has finished:
    print("TIME (days):", [round(float(t), 1) for t in smry["TIME"]])
    print("WOPR:PROD:  ", [round(v) for v in smry["WOPR:PROD"]])
 
-The rate is 20000 until day 3 and 0 from then on:
+The output depends on the deck. With the ten-year ``SPE1CASE1.DATA`` from
+opm-tests, the lists are long, and the rate is 20000 until day 90 and 0 from
+then on. With the ten-day version used by the opm-simulators Python tests
+(`python/test_data/SPE1CASE1a
+<https://github.com/OPM/opm-simulators/tree/master/python/test_data/SPE1CASE1a>`_),
+the rate is 20000 until day 3 and 0 from then on:
 
 .. code-block:: text
 
