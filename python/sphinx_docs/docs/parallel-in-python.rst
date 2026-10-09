@@ -79,12 +79,18 @@ change made only under ``if RANK == 0:`` is silently ignored.
 
         sim.step_init()
 
+        # Change well controls through the Schedule passed to the constructor.
+        # Every rank must make the same call: a change made only under
+        # `if RANK == 0:` is silently ignored.
+        schedule.shut_well("PROD", 3)
+
         # The grid is distributed, so each rank sees only its own cells
         # (owned + overlap).
         poro = sim.get_porosity()
         sim.set_porosity(poro * 0.95)
 
-        sim.step()
+        while not sim.check_simulation_finished():
+            sim.step()
 
         sim.step_cleanup()
 
@@ -107,6 +113,24 @@ and confirm the rank count in the print file:
 .. code-block:: bash
 
    grep "Number of MPI processes" SPE1CASE1.PRT
+
+To check that the well was shut, read the oil rate of ``PROD`` back from the
+summary file once the run has finished:
+
+.. code-block:: python
+
+   from opm.io.ecl import ESmry
+
+   smry = ESmry("SPE1CASE1.SMSPEC")
+   print("TIME (days):", [round(float(t), 1) for t in smry["TIME"]])
+   print("WOPR:PROD:  ", [round(v) for v in smry["WOPR:PROD"]])
+
+The rate is 20000 until day 3 and 0 from then on:
+
+.. code-block:: text
+
+   TIME (days): [1.0, 1.6, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+   WOPR:PROD:   [20000, 20000, 20000, 20000, 0, 0, 0, 0, 0, 0, 0]
 
 
 Good to know
@@ -143,13 +167,17 @@ Constructing the simulator
 
 .. warning::
 
-   In parallel, only the **filename constructor** works:
+   In parallel, the ``EclipseState`` argument of the four-argument
+   constructor must be ``None``:
 
    .. code-block:: python
 
-      sim = BlackOilSimulator(filename="SPE1CASE1.DATA")
+      sim = BlackOilSimulator(deck, None, schedule, summary_config)
 
-   The four-argument form documented for serial runs —
-   ``BlackOilSimulator(deck, state, schedule, summary_config)`` — cannot run on
-   more than one rank. It aborts with
+   Passing an ``EclipseState`` object fails on more than one rank with
    ``Parallel simulator setup is incorrect as it does not use ParallelEclipseState``.
+   With ``None``, the simulator builds the parallel state itself from the
+   DATA file. The filename constructor, ``BlackOilSimulator(filename=...)``,
+   also works in parallel, but then the script has no access to the
+   ``Schedule`` the simulator uses, so well controls cannot be changed from
+   Python.
