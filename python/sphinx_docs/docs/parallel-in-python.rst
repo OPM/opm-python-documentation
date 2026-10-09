@@ -86,13 +86,6 @@ offers a supported way to reach its own ``Schedule``.
 
         sim.step_cleanup()
 
-        if RANK == 0:
-            print("done -- results written to SPE1CASE1.PRT", flush=True)
-
-    if __name__ == "__main__":
-        main()
-
-
 
 Run it with:
 
