@@ -71,6 +71,8 @@ offers a supported way to reach its own ``Schedule``.
         # change is None in place of `state`: in parallel the simulator must build
         # the EclipseState itself (see "Constructing the simulator" below).
         sim = BlackOilSimulator(deck, None, schedule, summary_config)
+        # init=False: MPI is already initialized by mpi4py.
+        # finalize=False: keep MPI alive until the script exits.
         sim.setup_mpi(init=False, finalize=False)
 
         sim.step_init()
