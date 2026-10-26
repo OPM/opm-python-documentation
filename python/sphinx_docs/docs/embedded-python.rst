@@ -169,3 +169,91 @@ Use this code snippet with the example `MSW-3D-TWO-PRODUCERS <https://github.com
    'wellcontroller.py' /
 
 to the ``SCHEDULE`` section of ``MSW-3D-TWO-PRODUCERS.DATA``.
+
+Inserting user defined quantity (UDQ) keywords
+----------------------------------------------
+
+The ``UDQ`` keyword can be inserted from a PYACTION script. These features are supported
+in both serial and parallel runs:
+
+- ``ASSIGN`` and ``DEFINE`` for field (``FU_``) and well (``WU_``) variables.
+- Well variables for named wells, for example ``ASSIGN WU_FLAG 'OP01' 5 /``.
+- New UDQ variables that are not declared in the DATA file. To write a new variable to
+  the summary output, list it in the SUMMARY section.
+
+Inserting UDQ keywords
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+   import opm_embedded
+
+   summary_state = opm_embedded.current_summary_state
+   schedule = opm_embedded.current_schedule
+
+   # Run the insertion only once
+   if 'setup_done' not in globals():
+       done = False
+       setup_done = True
+
+   wells = ["OP0{}".format(i) for i in range(1, 10)]
+   if not done and any(summary_state.well_var(w, "WGOR") >= summary_state["FU_GOR2"] for w in wells):
+       opm_embedded.OpmLog.info("PYACTION PYACTION_UDQ triggered")
+       schedule.insert_keywords("""
+       UDQ
+       DEFINE  WU_NEW   WOPR * 2 /
+       ASSIGN  WU_FLAG  'OP01' 5 /
+       /
+       """)
+       done = True
+
+Here ``WU_NEW`` and ``WU_FLAG`` are already declared in the UDQ section of the DATA file.
+
+Computing UDQ values in Python
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instead of inserting the ``UDQ`` keyword, a PYACTION script can also compute the values
+in Python and write them into the summary state. Then the DATA file needs no ``UDQ``
+keyword; the variables are only listed in the SUMMARY section, so they are written to
+the summary output:
+
+.. code-block:: python
+
+   summary_state = opm_embedded.current_summary_state
+
+   if "FU_TIME" not in summary_state:
+       summary_state["FU_TIME"] = 0.0
+   summary_state["FU_TIME"] += summary_state["TIMESTEP"]
+   summary_state["FU_VAR19"] = summary_state.well_var("INJ1", "WWIR")
+
+Complete examples in opm-tests, each with an ACTIONX version that gives the same results
+(serial and with 4 MPI processes):
+
+- Inserting UDQ keywords:
+  `PYACTION_UDQ_INSERT_KW.DATA <https://github.com/OPM/opm-tests/blob/master/pyaction/PYACTION_UDQ_INSERT_KW.DATA>`_
+  with the script
+  `pyaction_udq_insert_kw.py <https://github.com/OPM/opm-tests/blob/master/pyaction/pyaction_udq_insert_kw.py>`_;
+  ACTIONX version
+  `ACTIONX_UDQ_INSERT_KW.DATA <https://github.com/OPM/opm-tests/blob/master/actionx/ACTIONX_UDQ_INSERT_KW.DATA>`_.
+- Computing UDQ values in Python:
+  `UDQ_M3_PYACTION.DATA <https://github.com/OPM/opm-tests/blob/master/udq_pyaction/UDQ_M3_PYACTION.DATA>`_
+  with the script
+  `udq_m3_pyaction.py <https://github.com/OPM/opm-tests/blob/master/udq_pyaction/udq_m3_pyaction.py>`_;
+  ACTIONX version
+  `UDQ_M3.DATA <https://github.com/OPM/opm-tests/blob/master/udq_actionx/UDQ_M3.DATA>`_.
+
+.. warning::
+
+   The well name ``'?'`` (for example ``ASSIGN WU_Q '?' 7 /``) is **not supported yet**.
+   In ACTIONX, ``'?'`` means the wells that matched the condition. A PYACTION script
+   has no ACTIONX condition, so Flow stops with
+   ``UDQ assignment for WU_Q does not have an associate match set``.
+   Instead, find the wells in Python and write their names into the string:
+
+   .. code-block:: python
+
+      wells = ["OP0{}".format(i) for i in range(1, 10)]
+      matched = [w for w in wells if summary_state.well_var(w, "WGOR") >= summary_state["FU_GOR2"]]
+      kw = "UDQ\n" + "".join(f"ASSIGN WU_Q '{w}' 7 /\n" for w in matched) + "/\n"
+      schedule.insert_keywords(kw)
+
