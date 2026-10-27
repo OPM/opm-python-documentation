@@ -173,8 +173,7 @@ to the ``SCHEDULE`` section of ``MSW-3D-TWO-PRODUCERS.DATA``.
 Inserting user defined quantity (UDQ) keywords
 ----------------------------------------------
 
-The ``UDQ`` keyword can be inserted from a PYACTION script. These features are supported
-in both serial and parallel runs:
+The ``UDQ`` keyword can be inserted from a PYACTION script. These features are supported:
 
 - ``ASSIGN`` and ``DEFINE`` for field (``FU_``) and well (``WU_``) variables.
 - Well variables for named wells, for example ``ASSIGN WU_FLAG 'OP01' 5 /``.
