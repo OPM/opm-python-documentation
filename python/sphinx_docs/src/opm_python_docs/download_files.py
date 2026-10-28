@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 
 import logging
+from pathlib import Path
+
 import requests
 
 import click
@@ -11,6 +13,17 @@ URL_SIMULATORS = "https://raw.githubusercontent.com/OPM/opm-simulators/master/py
 URL_COMMON = "https://raw.githubusercontent.com/OPM/opm-common/master/python/docstrings_common.json"
 URL_DUNE_MODULE = "https://raw.githubusercontent.com/OPM/opm-simulators/master/dune.module"
 
+
+def docstrings_dir() -> Path:
+    """Return the directory the documentation build reads downloaded files from.
+
+    docs/conf.py reads python/master-tmp/ on every branch except release
+    branches, which use snapshots committed under python/ instead. Nothing is
+    downloaded on a release branch; see main().
+    """
+    target = helpers.get_git_root() / "python" / "master-tmp"
+    target.mkdir(parents=True, exist_ok=True)
+    return target
 
 def convert_pr_to_commit_hash(repo: str, pr_number: int) -> str:
     """Convert a PR number to a commit hash."""
@@ -34,8 +47,7 @@ def download_docstring_file(url: str, pr_number: int|None) -> None:
     logging.info(f"Downloading docstrings file from {url}")
     response = requests.get(url)
     response.raise_for_status()  # Raises 404 if the file is not found
-    git_root_dir = helpers.get_git_root()
-    save_path = git_root_dir / "python" / filename
+    save_path = docstrings_dir() / filename
     with open(str(save_path), "wb") as file:
         file.write(response.content)
     logging.info(f"Saved docstrings file to {save_path}")
@@ -45,8 +57,7 @@ def download_dune_module() -> None:
     logging.info("Downloading dune.module file")
     response = requests.get(URL_DUNE_MODULE)
     response.raise_for_status()
-    git_root_dir = helpers.get_git_root()
-    save_path = git_root_dir / "dune.module"
+    save_path = docstrings_dir() / "dune.module"
     with open(save_path, "wb") as file:
         file.write(response.content)
     logging.info(f"Saved dune.module file to {save_path}")
@@ -78,6 +89,15 @@ def download_dune_module() -> None:
 @click.option("--opm-common", type=int, help="PR number for opm-common")
 def main(opm_simulators: int|None, opm_common: int|None) -> None:
     logging.basicConfig(level=logging.INFO)
+    branch = helpers.get_current_branch()
+    if branch.startswith("release-"):
+        # The committed snapshot in python/ must not be replaced by master's files.
+        raise click.ClickException(
+            f"'{branch}' is a release branch. Release branches build from the "
+            "docstring snapshots committed in python/, so there is nothing to "
+            "download. To update a release snapshot, take the files from the "
+            "release's own branch or tag in opm-common and opm-simulators."
+        )
     download_docstring_file(URL_SIMULATORS, pr_number=opm_simulators)
     download_docstring_file(URL_COMMON, pr_number=opm_common)
     download_dune_module()
