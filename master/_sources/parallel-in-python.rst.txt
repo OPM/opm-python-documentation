@@ -35,46 +35,71 @@ Running in parallel needs the following in addition:
 An example script for a parallel run
 ------------------------------------
 
+The example builds the simulator from objects parsed in Python, instead of from
+the file name, so that the script can change well controls during the run
+through the ``Schedule`` object it passes in, for example with
+``schedule.shut_well("PROD", step)``. With the filename constructor the
+simulator builds its own ``Schedule``, which the script cannot reach. Passing
+``None`` for the ``EclipseState`` is what makes this work in parallel (see
+"Constructing the simulator" below). This is a workaround until the simulator
+offers a supported way to reach its own ``Schedule``. In a parallel run, make
+every such change on every rank: each rank holds its own ``Schedule``, and a
+change made only under ``if RANK == 0:`` is silently ignored.
+
 .. code-block:: python
 
-   from opm.simulators import BlackOilSimulator
+    # Importing mpi4py initializes MPI for the whole process,
+    # including the simulator underneath.
+    from mpi4py import MPI
+    from opm.simulators import BlackOilSimulator
+    from opm.io.parser import Parser
+    from opm.io.ecl_state import EclipseState
+    from opm.io.schedule import Schedule
+    from opm.io.summary import SummaryConfig
 
-   # mpi4py owns MPI_Init/MPI_Finalize; importing it initializes MPI for the
-   # whole process, including the simulator underneath.
-   from mpi4py import MPI
+    CASE = "SPE1CASE1.DATA"
 
-   COMM = MPI.COMM_WORLD
-   RANK = COMM.Get_rank()
-
-   CASE = "SPE1CASE1.DATA"
-
-
-   def main():
-       sim = BlackOilSimulator(filename=CASE)
-
-       # init=False: MPI is already initialized by mpi4py.
-       # finalize=False: keep MPI alive until the script exits.
-       sim.setup_mpi(init=False, finalize=False)
-
-       sim.step_init()
-
-       sim.step()
-
-       # The grid is distributed, so each rank sees only its own cells
-       # (owned + overlap).
-       poro = sim.get_porosity()
-       sim.set_porosity(poro * 0.95)
-
-       sim.step()
-
-       sim.step_cleanup()
-
-       if RANK == 0:
-           print("done -- results written to SPE1CASE1.PRT", flush=True)
+    COMM = MPI.COMM_WORLD
+    RANK = COMM.Get_rank()
 
 
-   if __name__ == "__main__":
-       main()
+    def main():
+        deck = Parser().parse(CASE)
+        state = EclipseState(deck)            # needed to build the Schedule only
+        schedule = Schedule(deck, state)
+        summary_config = SummaryConfig(deck, state, schedule)
+
+        # Compared with the serial example in "Run OPM Flow from Python", the only
+        # change is None in place of `state`: in parallel the simulator must build
+        # the EclipseState itself (see "Constructing the simulator" below).
+        sim = BlackOilSimulator(deck, None, schedule, summary_config)
+        # init=False: MPI is already initialized by mpi4py.
+        # finalize=False: keep MPI alive until the script exits.
+        sim.setup_mpi(init=False, finalize=False)
+
+        sim.step_init()
+
+        # Change well controls through the Schedule passed to the constructor.
+        # Every rank must make the same call: a change made only under
+        # `if RANK == 0:` is silently ignored.
+        schedule.shut_well("PROD", 3)
+
+        # The grid is distributed, so each rank sees only its own cells
+        # (owned + overlap).
+        poro = sim.get_porosity()
+        sim.set_porosity(poro * 0.95)
+
+        while not sim.check_simulation_finished():
+            sim.step()
+
+        sim.step_cleanup()
+
+        if RANK == 0:
+            print("done -- results written to SPE1CASE1.PRT", flush=True)
+
+
+    if __name__ == "__main__":
+        main()
 
 
 Run it with:
@@ -88,6 +113,29 @@ and confirm the rank count in the print file:
 .. code-block:: bash
 
    grep "Number of MPI processes" SPE1CASE1.PRT
+
+To check that the well was shut, read the oil rate of ``PROD`` back from the
+summary file once the run has finished:
+
+.. code-block:: python
+
+   from opm.io.ecl import ESmry
+
+   smry = ESmry("SPE1CASE1.SMSPEC")
+   print("TIME (days):", [round(float(t), 1) for t in smry["TIME"]])
+   print("WOPR:PROD:  ", [round(v) for v in smry["WOPR:PROD"]])
+
+The output depends on the deck. With the ten-year ``SPE1CASE1.DATA`` from
+opm-tests, the lists are long, and the rate is 20000 until day 90 and 0 from
+then on. With the ten-day version used by the opm-simulators Python tests
+(`python/test_data/SPE1CASE1a
+<https://github.com/OPM/opm-simulators/tree/master/python/test_data/SPE1CASE1a>`_),
+the rate is 20000 until day 3 and 0 from then on:
+
+.. code-block:: text
+
+   TIME (days): [1.0, 1.6, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+   WOPR:PROD:   [20000, 20000, 20000, 20000, 0, 0, 0, 0, 0, 0, 0]
 
 
 Good to know
@@ -124,13 +172,17 @@ Constructing the simulator
 
 .. warning::
 
-   In parallel, only the **filename constructor** works:
+   In parallel, the ``EclipseState`` argument of the four-argument
+   constructor must be ``None``:
 
    .. code-block:: python
 
-      sim = BlackOilSimulator(filename="SPE1CASE1.DATA")
+      sim = BlackOilSimulator(deck, None, schedule, summary_config)
 
-   The four-argument form documented for serial runs —
-   ``BlackOilSimulator(deck, state, schedule, summary_config)`` — cannot run on
-   more than one rank. It aborts with
+   Passing an ``EclipseState`` object fails on more than one rank with
    ``Parallel simulator setup is incorrect as it does not use ParallelEclipseState``.
+   With ``None``, the simulator builds the parallel state itself from the
+   DATA file. The filename constructor, ``BlackOilSimulator(filename=...)``,
+   also works in parallel, but then the script has no access to the
+   ``Schedule`` the simulator uses, so well controls cannot be changed from
+   Python.
