@@ -180,6 +180,11 @@ The ``UDQ`` keyword can be inserted from a PYACTION script. These features are s
 - New UDQ variables that are not declared in the DATA file. To write a new variable to
   the summary output, list it in the SUMMARY section.
 
+The well name ``'?'`` (for example ``ASSIGN WU_Q '?' 7 /``) is **not supported yet**.
+In ACTIONX, ``'?'`` means the wells that matched the condition. A PYACTION script
+has no ACTIONX condition, so Flow stops with
+``UDQ assignment for WU_Q does not have an associate match set``.
+
 Inserting UDQ keywords
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -240,19 +245,3 @@ Complete examples in opm-tests, each with an ACTIONX version that gives the same
   `udq_m3_pyaction.py <https://github.com/OPM/opm-tests/blob/master/udq_pyaction/udq_m3_pyaction.py>`_;
   ACTIONX version
   `UDQ_M3.DATA <https://github.com/OPM/opm-tests/blob/master/udq_actionx/UDQ_M3.DATA>`_.
-
-.. warning::
-
-   The well name ``'?'`` (for example ``ASSIGN WU_Q '?' 7 /``) is **not supported yet**.
-   In ACTIONX, ``'?'`` means the wells that matched the condition. A PYACTION script
-   has no ACTIONX condition, so Flow stops with
-   ``UDQ assignment for WU_Q does not have an associate match set``.
-   Instead, find the wells in Python and write their names into the string:
-
-   .. code-block:: python
-
-      wells = ["OP0{}".format(i) for i in range(1, 10)]
-      matched = [w for w in wells if summary_state.well_var(w, "WGOR") >= summary_state["FU_GOR2"]]
-      kw = "UDQ\n" + "".join(f"ASSIGN WU_Q '{w}' 7 /\n" for w in matched) + "/\n"
-      schedule.insert_keywords(kw)
-
