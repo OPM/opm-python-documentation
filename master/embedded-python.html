@@ -48,6 +48,11 @@
 <li class="toctree-l1"><a class="reference internal" href="parallel-in-python.html">Run OPM Flow in parallel from Python</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Run Python embedded in OPM Flow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#stateful-behavior-using-python-classes">Stateful behavior using Python classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inserting-user-defined-quantity-udq-keywords">Inserting user defined quantity (UDQ) keywords</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-udq-keywords">Inserting UDQ keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-udq-values-in-python">Computing UDQ values in Python</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="common.html">OPM Common Python Documentation</a></li>
@@ -236,6 +241,77 @@ WELLCONTROLLER UNLIMITED /
 </pre></div>
 </div>
 <p>to the <code class="docutils literal notranslate"><span class="pre">SCHEDULE</span></code> section of <code class="docutils literal notranslate"><span class="pre">MSW-3D-TWO-PRODUCERS.DATA</span></code>.</p>
+</section>
+<section id="inserting-user-defined-quantity-udq-keywords">
+<h2>Inserting user defined quantity (UDQ) keywords<a class="headerlink" href="#inserting-user-defined-quantity-udq-keywords" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">UDQ</span></code> keyword can be inserted from a PYACTION script. These features are supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ASSIGN</span></code> and <code class="docutils literal notranslate"><span class="pre">DEFINE</span></code> for field (<code class="docutils literal notranslate"><span class="pre">FU_</span></code>) and well (<code class="docutils literal notranslate"><span class="pre">WU_</span></code>) variables.</p></li>
+<li><p>Well variables for named wells, for example <code class="docutils literal notranslate"><span class="pre">ASSIGN</span> <span class="pre">WU_FLAG</span> <span class="pre">'OP01'</span> <span class="pre">5</span> <span class="pre">/</span></code>.</p></li>
+<li><p>New UDQ variables that are not declared in the DATA file. To write a new variable to
+the summary output, list it in the SUMMARY section.</p></li>
+</ul>
+<p>The well name <code class="docutils literal notranslate"><span class="pre">'?'</span></code> (for example <code class="docutils literal notranslate"><span class="pre">ASSIGN</span> <span class="pre">WU_Q</span> <span class="pre">'?'</span> <span class="pre">7</span> <span class="pre">/</span></code>) is <strong>not supported yet</strong>.
+In ACTIONX, <code class="docutils literal notranslate"><span class="pre">'?'</span></code> means the wells that matched the condition. A PYACTION script
+has no ACTIONX condition, so Flow stops with
+<code class="docutils literal notranslate"><span class="pre">UDQ</span> <span class="pre">assignment</span> <span class="pre">for</span> <span class="pre">WU_Q</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">have</span> <span class="pre">an</span> <span class="pre">associate</span> <span class="pre">match</span> <span class="pre">set</span></code>.</p>
+<section id="inserting-udq-keywords">
+<h3>Inserting UDQ keywords<a class="headerlink" href="#inserting-udq-keywords" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">opm_embedded</span>
+
+<span class="n">summary_state</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_summary_state</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_schedule</span>
+
+<span class="c1"># Run the insertion only once</span>
+<span class="k">if</span> <span class="s1">&#39;setup_done&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">setup_done</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">wells</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;OP0</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">done</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">summary_state</span><span class="o">.</span><span class="n">well_var</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s2">&quot;WGOR&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">summary_state</span><span class="p">[</span><span class="s2">&quot;FU_GOR2&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wells</span><span class="p">):</span>
+    <span class="n">opm_embedded</span><span class="o">.</span><span class="n">OpmLog</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PYACTION PYACTION_UDQ triggered&quot;</span><span class="p">)</span>
+    <span class="n">schedule</span><span class="o">.</span><span class="n">insert_keywords</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    UDQ</span>
+<span class="s2">    DEFINE  WU_NEW   WOPR * 2 /</span>
+<span class="s2">    ASSIGN  WU_FLAG  &#39;OP01&#39; 5 /</span>
+<span class="s2">    /</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">done</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">WU_NEW</span></code> and <code class="docutils literal notranslate"><span class="pre">WU_FLAG</span></code> are already declared in the UDQ section of the DATA file.</p>
+</section>
+<section id="computing-udq-values-in-python">
+<h3>Computing UDQ values in Python<a class="headerlink" href="#computing-udq-values-in-python" title="Link to this heading"></a></h3>
+<p>Instead of inserting the <code class="docutils literal notranslate"><span class="pre">UDQ</span></code> keyword, a PYACTION script can also compute the values
+in Python and write them into the summary state. Then the DATA file needs no <code class="docutils literal notranslate"><span class="pre">UDQ</span></code>
+keyword; the variables are only listed in the SUMMARY section, so they are written to
+the summary output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">summary_state</span> <span class="o">=</span> <span class="n">opm_embedded</span><span class="o">.</span><span class="n">current_summary_state</span>
+
+<span class="k">if</span> <span class="s2">&quot;FU_TIME&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">summary_state</span><span class="p">:</span>
+    <span class="n">summary_state</span><span class="p">[</span><span class="s2">&quot;FU_TIME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">summary_state</span><span class="p">[</span><span class="s2">&quot;FU_TIME&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">summary_state</span><span class="p">[</span><span class="s2">&quot;TIMESTEP&quot;</span><span class="p">]</span>
+<span class="n">summary_state</span><span class="p">[</span><span class="s2">&quot;FU_VAR19&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary_state</span><span class="o">.</span><span class="n">well_var</span><span class="p">(</span><span class="s2">&quot;INJ1&quot;</span><span class="p">,</span> <span class="s2">&quot;WWIR&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Complete examples in opm-tests, each with an ACTIONX version that gives the same results
+(serial and with 4 MPI processes):</p>
+<ul class="simple">
+<li><p>Inserting UDQ keywords:
+<a class="reference external" href="https://github.com/OPM/opm-tests/blob/master/pyaction/PYACTION_UDQ_INSERT_KW.DATA">PYACTION_UDQ_INSERT_KW.DATA</a>
+with the script
+<a class="reference external" href="https://github.com/OPM/opm-tests/blob/master/pyaction/pyaction_udq_insert_kw.py">pyaction_udq_insert_kw.py</a>;
+ACTIONX version
+<a class="reference external" href="https://github.com/OPM/opm-tests/blob/master/actionx/ACTIONX_UDQ_INSERT_KW.DATA">ACTIONX_UDQ_INSERT_KW.DATA</a>.</p></li>
+<li><p>Computing UDQ values in Python:
+<a class="reference external" href="https://github.com/OPM/opm-tests/blob/master/udq_pyaction/UDQ_M3_PYACTION.DATA">UDQ_M3_PYACTION.DATA</a>
+with the script
+<a class="reference external" href="https://github.com/OPM/opm-tests/blob/master/udq_pyaction/udq_m3_pyaction.py">udq_m3_pyaction.py</a>;
+ACTIONX version
+<a class="reference external" href="https://github.com/OPM/opm-tests/blob/master/udq_actionx/UDQ_M3.DATA">UDQ_M3.DATA</a>.</p></li>
+</ul>
+</section>
 </section>
 </section>
 

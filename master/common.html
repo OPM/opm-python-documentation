@@ -203,7 +203,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_SI_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_SI_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_int_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_int_array()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.get_raw_array"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.get_raw_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.location"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.location()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.DeckKeyword.name"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.DeckKeyword.name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.KeywordLocation"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.KeywordLocation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.KeywordLocation.__repr__"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.KeywordLocation.__repr__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.KeywordLocation.format"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.KeywordLocation.format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opm.io.deck.KeywordLocation.is_binary"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.KeywordLocation.is_binary()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#opm.io.deck.UDAValue"><code class="docutils literal notranslate"><span class="pre">opm.io.deck.UDAValue</span></code></a><ul>
@@ -739,11 +746,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Deck.add">
-<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Deck.add" title="Link to this definition"></a></dt>
-<dd><p>Adds a new keyword to the deck.</p>
+<span class="sig-prename descclassname"><span class="pre">Deck.</span></span><span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><span class="pre">DeckKeyword</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#opm.io.parser.eclSectionType" title="opm.io.parser.eclSectionType"><span class="pre">eclSectionType</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Deck.add" title="Link to this definition"></a></dt>
+<dd><p>Adds a new keyword to the deck in the supplied current section. The section controls whether a unit declaration can change the active unit system; it does not insert a section header.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>keyword</strong> (<a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><em>DeckKeyword</em></a>) – The keyword to add.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keyword</strong> (<a class="reference internal" href="#opm.io.deck.DeckKeyword" title="opm.io.deck.DeckKeyword"><em>DeckKeyword</em></a>) – The keyword to add.</p></li>
+<li><p><strong>section</strong> (<a class="reference internal" href="#opm.io.parser.eclSectionType" title="opm.io.parser.eclSectionType"><em>eclSectionType</em></a>) – The current deck section.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -2206,6 +2216,21 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.location">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#opm.io.deck.KeywordLocation" title="opm.io.deck.KeywordLocation"><span class="pre">KeywordLocation</span></a></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.location" title="Link to this definition"></a></dt>
+<dd><p>Returns the location the keyword was read from, that is the file name and the line number within that file.</p>
+<p>For a keyword read from a file included with the INCLUDE keyword, the file name is an absolute path with symbolic links resolved. For a keyword in the top level input file, the file name keeps the relative or absolute form of the path that was given to the parser, but it is normalized in the same way: symbolic links are resolved and redundant elements such as ‘.’ are removed, so it is not necessarily the string that was passed. For a keyword parsed from a string with Parser.parse_string(), the file name is ‘&lt;memory string&gt;’ and the line number is counted within that string. For a keyword that was not parsed at all, for instance one created in Python and added with Deck.add(), the file name is ‘&lt;memory string&gt;’ and the line number is 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The location of the keyword in the input.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#opm.io.deck.KeywordLocation" title="opm.io.deck.KeywordLocation">KeywordLocation</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="opm.io.deck.DeckKeyword.name">
 <span class="sig-prename descclassname"><span class="pre">opm.io.deck.DeckKeyword.</span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.DeckKeyword.name" title="Link to this definition"></a></dt>
 <dd><p>Returns the name of the DeckKeyword.</p>
@@ -2215,6 +2240,101 @@
 </dd>
 <dt class="field-even">Type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="opm.io.deck.KeywordLocation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opm.io.deck.</span></span><span class="sig-name descname"><span class="pre">KeywordLocation</span></span><a class="headerlink" href="#opm.io.deck.KeywordLocation" title="Link to this definition"></a></dt>
+<dd><p>Where a keyword was read from: the keyword name, the file, and the line number within that file.</p>
+<p>This is the same information the parser writes to the PRT file while reading a deck. Objects of this class are read only; they are obtained from a parsed deck, for example through DeckKeyword.location.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.KeywordLocation.__repr__">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.KeywordLocation.</span></span><span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.KeywordLocation.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Returns a string representation of the KeywordLocation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string representation of the KeywordLocation.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.deck.KeywordLocation.filename</span> <span class="pre">-&gt;</span> <span class="pre">str</span></span></dt>
+<dd><p>The name of the file the keyword was read from. A keyword that was not read from a file reports ‘&lt;memory string&gt;’, whether it was parsed from a string or constructed directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The file name.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.KeywordLocation.format">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.KeywordLocation.</span></span><span class="sig-name descname"><span class="pre">format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg_fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#opm.io.deck.KeywordLocation.format" title="Link to this definition"></a></dt>
+<dd><p>Substitutes the location into a message template. The template may use the named placeholders {keyword}, {file} and {line}; this is the convention used by the parser’s own messages.</p>
+<p>For example, format(‘In {file} line {line}’) gives a string such as ‘In /path/to/CASE.DATA line 42’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg_fmt</strong> (<em>str</em>) – The message template.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The template with the location substituted into it.</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="opm.io.deck.KeywordLocation.is_binary">
+<span class="sig-prename descclassname"><span class="pre">opm.io.deck.KeywordLocation.</span></span><span class="sig-name descname"><span class="pre">is_binary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#opm.io.deck.KeywordLocation.is_binary" title="Link to this definition"></a></dt>
+<dd><p>Returns whether the keyword comes from a binary source rather than from a line of text. Such a location has the line number KeywordLocation.LINENO_BINARY.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the keyword comes from a binary source.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.deck.KeywordLocation.keyword</span> <span class="pre">-&gt;</span> <span class="pre">str</span></span></dt>
+<dd><p>The name of the keyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The name of the keyword.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">opm.io.deck.KeywordLocation.lineno</span> <span class="pre">-&gt;</span> <span class="pre">int</span></span></dt>
+<dd><p>The line number of the keyword within the file, counting from 1. For a keyword parsed from a string it is the line number within that string. It is 0 for a keyword that was never parsed from any input, for instance one constructed in Python. For a keyword that comes from a binary source it is the sentinel value KeywordLocation.LINENO_BINARY rather than a line of text, which is_binary() tests for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The line number.</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
