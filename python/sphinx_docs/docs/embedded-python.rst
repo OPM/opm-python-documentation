@@ -180,11 +180,6 @@ The ``UDQ`` keyword can be inserted from a PYACTION script. These features are s
 - New UDQ variables that are not declared in the DATA file. To write a new variable to
   the summary output, list it in the SUMMARY section.
 
-The well name ``'?'`` (for example ``ASSIGN WU_Q '?' 7 /``) is **not supported yet**.
-In ACTIONX, ``'?'`` means the wells that matched the condition. A PYACTION script
-has no ACTIONX condition, so Flow stops with
-``UDQ assignment for WU_Q does not have an associate match set``.
-
 Inserting UDQ keywords
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -213,6 +208,26 @@ Inserting UDQ keywords
 
 Here ``WU_NEW`` and ``WU_FLAG`` are already declared in the UDQ section of the DATA file.
 
+Inserting the wells that matched the condition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PYACTION can now use the well name ``'?'``, which means the wells that matched the condition.
+``'?'`` works when the script passes the wells to ``insert_keywords`` with ``matched_wells=[...]``.
+Without ``matched_wells`` it gives an error.
+
+.. code-block:: python
+
+   matched = [w for w in wells if summary_state.well_var(w, "WGOR") >= summary_state["FU_GOR2"]]
+   if not done and matched:
+       schedule.insert_keywords("""
+       UDQ
+       ASSIGN  WU_Q  '?' 7 /
+       /
+       """, matched_wells=matched)
+       done = True
+
+In this example, ``WU_Q`` is set to 7 for the matched wells only.
+
 Computing UDQ values in Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -238,7 +253,7 @@ Complete examples in opm-tests, each with an ACTIONX version that gives the same
   with the script
   `pyaction_udq_insert_kw.py <https://github.com/OPM/opm-tests/blob/master/pyaction/pyaction_udq_insert_kw.py>`_;
   ACTIONX version
-  `ACTIONX_UDQ_INSERT_KW.DATA <https://github.com/OPM/opm-tests/blob/master/actionx/ACTIONX_UDQ_INSERT_KW.DATA>`_.
+  `ACTIONX_UDQ.DATA <https://github.com/OPM/opm-tests/blob/master/actionx/ACTIONX_UDQ.DATA>`_.
 - Computing UDQ values in Python:
   `UDQ_M3_PYACTION.DATA <https://github.com/OPM/opm-tests/blob/master/udq_pyaction/UDQ_M3_PYACTION.DATA>`_
   with the script
